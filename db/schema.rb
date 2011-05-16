@@ -12,19 +12,9 @@
 
 ActiveRecord::Schema.define(:version => 20110516063232) do
 
-  create_table "carts", :force => true do |t|
-    t.datetime "purchased_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "orders", :force => true do |t|
-    t.integer  "cart_id"
-    t.string   "ip_address"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "card_type"
-    t.date     "card_expires_on"
+    t.integer  "quantity"
+    t.datetime "purchased_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

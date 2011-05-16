@@ -3,3 +3,5 @@ b7505a: !ruby/object:Dooby::Task
   todo: initialize :done
 ff02e5: !ruby/object:Dooby::Task 
   todo: payment notification :done
+71f01c: !ruby/object:Dooby::Task 
+  todo: adding quantity to order :done
