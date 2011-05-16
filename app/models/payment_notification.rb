@@ -2,7 +2,7 @@ class PaymentNotification < ActiveRecord::Base
   belongs_to :order
   attr_accessible :params, :order_id, :status, :transaction_id
   serialize :params
-  #after_create :mark_order_as_purchased
+  after_create :mark_order_as_purchased
 
   private
 
