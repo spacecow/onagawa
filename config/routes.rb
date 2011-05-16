@@ -16,5 +16,5 @@ Onagawa::Application.routes.draw do
     end
   end
 
-  root :to => "operator#order"
+  root :to => "order#new"
 end
