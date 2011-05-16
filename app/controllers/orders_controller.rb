@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     @order = Order.new(params[:order])
     p @order
     if @order.save
-      redirect_to @order.paypal_url(@order.quantity, new_order_url, payment_notifications_url)
+      redirect_to @order.paypal_url(@order.quantity, new_order_url, root_url)
     else
       render :action => 'new'
     end
