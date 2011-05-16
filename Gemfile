@@ -7,6 +7,7 @@ gem 'compass' #compass init rails /path/to/myrailsproject --using blueprint/sema
 gem 'cancan' #rails g cancan:ability
 gem "bcrypt-ruby", :require => "bcrypt"
 gem "mocha", :group => :test
+gem 'json', '1.4.6'
 
 group :development do
   gem 'nifty-generators', :path => "~/ruby/rails/nifty-generators"
@@ -15,7 +16,8 @@ end
 
 group :test do
   gem 'spork'
-  gem 'cucumber-rails' #rails g cucumber:install --capybara --rspec
+  gem 'cucumber-rails', '0.3.2' #rails g cucumber:install --capybara --rspec
+  gem 'cucumber', '0.10.0'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'pickle' #rails g pickle --paths --email
