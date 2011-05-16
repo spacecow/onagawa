@@ -1,4 +1,6 @@
 Onagawa::Application.routes.draw do
+  resources :payment_notifications
+
   resources :orders
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user

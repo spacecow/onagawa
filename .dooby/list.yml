@@ -1,3 +1,5 @@
 --- 
 b7505a: !ruby/object:Dooby::Task 
   todo: initialize :done
+10d9d1: !ruby/object:Dooby::Task 
+  todo: payment notification :doing

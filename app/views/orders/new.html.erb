@@ -3,7 +3,7 @@
 <%= semantic_form_for @order do |f| %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
-  <%= link_to "Purchase", @order.paypal_url(new_order_url) %>
+  <%= link_to "Purchase", @order.paypal_url(new_order_url, payment_notifications_url) %>
 <% end %>
 
 
