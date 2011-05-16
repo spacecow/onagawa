@@ -8,6 +8,7 @@ gem 'cancan' #rails g cancan:ability
 gem "bcrypt-ruby", :require => "bcrypt"
 gem "mocha", :group => :test
 gem 'json', '1.4.6'
+gem 'annotate'
 
 group :development do
   gem 'nifty-generators', :path => "~/ruby/rails/nifty-generators"
