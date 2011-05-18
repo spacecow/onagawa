@@ -1,8 +1,9 @@
 @import "compass/css3/border-radius"
+@import "compass/css3/box-shadow"
 @import "compass/css3/gradient"
 
 $spacing: 10px
-$main_width: 900px
+$main_width: 854px
 $label_width: 150px
 $label_margin: $spacing
 $label_full_width: $label_width + $label_margin
@@ -11,7 +12,7 @@ $font_size: 14px
 $a_size: $font_size - 2px
 $h1_size: $font_size * 2
 
-$bg_colour: #ddd
+$bg_colour: #333
 $link_colour: #4B7399
 $alert_dark: #933
 $notice_dark: #396
@@ -54,13 +55,31 @@ div#flash_alert
 
 div#container
   font: normal $font_size "Helvetica Neue", Arial, Helvetica, sans-serif
-  width: $main_width
-  margin: 4*$spacing auto
+  margin: 20px auto
+  width: 854px 
   div#contents
-    padding: 2*$spacing 4*$spacing
-    border: 1px solid black
-    +border-radius($spacing)
-    +linear-gradient(color-stops(white, $bg_colour 33%, white), left)
+    background: white url('/images/blackandwhite.png') no-repeat
+    width: 854px
+    height: 480px
+    position: relative
+    div#image_container
+      position: absolute
+      left: 173px
+      top: 175px
+      img
+        visibility: hidden
+        width: 440px
+    div#form_container
+      margin: 20px 20px 0 0
+      background: white
+      //border: 5px solid gray
+      +border-radius(10px)
+      float: right
+      +box-shadow(#777,5px,5px,5px)
+      form
+        padding: 10px
+        input.submit
+          text-align: right  
     div#user_nav
       float: right
     form.formtastic

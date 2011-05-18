@@ -1,2 +1,8 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(function(){
+  $("div#image_container").mouseover(function(){
+    $("img").css("visibility","visible")
+  });
+  $("div#image_container").mouseleave(function(){
+    $("img").css("visibility","hidden")
+  });
+});

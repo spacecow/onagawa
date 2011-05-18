@@ -9,8 +9,10 @@ gem "bcrypt-ruby", :require => "bcrypt"
 gem "mocha", :group => :test
 gem 'json', '1.4.6'
 gem 'annotate'
+gem 'activemerchant'
 
 group :development do
+  gem 'jquery-rails'
   gem 'nifty-generators', :path => "~/ruby/rails/nifty-generators"
   gem "rspec-rails" #rails g rspec:install
 end
@@ -24,5 +26,5 @@ group :test do
   gem 'pickle' #rails g pickle --paths --email
   gem 'launchy'
   gem 'factory_girl'
-  gem 'gherkin'
+  gem 'gherkin', '2.3.6'
 end

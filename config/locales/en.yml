@@ -53,6 +53,7 @@ en:
   formtastic:
     labels:
       affiliation: "Affiliation"
+      card_verification: "Card Verification (CVV)"
       content: "Content"
       email: "Email"
       name: "Name"
