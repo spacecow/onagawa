@@ -1,7 +1,6 @@
 <div id="image_container"><%= image_tag 'onagawaFISH.gif' %></div>
 <div id="form_container">
   <%= semantic_form_for @order do |f| %>
-    <%= f.error_messages %>
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <%= f.input :card_type, :as => :select, :collection => [["Visa","visa"],["MasterCard","master"],["Discover","discover"],["American Express","american_express"]] %>

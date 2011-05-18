@@ -55,11 +55,11 @@ div#flash_alert {
   -ms-border-radius: 10px;
   -khtml-border-radius: 10px;
   border-radius: 10px;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff3333), color-stop(100%, #993333));
-  background-image: -webkit-linear-gradient(top, #ff3333, #993333);
-  background-image: -moz-linear-gradient(top, #ff3333, #993333);
-  background-image: -o-linear-gradient(top, #ff3333, #993333);
-  background-image: linear-gradient(top, #ff3333, #993333);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff3333), color-stop(100%, #808080));
+  background-image: -webkit-linear-gradient(top, #ff3333, #808080);
+  background-image: -moz-linear-gradient(top, #ff3333, #808080);
+  background-image: -o-linear-gradient(top, #ff3333, #808080);
+  background-image: linear-gradient(top, #ff3333, #808080);
 }
 
 /* line 56, ../../app/stylesheets/application.sass */
@@ -121,11 +121,11 @@ div#container div#contents div#user_nav {
 }
 /* line 90, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li.error {
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ffffff), color-stop(33%, #993333), color-stop(100%, #ffffff));
-  background-image: -webkit-linear-gradient(left, #ffffff, #993333 33%, #ffffff);
-  background-image: -moz-linear-gradient(left, #ffffff, #993333 33%, #ffffff);
-  background-image: -o-linear-gradient(left, #ffffff, #993333 33%, #ffffff);
-  background-image: linear-gradient(left, #ffffff, #993333 33%, #ffffff);
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ffffff), color-stop(33%, #808080), color-stop(100%, #ffffff));
+  background-image: -webkit-linear-gradient(left, #ffffff, #808080 33%, #ffffff);
+  background-image: -moz-linear-gradient(left, #ffffff, #808080 33%, #ffffff);
+  background-image: -o-linear-gradient(left, #ffffff, #808080 33%, #ffffff);
+  background-image: linear-gradient(left, #ffffff, #808080 33%, #ffffff);
 }
 /* line 92, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li.error p.inline-errors {
@@ -144,11 +144,16 @@ div#container div#contents form.formtastic li label {
   text-align: right;
   margin: 2px 10px 0 0;
 }
-/* line 103, ../../app/stylesheets/application.sass */
+/* line 105, ../../app/stylesheets/application.sass */
+div#container div#contents form.formtastic li fieldset ol li {
+  margin: 0;
+  padding: 0;
+}
+/* line 108, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic input.submit {
   margin: 10px 0 0 160px;
 }
-/* line 105, ../../app/stylesheets/application.sass */
+/* line 110, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic input.small_submit {
   margin-top: 10px;
 }

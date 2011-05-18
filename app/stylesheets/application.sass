@@ -14,7 +14,7 @@ $h1_size: $font_size * 2
 
 $bg_colour: #333
 $link_colour: #4B7399
-$alert_dark: #933
+$alert_dark: gray 
 $notice_dark: #396
 $alert_light: #f33
 $notice_light: #4CC417
@@ -100,6 +100,11 @@ div#container
           width: $label_width
           text-align: right
           margin: 2px $label_margin 0 0
+        fieldset
+          ol
+            li
+              margin: 0
+              padding: 0
       input.submit
         margin: $spacing 0 0 $label_full_width
       input.small_submit

@@ -1,6 +1,6 @@
 # Error messages ----------------------
 Then /^I should see (?:a|an) (\w+) (\w+) error "([^"]*)"$/ do |mdl,attr,txt|
-  with_scope("li##{mdl}_#{attr}_input p.inline-errors"){ page.text.should eq txt }
+  page.should have_css("li##{mdl}_#{attr}_input p.inline-errors", :text => txt)
 end
 Then /^I should see (?:a|an) (\w+) (\w+) error: (\w+)$/ do |mdl,attr,err|
   mess = "errors.messages.#{err}"

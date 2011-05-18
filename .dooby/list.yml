@@ -5,3 +5,5 @@ ff02e5: !ruby/object:Dooby::Task
   todo: payment notification :done
 71f01c: !ruby/object:Dooby::Task 
   todo: adding quantity to order :done
+9f8a3d: !ruby/object:Dooby::Task 
+  todo: test form error :done
