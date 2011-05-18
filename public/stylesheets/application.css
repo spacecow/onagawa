@@ -68,25 +68,30 @@ div#container {
   margin: 20px auto;
   width: 854px;
 }
-/* line 60, ../../app/stylesheets/application.sass */
+/* line 61, ../../app/stylesheets/application.sass */
+div#container div#header img {
+  display: block;
+  width: 594px;
+}
+/* line 64, ../../app/stylesheets/application.sass */
 div#container div#contents {
   background: white url("/images/blackandwhite.png") no-repeat;
   width: 854px;
   height: 480px;
   position: relative;
 }
-/* line 65, ../../app/stylesheets/application.sass */
+/* line 69, ../../app/stylesheets/application.sass */
 div#container div#contents div#image_container {
   position: absolute;
   left: 173px;
   top: 175px;
 }
-/* line 69, ../../app/stylesheets/application.sass */
+/* line 73, ../../app/stylesheets/application.sass */
 div#container div#contents div#image_container img {
   visibility: hidden;
   width: 440px;
 }
-/* line 72, ../../app/stylesheets/application.sass */
+/* line 76, ../../app/stylesheets/application.sass */
 div#container div#contents div#form_container {
   margin: 20px 20px 0 0;
   background: white;
@@ -102,19 +107,19 @@ div#container div#contents div#form_container {
   -o-box-shadow: 5px 5px 5px #777777;
   box-shadow: 5px 5px 5px #777777;
 }
-/* line 79, ../../app/stylesheets/application.sass */
+/* line 83, ../../app/stylesheets/application.sass */
 div#container div#contents div#form_container form {
   padding: 10px;
 }
-/* line 81, ../../app/stylesheets/application.sass */
+/* line 85, ../../app/stylesheets/application.sass */
 div#container div#contents div#form_container form input.submit {
   text-align: right;
 }
-/* line 83, ../../app/stylesheets/application.sass */
+/* line 87, ../../app/stylesheets/application.sass */
 div#container div#contents div#user_nav {
   float: right;
 }
-/* line 86, ../../app/stylesheets/application.sass */
+/* line 90, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li.error {
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ffffff), color-stop(33%, #993333), color-stop(100%, #ffffff));
   background-image: -webkit-linear-gradient(left, #ffffff, #993333 33%, #ffffff);
@@ -122,28 +127,28 @@ div#container div#contents form.formtastic li.error {
   background-image: -o-linear-gradient(left, #ffffff, #993333 33%, #ffffff);
   background-image: linear-gradient(left, #ffffff, #993333 33%, #ffffff);
 }
-/* line 88, ../../app/stylesheets/application.sass */
+/* line 92, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li.error p.inline-errors {
   margin-left: 160px;
   color: white;
   text-shadow: 1px 1px 1px black;
 }
-/* line 92, ../../app/stylesheets/application.sass */
+/* line 96, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li {
   list-style-type: none;
 }
-/* line 94, ../../app/stylesheets/application.sass */
+/* line 98, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li label {
   float: left;
   width: 150px;
   text-align: right;
   margin: 2px 10px 0 0;
 }
-/* line 99, ../../app/stylesheets/application.sass */
+/* line 103, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic input.submit {
   margin: 10px 0 0 160px;
 }
-/* line 101, ../../app/stylesheets/application.sass */
+/* line 105, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic input.small_submit {
   margin-top: 10px;
 }
