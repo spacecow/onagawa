@@ -130,7 +130,7 @@ div#container div#contents form.formtastic li.error {
 /* line 92, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li.error p.inline-errors {
   margin-left: 160px;
-  color: #333333;
+  color: #666666;
   text-shadow: 1px 1px 1px black;
 }
 /* line 96, ../../app/stylesheets/application.sass */
