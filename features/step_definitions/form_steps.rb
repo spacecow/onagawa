@@ -32,6 +32,10 @@ end
 
 # Fields -------------------------------
 
+Then /^the "([^"]*)" field should be empty$/ do |lbl|
+  Then %(the "#{lbl}" field should contain "")
+end
+
 When /^I fill in "([^"]*)" with "([^"]*)" within the (.+) section$/ do |fld, txt, div|
   When %(I fill in "#{fld}" with "#{txt}" within "div##{underscore div}")
 end

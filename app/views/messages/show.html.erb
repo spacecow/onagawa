@@ -1,0 +1,24 @@
+<% title "Message" %>
+
+<p>
+  <strong><%= t('formtastic.labels.name') %>:</strong>
+  <%= @message.name %>
+</p>
+<p>
+  <strong><%= t('formtastic.labels.email') %>:</strong>
+  <%= @message.email %>
+</p>
+<p>
+  <strong><%= t('formtastic.labels.content') %>:</strong>
+  <%= @message.content %>
+</p>
+
+<div id="bottom_links">
+  <% if can? :edit, @message %>
+    <%= link_to t(:edit), edit_message_path(@message) %> |
+  <% end %>
+  <% if can? :delete, @message %>
+    <%= link_to t(:delete), @message, :confirm => 'Are you sure?', :method => :delete %> |
+  <% end %>
+  <%= link_to view(:message), messages_path if can? :index, Message %>
+</div>

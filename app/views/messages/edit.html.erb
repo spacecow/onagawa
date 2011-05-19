@@ -1,0 +1,10 @@
+<% title edit(:message) %>
+
+<%= render 'form' %>
+
+<div id="bottom_links">
+  <% if can? :show, @message -%>
+    <%= link_to t(:show), @message %> |
+  <% end %>
+  <%= link_to view(:message), messages_path if can? :index, Message %>
+</div>

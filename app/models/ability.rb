@@ -4,6 +4,7 @@ class Ability
   def initialize(user)
     can [:new,:create], Order
     can :create, User
+    can [:new,:create], Message
 
     if user
       if user.role? :god

@@ -35,11 +35,12 @@
         <div id="main_container">
           <div id="menu">
             <%= link_to "Info", info_path %>
-            <%= link_to "Contact", contact_path %>
+            <%= link_to "Contact", new_message_path %>
+            <%= link_to "Order", new_order_path %>
           </div>
           <%= yield %>
         </div>
-        <div id="image_container"><%= image_tag 'onagawaFISH.gif' %></div>
+        <div id="image_container"></div>
         <div id="form_container">
           <%= semantic_form_for @order do |f| %>
             <%= f.input :first_name %>

@@ -7,4 +7,5 @@ Then I should be on the <path> page
 Examples:
 |link|path|
 |Info|info|
-|Contact|contact|
+|Contact|new message|
+|Order|new order|
