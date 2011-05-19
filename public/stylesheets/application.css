@@ -94,18 +94,9 @@ div#container div#contents div#image_container img {
 /* line 76, ../../app/stylesheets/application.sass */
 div#container div#contents div#form_container {
   margin: 20px 20px 0 0;
-  background: white;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -o-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -khtml-border-radius: 10px;
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid black;
   float: right;
-  -moz-box-shadow: 5px 5px 5px #777777;
-  -webkit-box-shadow: 5px 5px 5px #777777;
-  -o-box-shadow: 5px 5px 5px #777777;
-  box-shadow: 5px 5px 5px #777777;
 }
 /* line 83, ../../app/stylesheets/application.sass */
 div#container div#contents div#form_container form {
@@ -121,17 +112,13 @@ div#container div#contents div#user_nav {
 }
 /* line 90, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li.error {
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ffffff), color-stop(33%, #808080), color-stop(100%, #ffffff));
-  background-image: -webkit-linear-gradient(left, #ffffff, #808080 33%, #ffffff);
-  background-image: -moz-linear-gradient(left, #ffffff, #808080 33%, #ffffff);
-  background-image: -o-linear-gradient(left, #ffffff, #808080 33%, #ffffff);
-  background-image: linear-gradient(left, #ffffff, #808080 33%, #ffffff);
+  color: white;
+  background: black;
 }
-/* line 92, ../../app/stylesheets/application.sass */
+/* line 93, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li.error p.inline-errors {
   margin-left: 160px;
-  color: #666666;
-  text-shadow: 1px 1px 1px black;
+  color: white;
 }
 /* line 96, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li {
