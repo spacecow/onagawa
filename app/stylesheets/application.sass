@@ -53,6 +53,7 @@ div#flash_alert
   border: 1px solid black
   +custom_gradient($alert_light,$alert_dark)
 
+$main_width: 400px
 div#container
   font: normal $font_size "Helvetica Neue", Arial, Helvetica, sans-serif
   margin: 20px auto
@@ -66,6 +67,29 @@ div#container
     width: 854px
     height: 480px
     position: relative
+    div#main_container
+      margin: 20px 0 0 20px
+      padding: 0 10px 10px 10px
+      float: left
+      background: rgba(255,255,255,0.8)
+      div#menu
+        a
+          font-size: 40px
+          color: black
+          margin-right: 10px
+      div#main
+        width: $main_width 
+        div#image
+          position: relative
+          height: 220px
+          img
+            position: absolute
+            height: 220px
+        div#text
+          height: 100px
+      div#footer
+        a
+          margin-right: 7px
     div#image_container
       position: absolute
       left: 173px

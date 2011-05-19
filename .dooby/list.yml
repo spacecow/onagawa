@@ -7,3 +7,9 @@ ff02e5: !ruby/object:Dooby::Task
   todo: adding quantity to order :done
 9f8a3d: !ruby/object:Dooby::Task 
   todo: test form error :done
+529d4c: !ruby/object:Dooby::Task 
+  todo: inof and contact page links :doing
+8eeb03: !ruby/object:Dooby::Task 
+  todo: info page javascript picture mouseover :doing
+e935b4: !ruby/object:Dooby::Task 
+  todo: adding more pictures to info page :doing

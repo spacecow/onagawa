@@ -1,7 +1,12 @@
 class OperatorController < ApplicationController
-  def welcome
+  def info
+    @order = Order.new
+  end
+  def info2
+    @order = Order.new
   end
 
-  def order
+  def contact
+    @order = Order.new
   end
 end
