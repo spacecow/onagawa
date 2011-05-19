@@ -1,6 +1,8 @@
 Onagawa::Application.routes.draw do
   get "operator/info"
   get "operator/info2"
+  get "operator/info3"
+  get "operator/info4"
   get "operator/contact"
 
   resources :payment_notifications
@@ -9,6 +11,8 @@ Onagawa::Application.routes.draw do
 
   match 'info' => 'operator#info'
   match 'info2' => 'operator#info2'
+  match 'info3' => 'operator#info3'
+  match 'info4' => 'operator#info4'
   match 'contact' => 'operator#contact'
   match 'user/edit' => 'users#edit', :as => :edit_current_user
   match 'signup' => 'users#new', :as => :signup

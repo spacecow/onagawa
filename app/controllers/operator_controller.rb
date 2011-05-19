@@ -5,6 +5,14 @@ class OperatorController < ApplicationController
   def info2
     @order = Order.new
   end
+  def info3
+    @order = Order.new
+  end
+  def info4
+    @order = Order.new
+  end
+
+
 
   def contact
     @order = Order.new
