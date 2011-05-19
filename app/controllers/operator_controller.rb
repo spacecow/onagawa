@@ -5,8 +5,4 @@ class OperatorController < ApplicationController
   def info2
     @order = Order.new
   end
-
-  def contact
-    @order = Order.new
-  end
 end

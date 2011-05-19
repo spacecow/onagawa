@@ -1,0 +1,24 @@
+<% title pl(:message) %>
+
+<table>
+  <tr>
+    <th><%= t('formtastic.labels.name') %></th>
+    <th><%= t('formtastic.labels.email') %></th>
+    <th><%= t('formtastic.labels.content') %></th>
+  </tr>
+  <% for message in @messages %>
+    <tr>
+      <td><%= message.name %></td>
+      <td><%= message.email %></td>
+      <td><%= message.content %></td>
+      <td><%= link_to t(:show), message if can? :show, message %></td>
+      <td><%= link_to t(:edit), edit_message_path(message) if can? :edit, message %></td>
+      <td><%= link_to t(:del), message, :confirm => sure?, :method => :delete if can? :destroy, message %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div id="bottom_links">
+  <%= link_to new(:message),
+  new_message_path if can? :new, Message %>
+</div>
