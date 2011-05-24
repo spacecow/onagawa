@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   load_and_authorize_resource
 
   def new
-    @order = Order.new
   end
 
   def create
@@ -16,6 +15,7 @@ class OrdersController < ApplicationController
         render :action => "failure"
       end
     else
+      p @order.errors
       render :action => 'new'
     end
   end

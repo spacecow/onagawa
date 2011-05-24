@@ -10,12 +10,10 @@ class MessagesController < ApplicationController
   end
 
   def new
-    @order = Order.new
     @message = Message.new
   end
 
   def create
-    @order = Order.new
     @message = Message.new(params[:message])
     if @message.save
       flash[:notice] = "Thank you for your message. We will reply as soon as we can." 
