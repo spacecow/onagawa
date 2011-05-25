@@ -1,0 +1,22 @@
+<% title pl(:info section) %>
+
+<table>
+  <tr>
+    <th><%= t('formtastic.labels.title') %></th>
+    <th><%= t('formtastic.labels.pos') %></th>
+  </tr>
+  <% for info_section in @info_sections %>
+    <tr>
+      <td><%= info_section.title %></td>
+      <td><%= info_section.pos %></td>
+      <td><%= link_to t(:show), info_section if can? :show, info_section %></td>
+      <td><%= link_to t(:edit), edit_info_section_path(info_section) if can? :edit, info_section %></td>
+      <td><%= link_to t(:del), info_section, :confirm => sure?, :method => :delete if can? :destroy, info_section %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div id="bottom_links">
+  <%= link_to new(:info section),
+  new_info_section_path if can? :new, InfoSection %>
+</div>

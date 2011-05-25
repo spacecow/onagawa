@@ -9,7 +9,7 @@ module ApplicationHelper
   def pl(s); t(s).match(/\w/) ? t(s).pluralize : t(s) end
   def save(s); t2(:save,s) end
   def submit(s); t2(:submit,s) end
-  def sure?; t('message.sure?') end
+  def sure?; t('messages.sure?') end
   def t2(s1,s2); t(lbl(s1), :obj => t(s2)) end
   def tp2(s1,s2); t(lbl(s1), :obj => pl(s2)) end
   def update(s); t2(:update,s) end

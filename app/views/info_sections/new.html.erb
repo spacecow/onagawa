@@ -1,0 +1,8 @@
+<% title new(:info section) %>
+
+<%= render 'form' %>
+
+<div id="bottom_links">
+  <%= link_to view(:info section),
+  info_sections_path if can? :index, @InfoSection %>
+</div>

@@ -1,0 +1,10 @@
+<% title edit(:info section) %>
+
+<%= render 'form' %>
+
+<div id="bottom_links">
+  <% if can? :show, @info section -%>
+    <%= link_to t(:show), @info_section %> |
+  <% end %>
+  <%= link_to view(:info section), info_sections_path if can? :index, InfoSection %>
+</div>

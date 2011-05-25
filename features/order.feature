@@ -31,3 +31,17 @@ When I go to the new order page
 And I fill in "Quantity" with "-5"
 And I press "Purchase"
 Then I should see an order quantity error "is invalid"
+
+@create
+Scenario: Create an order
+When I go to the new order page
+And I fill in "First name" with "Test"
+And I fill in "Last name" with "Name"
+And I select "2020" from "Year"
+And I fill in "Card number" with "1"
+And I fill in "Card verification" with "123"
+And I fill in "Quantity" with "10"
+And I press "Purchase"
+Then an order should exist with first_name: "Test", last_name: "Name", card_expires_on: "2020-01-01", ip_address: "127.0.0.1", quantity: 10
+And 1 orders should exist
+And I should see "success"

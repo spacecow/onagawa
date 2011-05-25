@@ -38,6 +38,9 @@
             <%= link_to "Contact", new_message_path %>
             <%= link_to "Order", new_order_path %>
           </div>
+          <div id="submenu">
+            <%= link_to InfoSection.first.title %>
+          </div>
           <%= yield %>
         </div>
         <div id="image_container"></div>
