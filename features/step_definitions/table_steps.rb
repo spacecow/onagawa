@@ -1,7 +1,5 @@
 Then /^I should see "([^"]*)" within the (\w+) table row$/ do |txt,order|
-  with_scope("#{table_row order}") do
-    page.should have_content(txt)
-  end
+  page.should have_css("#{table_row order}", :text => txt)
 end
 Then /^I should see "([^"]*)" within the (\w+) "([^"]*)" table row$/ do |txt,order,tbl|
   with_scope("#{table_row(tbl,order)}") do

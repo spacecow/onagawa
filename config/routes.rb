@@ -1,4 +1,6 @@
 Onagawa::Application.routes.draw do
+  resources :info_sections
+
   resources :messages
 
   get "operator/info"
