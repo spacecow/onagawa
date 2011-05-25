@@ -18,9 +18,3 @@ When I go to the info page
 Then I should see "Onagawa" within the first "submenu" listing
 And I should see "Ishinomaki" within the second "submenu" listing
 
-Scenario: Image shown depends on the info section
-Given an info_section exists with title: "Onagawa"
-And an info_subsection exists with info_section: that info_section, pos: 1
-When I go to that info_section page
-#Then show me the page
-Then I should see a "Onagawa1" image

@@ -15,7 +15,6 @@ class OrdersController < ApplicationController
         render :action => "failure"
       end
     else
-      p @order.errors
       render :action => 'new'
     end
   end

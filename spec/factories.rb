@@ -1,3 +1,10 @@
+Factory.define :info_section do |f|
+end
+
+Factory.define :info_subsection do |f|
+  f.association :info_section, :factory => :info_section
+end
+
 Factory.define :message do |f|
   f.name "Default factory name"
   f.email "default@factory.mail"

@@ -4,6 +4,7 @@ class CreateInfoSubsections < ActiveRecord::Migration
       t.integer :info_section_id
       t.text :content
       t.integer :pos
+      t.string :filename
       t.timestamps
     end
   end

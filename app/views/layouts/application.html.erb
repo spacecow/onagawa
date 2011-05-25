@@ -34,15 +34,15 @@
         <%= content_tag :h1, yield(:title) if show_title? %>
         <div id="main_container">
           <div id="menu">
-            <%= link_to "Info", info_path %>
+            <%= link_to "Info", @info_sections.first %>
             <%= link_to "Contact", new_message_path %>
             <%= link_to "Order", new_order_path %>
           </div>
           <% unless @infosections.nil? %>
           <div id="submenu">
             <ul id="submenu">
-              <% @infosections.each do |infosection| %>
-                <li><%= link_to infosection.title, infosection %></li>
+              <% @info_sections.each do |info_section| %>
+                <li><%= link_to info_section.title, info_section %></li>
               <% end %>
             </ul>
           </div>

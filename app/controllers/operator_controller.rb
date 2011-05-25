@@ -1,6 +1,5 @@
 class OperatorController < ApplicationController
   def info
-    @infosections = InfoSection.order("pos asc")
   end
   def info2
   end
