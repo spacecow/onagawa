@@ -3,11 +3,11 @@
 <% end %>
 
 <% unless @info_subsections.empty? %>
-  <%= render @info_subsections.first %>
+  <%= render @info_subsection %>
 <% end %>
 
 <div id="footer">
   <% @info_subsections.each do |subsection| %>
-    <%= link_to(image_tag(subsection.file_thumb), @info_section) %>
+    <%= link_to(image_tag(subsection.file_thumb), info_section_path(@info_section, :pos => subsection.pos)) %>
   <% end %>
 </div>

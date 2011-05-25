@@ -9,6 +9,8 @@ class InfoSectionsController < ApplicationController
     @info_section = InfoSection.find(params[:id])
     @info_sections = InfoSection.order("pos asc")
     @info_subsections = @info_section.info_subsections.order("pos asc")
+    @info_subsection = params[:pos] ?
+      @info_subsections.find_by_pos(params[:pos]) : @info_subsections.first
   end
 
   def new
