@@ -54,6 +54,9 @@ Then /^I should see no links at the bottom of the page$/ do
   page.should have_no_css("div#bottom_links a")
 end
 
+Then /^I should see (?:a|an) "([^"]*)" image$/ do |alt|
+  page.should have_xpath("//img[@alt='#{alt}']")
+end
 
 # LINKS -----------------------
 
@@ -106,6 +109,9 @@ def section_no(div=nil,order)
 end
 
 def cat_id(cat,id,order)
-  list_no(id,order) if cat=="listing"
-  section_no(id,order) if cat=="section"
+  if cat=="listing"
+    list_no(id,order) 
+  elsif cat=="section"
+    section_no(id,order) 
+  end
 end

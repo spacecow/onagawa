@@ -1,4 +1,6 @@
 Onagawa::Application.routes.draw do
+  resources :info_subsections
+
   resources :info_sections
 
   resources :messages

@@ -1,0 +1,20 @@
+<% title "Info Subsection" %>
+
+<p>
+  <strong><%= t('formtastic.labels.info_section_id') %>:</strong>
+  <%= @info_subsection.info_section_id %>
+</p>
+<p>
+  <strong><%= t('formtastic.labels.content') %>:</strong>
+  <%= @info_subsection.content %>
+</p>
+
+<div id="bottom_links">
+  <% if can? :edit, @info subsection %>
+    <%= link_to t(:edit), edit_info_subsection_path(@info_subsection) %> |
+  <% end %>
+  <% if can? :delete, @info subsection %>
+    <%= link_to t(:delete), @info_subsection, :confirm => 'Are you sure?', :method => :delete %> |
+  <% end %>
+  <%= link_to view(:info subsection), info_subsections_path if can? :index, InfoSubsection %>
+</div>

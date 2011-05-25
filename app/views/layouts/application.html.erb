@@ -40,9 +40,11 @@
           </div>
           <% unless @infosections.nil? %>
           <div id="submenu">
-            <% @infosections.each do |infosection| %>j
-              <%= link_to infosection.title, infosection %>
-            <% end %>
+            <ul id="submenu">
+              <% @infosections.each do |infosection| %>
+                <li><%= link_to infosection.title, infosection %></li>
+              <% end %>
+            </ul>
           </div>
           <% end %>
           <%= yield %>

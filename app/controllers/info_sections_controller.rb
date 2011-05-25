@@ -7,6 +7,7 @@ class InfoSectionsController < ApplicationController
 
   def show
     @info_section = InfoSection.find(params[:id])
+    @info_subsections = @info_section.info_subsections
   end
 
   def new
