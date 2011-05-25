@@ -2,11 +2,12 @@
   <%= javascript_include_tag "info" %>
 <% end %>
 
-<%= render @info_subsections.first %>
+<% unless @info_subsections.empty? %>
+  <%= render @info_subsections.first %>
+<% end %>
 
 <div id="footer">
-  <%= link_to(image_tag('onagawa1thumb.png'), info_path) %>
-  <%= link_to(image_tag('onagawa2thumb.png'), info2_path) %>
-  <%= link_to(image_tag('onagawa3thumb.png'), info3_path) %>
-  <%= link_to(image_tag('onagawa4thumb.png'), info4_path) %>
+  <% @info_subsections.each do |subsection| %>
+    <%= link_to(image_tag(subsection.file_thumb), @info_section) %>
+  <% end %>
 </div>

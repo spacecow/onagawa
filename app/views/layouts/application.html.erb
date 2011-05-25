@@ -34,11 +34,11 @@
         <%= content_tag :h1, yield(:title) if show_title? %>
         <div id="main_container">
           <div id="menu">
-            <%= link_to "Info", @info_sections.first %>
+            <%= link_to "Info", @default_info_section %>
             <%= link_to "Contact", new_message_path %>
             <%= link_to "Order", new_order_path %>
           </div>
-          <% unless @infosections.nil? %>
+          <% unless @info_sections.nil? %>
           <div id="submenu">
             <ul id="submenu">
               <% @info_sections.each do |info_section| %>

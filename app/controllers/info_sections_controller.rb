@@ -7,7 +7,8 @@ class InfoSectionsController < ApplicationController
 
   def show
     @info_section = InfoSection.find(params[:id])
-    @info_subsections = @info_section.info_subsections
+    @info_sections = InfoSection.order("pos asc")
+    @info_subsections = @info_section.info_subsections.order("pos asc")
   end
 
   def new

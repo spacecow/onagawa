@@ -57,6 +57,9 @@ end
 Then /^I should see (?:a|an) "([^"]*)" image$/ do |alt|
   page.should have_xpath("//img[@alt='#{alt}']")
 end
+Then /^I should see no "([^"]*)" image$/ do |alt|
+  page.should have_no_xpath("//img[@alt='#{alt}']")
+end
 
 # LINKS -----------------------
 

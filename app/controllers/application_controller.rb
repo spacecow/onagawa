@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     end
   end
   protect_from_forgery
-  before_filter :set_language, :load_order, :load_info_sections
+  before_filter :set_language, :load_order, :load_default_info_section
   helper_method :current_user, :english?, :ft
 
   def alert(act); t("alert.#{act}") end
@@ -47,7 +47,9 @@ class ApplicationController < ActionController::Base
     def current_user_affiliation; current_user && current_user.affiliation end
     
     def load_order; @order = Order.new end
-    def load_info_sections; @info_sections = InfoSection.order("pos asc") end
+    def load_default_info_section
+      @default_info_section = InfoSection.order("pos asc").first
+    end
     def set_language
       I18n.locale = session[:language] || I18n.default_locale
     end

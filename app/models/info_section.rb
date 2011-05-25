@@ -3,3 +3,15 @@ class InfoSection < ActiveRecord::Base
 
   attr_accessible :title, :pos
 end
+
+# == Schema Information
+#
+# Table name: info_sections
+#
+#  id         :integer(4)      not null, primary key
+#  title      :string(255)
+#  pos        :integer(4)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
