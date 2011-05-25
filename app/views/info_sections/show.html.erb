@@ -10,11 +10,11 @@
 </p>
 
 <div id="bottom_links">
-  <% if can? :edit, @info section %>
+  <% if can? :edit, @info_section %>
     <%= link_to t(:edit), edit_info_section_path(@info_section) %> |
   <% end %>
-  <% if can? :delete, @info section %>
+  <% if can? :delete, @info_section %>
     <%= link_to t(:delete), @info_section, :confirm => 'Are you sure?', :method => :delete %> |
   <% end %>
-  <%= link_to view(:info section), info_sections_path if can? :index, InfoSection %>
+  <%= link_to view(:info_sectiontion), info_sections_path if can? :index, InfoSection %>
 </div>

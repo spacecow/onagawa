@@ -38,9 +38,13 @@
             <%= link_to "Contact", new_message_path %>
             <%= link_to "Order", new_order_path %>
           </div>
+          <% unless @infosections.nil? %>
           <div id="submenu">
-            <%= link_to InfoSection.first.title %>
+            <% @infosections.each do |infosection| %>j
+              <%= link_to infosection.title, infosection %>
+            <% end %>
           </div>
+          <% end %>
           <%= yield %>
         </div>
         <div id="image_container"></div>

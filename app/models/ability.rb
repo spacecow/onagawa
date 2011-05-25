@@ -5,6 +5,7 @@ class Ability
     can [:new,:create], Order
     can :create, User
     can [:new,:create], Message
+    can :show, InfoSection
 
     if user
       if user.role? :god

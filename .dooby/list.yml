@@ -13,5 +13,5 @@ c891ae: !ruby/object:Dooby::Task
   todo: info page javascript picture mouseover :done
 df6dd1: !ruby/object:Dooby::Task 
   todo: adding more pictures to info page :done
-214cfe: !ruby/object:Dooby::Task 
-  todo: make info into a model
+a75c50: !ruby/object:Dooby::Task 
+  todo: make info_section a model :doing

@@ -1,5 +1,6 @@
 class OperatorController < ApplicationController
   def info
+    @infosections = InfoSection.all
   end
   def info2
   end
