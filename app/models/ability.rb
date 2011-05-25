@@ -6,7 +6,6 @@ class Ability
     can :create, User
     can [:new,:create], Message
     can :show, InfoSection
-    can :show, InfoSubsection
 
     if user
       if user.role? :god
@@ -21,6 +20,7 @@ class Ability
         end
         if user.role? :admin
           can [:edit_roles, :update_roles, :destroy], User
+          can [:create,:update], InfoSection
         end
       end
     end

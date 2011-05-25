@@ -1,4 +1,6 @@
 Factory.define :info_section do |f|
+  f.sequence(:title){|n| "Factory Info Section Title #{n}"}
+  f.sequence(:pos){|n| n}
 end
 
 Factory.define :info_subsection do |f|

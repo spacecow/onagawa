@@ -1,7 +1,10 @@
 class InfoSection < ActiveRecord::Base
   has_many :info_subsections
 
-  attr_accessible :title, :pos
+  attr_accessible :title
+
+  validates :pos, :uniqueness => true
+  validates :title, :presence => true, :uniqueness => true
 end
 
 # == Schema Information

@@ -1,6 +1,4 @@
 <%= semantic_form_for @info_section do |f| %>
-  <%= f.error_messages %>
   <%= f.input :title %>
-  <%= f.input :pos %>
-<%= f.submit :class => :submit %>
+<%= f.submit @info_section.new_record? ? create(:info_section) : update(:info_section), :class => :submit %>
 <% end %>

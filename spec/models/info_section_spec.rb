@@ -1,8 +1,12 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe InfoSection do
-  it "should be valid" do
-    InfoSection.new.should be_valid
+  it "two info sections cannot have the same position" do
+    @sec1 = Factory(:info_section)
+    @sec2 = Factory(:info_section)
+    @sec2.pos = @sec1.pos
+    @sec1.should be_valid
+    @sec2.should_not be_valid
   end
 end
 

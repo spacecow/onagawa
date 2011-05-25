@@ -30,6 +30,12 @@ Then /^I should see no (\w+) (\w+) error$/ do |mdl,attr|
   page.should have_no_css("li##{mdl}_#{attr}_input p.inline-errors")
 end
 
+# Buttons ------------------------------
+
+When /^I press the button$/ do
+   find(:xpath, "//input[@type='submit']").click
+end
+
 # Fields -------------------------------
 
 Then /^the "([^"]*)" field should be empty$/ do |lbl|
@@ -48,6 +54,10 @@ When /^I create (?:a|an) (\w+) with ("[^"]*")((?:, "[^"]*")*)$/ do |mdl, arg1, a
     When %(I fill in "#{$1}" with "#{$2}")
   end
   And %(I press "Create #{mdl.capitalize}")
+end
+
+Then /^I should see no "([^"]*)" field$/ do |txt|
+  page.should have_no_css("label", :text => txt)
 end
 
 # Functions ----------------------------

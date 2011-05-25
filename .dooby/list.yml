@@ -15,3 +15,5 @@ df6dd1: !ruby/object:Dooby::Task
   todo: adding more pictures to info page :done
 d5ae1f: !ruby/object:Dooby::Task 
   todo: make info_section a model :done
+d07f6f: !ruby/object:Dooby::Task 
+  todo: new section and subsection :done

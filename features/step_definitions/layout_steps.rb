@@ -1,4 +1,4 @@
-# TEXT -------------------------
+#TEXT -------------------------
 
 Then /^I should see "([^"]*)" as (\w+) flash message$/ do |txt,cat|
   Then %(I should see "#{txt}" within "div#flash_#{cat}")

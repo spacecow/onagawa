@@ -38,15 +38,16 @@
             <%= link_to "Contact", new_message_path %>
             <%= link_to "Order", new_order_path %>
           </div>
-          <% unless @info_sections.nil? %>
           <div id="submenu">
             <ul id="submenu">
-              <% @info_sections.each do |info_section| %>
-                <li><%= link_to info_section.title, info_section %></li>
+              <% unless @info_sections.nil? %>
+                <% @info_sections.each do |info_section| %>
+                  <li><%= link_to info_section.title, info_section %></li>
+                <% end %>
               <% end %>
+              <li><%= link_to new(:info_section), new_info_section_path if can? :new, InfoSection %></li>
             </ul>
           </div>
-          <% end %>
           <%= yield %>
         </div>
         <div id="image_container"></div>

@@ -14,11 +14,10 @@ class InfoSectionsController < ApplicationController
   end
 
   def new
-    @info_section = InfoSection.new
   end
 
   def create
-    @info_section = InfoSection.new(params[:info_section])
+    @info_section.pos = last_section_pos+1
     if @info_section.save
       redirect_to @info_section, :notice => created(:info_section)
     else
@@ -44,4 +43,9 @@ class InfoSectionsController < ApplicationController
     @info_section.destroy
     redirect_to info_sections_url, :notice => deleted(:info_section)
   end
+
+  private
+    
+    def last_section_pos; InfoSection.count == 0 ? 0 : ordered_section_pos.last end
+    def ordered_section_pos; InfoSection.select(:pos).order("pos asc").map(&:pos) end
 end

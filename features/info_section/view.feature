@@ -43,3 +43,8 @@ Examples:
 |thumb|image|
 |Onagawa1thumb|Onagawa1|
 |Onagawa2thumb|Onagawa2|
+
+Scenario: Links for admin
+Given I am logged in as admin
+When I go to that info_section page
+Then I should see links "Edit Info Section" at the bottom of the page
