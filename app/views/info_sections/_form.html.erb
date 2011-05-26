@@ -1,7 +1,9 @@
 <%= semantic_form_for @info_section do |f| %>
   <%= f.input :title %>
-  <%= f.semantic_fields_for :info_subsections do |ref| %>
-    <%= render 'info_subsections/form', :f => ref %>
+  <% @info_section.info_subsections.sort_by{|e| e.pos.nil? ? 4 : e.pos}.each do |subsection| %>
+    <%= f.inputs :for => [:info_subsections, subsection] do |ref| %>
+      <%= render 'info_subsections/form', :f => ref %>
+    <% end %>
   <% end %>
 <%= f.submit @info_section.new_record? ? create(:info_section) : update(:info_section), :class => :submit %>
 <% end %>

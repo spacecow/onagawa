@@ -42,10 +42,13 @@
             <ul id="submenu">
               <% unless @info_sections.nil? %>
                 <% @info_sections.each do |info_section| %>
-                  <li><%= link_to info_section.title, info_section %></li>
+                  <li class="<%= @info_section==info_section ? 'active' : '' %>"><%= link_to info_section.title, info_section %></li>
                 <% end %>
               <% end %>
-              <li><%= link_to new(:info_section), new_info_section_path if can? :new, InfoSection %></li>
+              <% if can? :new, InfoSection %>
+                <li><%= link_to new(:info_section), new_info_section_path %></li>
+              <% end %>
+              <div class="clear"></div>
             </ul>
           </div>
           <%= yield %>

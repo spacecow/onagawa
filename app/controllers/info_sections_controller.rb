@@ -14,7 +14,7 @@ class InfoSectionsController < ApplicationController
   end
 
   def new
-    4.times{ @info_section.info_subsections.build }
+    build_info_subsections
   end
 
   def create
@@ -22,9 +22,7 @@ class InfoSectionsController < ApplicationController
     if @info_section.save
       redirect_to @info_section, :notice => created(:info_section)
     else
-      (4-@info_section.info_subsections.length).times do
-        @info_section.info_subsections.build
-      end
+      build_info_subsections
       render :action => 'new'
     end
   end

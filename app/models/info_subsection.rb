@@ -4,16 +4,16 @@ class InfoSubsection < ActiveRecord::Base
   attr_accessible :info_section, :content, :pos, :filename
 
   def file
-    return "#{filename}.png" if filename
-    "#{info_section_title}#{pos}.png"
+    return "#{filename}.png" unless filename.blank?
+    "#{info_section_title.downcase}#{pos}.png"
   end
   def file_colour
-    return "#{filename}colour.png" if filename
-    "#{info_section_title}#{pos}colour.png"
+    return "#{filename}colour.png" unless filename.blank?
+    "#{info_section_title.downcase}#{pos}colour.png"
   end
   def file_thumb
-    return "#{filename}thumb.png" if filename
-    "#{info_section_title}#{pos}thumb.png"
+    return "#{filename}thumb.png" unless filename.blank?
+    "#{info_section_title.downcase}#{pos}thumb.png"
   end
 
   private

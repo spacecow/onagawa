@@ -17,6 +17,7 @@ When I go to the root page
 And I follow "Info" within the "menu" section
 And I follow "<link>" within the "submenu" section
 Then I should be on the info_section: "<path>" page
+And the submenu "Onagawa" should be active
 Examples:
 |link|path|
 |Onagawa|onagawa|
