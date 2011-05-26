@@ -4,6 +4,14 @@ Scenario: Static links
 When I go to the root page
 And I follow "Contact"
 Then I should be on the new message page
+And the menu "Contact" should be active
+
+@admin
+Scenario: The New Info Section should not be shown on other sections
+Given I am logged in as admin
+When I go to the root page
+And I follow "Contact"
+And I should see no "New Info Section" link within the "submenu" section
 
 Scenario: Submenu links are not shown unless the Info menu is activated
 Given an info_section exists with title: "Onagawa"
@@ -35,7 +43,7 @@ Scenario: Admin can create a new info section
 Given I am logged in as admin
 When I go to the root page
 And I follow "Info" within the "menu" section
-Then I should see "New Info Section" within the "submenu" section
+Then I should see a "New Info Section" link within the "submenu" section
 
 Scenario: Admin can reach the new info section from the root page
 Given I am logged in as admin

@@ -73,10 +73,14 @@ div#container
       float: left
       background: rgba(255,255,255,0.8)
       div#menu
-        a
-          font-size: 30px
-          color: black
-          margin-right: 10px
+        ul
+          li 
+            list-style-type: none
+            float: left
+            a
+              font-size: 30px
+              color: black
+              margin-right: 10px
       div#submenu
         ul
           li.active
@@ -91,6 +95,13 @@ div#container
               font-size: 15px
       div#main
         width: $main_width 
+        ul
+          li
+            float: left
+            list-style-type: none
+            img
+              float: left
+              margin: 0 5px 5px 0
         form
           margin-top: 10px
           li

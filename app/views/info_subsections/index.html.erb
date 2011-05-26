@@ -3,16 +3,19 @@
     <% @info_subsections.each do |info_subsection| %>
       <li>
         <%= image_tag info_subsection.file_thumb %>
-        <%= info_subsection.content %>
-        <%= link_to t(:show), info_subsection if can? :show, info_subsection %>
-        <%= link_to t(:edit), edit_info_subsection_path(info_subsection) if can? :edit, info_subsection %>
-        <%= link_to t(:del), info_subsection, :confirm => sure?, :method => :delete if can? :destroy, info_subsection %>
+        <%= truncate(info_subsection.content, :length => 150) %>
+        <%= link_to t(:del), [@info_section, info_subsection], :confirm => sure?, :method => :delete if can? :destroy, info_subsection %>
+        <% if can? :descend, info_subsection %>
+          <td><%= link_to("▲", descend_info_section_info_subsection_path(@info_section,info_subsection), :method => :put) unless @info_subsections.first == info_subsection %></td>
+        <% end %>
+        <% if can? :ascend, info_subsection %>
+          <td><%= link_to("▼", ascend_info_section_info_subsection_path(@info_section,info_subsection), :method => :put ) unless @info_subsections.last == info_subsection %></td>
+        <% end %>
       </li>
     <% end %>
   </ul>
 
   <div id="bottom_links">
-    <%= link_to new(:info_subsection),
-    new_info_subsection_path if can? :new, InfoSubsection %>
+    <%= link_to edit(:info_section), edit_info_section_path(@info_section) if can? :edit, InfoSection %>
   </div>
 </div>

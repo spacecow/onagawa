@@ -25,3 +25,7 @@ d07f6f: !ruby/object:Dooby::Task
   todo: set limit to 4 for info subsection in each section
 "021675": !ruby/object:Dooby::Task 
   todo: handle pos within subsections :done
+692bed: !ruby/object:Dooby::Task 
+  todo: info/contact/order active
+795b39: !ruby/object:Dooby::Task 
+  todo: clean up subsection index page :done

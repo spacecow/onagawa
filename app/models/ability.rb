@@ -21,7 +21,7 @@ class Ability
         if user.role? :admin
           can [:edit_roles, :update_roles, :destroy], User
           can [:create,:update], InfoSection
-          can [:index], InfoSubsection
+          can [:index,:destroy,:ascend,:descend], InfoSubsection
         end
       end
     end

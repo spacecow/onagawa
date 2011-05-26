@@ -34,10 +34,13 @@
         <%= content_tag :h1, yield(:title) if show_title? %>
         <div id="main_container">
           <div id="menu">
-            <%= link_to "Info", @default_info_section %>
-            <%= link_to "Contact", new_message_path %>
-            <%= link_to "Order", new_order_path %>
+            <ul id="menu">
+              <li class="<%= info_active? ? 'active' : '' %>"><%= link_to "Info", @default_info_section %></li>
+              <li class="<%= contact_active? ? 'active' : '' %>"><%= link_to "Contact", new_message_path %></li>
+              <li><%= link_to "Order", new_order_path %></li>
+            </ul>
           </div>
+          <div class="clear"></div>
           <div id="submenu">
             <ul id="submenu">
               <% unless @info_sections.nil? %>
@@ -45,7 +48,7 @@
                   <li class="<%= @info_section==info_section ? 'active' : '' %> submenu"><%= link_to info_section.title, info_section %></li>
                 <% end %>
               <% end %>
-              <% if can? :new, InfoSection %>
+              <% if can?(:new, InfoSection) && info_active? && request.path != new_info_section_path %>
                 <li><%= link_to new(:info_section), new_info_section_path %></li>
               <% end %>
               <div class="clear"></div>

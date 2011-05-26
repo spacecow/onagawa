@@ -13,6 +13,11 @@ Then /^I should see "([^"]*)" within the (\w+) "([^"]*)" (\w+)$/ do |txt,order,i
     page.should have_content(txt)
   end
 end
+Then /^I should not see "([^"]*)" within the (\w+) "([^"]*)" (\w+)$/ do |txt,order,id,cat|
+  with_scope(cat_id(cat,id,order)) do
+    page.should have_no_content(txt)
+  end
+end
 
 Then /^I should see "([^"]*)" within the "([^"]*)" section$/ do |txt,div|
   Then %(I should see "#{txt}" within "div##{underscore div}")
@@ -23,18 +28,22 @@ end
 
 # AND ----------------------------
 
-Then /^I should see "([^"]*)" and "([^"]*)" within the (\w+) (.+) (\w+)$/ do |txt1,txt2,order,id,cat|
-  Then %(I should see "#{txt1}" within the #{order} #{id} #{cat})
-  And %(I should see "#{txt2}" within the #{order} #{id} #{cat})
+Then /^I should see "([^"]*)" and "([^"]*)" within the (\w+) "([^"]*)" (\w+)$/ do |txt1,txt2,order,id,cat|
+  Then %(I should see "#{txt1}" within the #{order} "#{id}" #{cat})
+  And %(I should see "#{txt2}" within the #{order} "#{id}" #{cat})
+end
+Then /^I should see "([^"]*)" but not "([^"]*)" within the (\w+) "([^"]*)" (\w+)$/ do |txt1,txt2,order,id,cat|
+  Then %(I should see "#{txt1}" within the #{order} "#{id}" #{cat})
+  And %(I should not see "#{txt2}" within the #{order} "#{id}" #{cat})
 end
 
 # ACTIVE ----------------------
 
-Then /^the submenu "([^"]*)" should be active$/ do |menu|
-  page.should have_css("li.active", :text => menu)
+Then /^the (?:menu|submenu) "([^"]*)" should be active$/ do |menu|
+  page.should have_css(".active", :text => menu)
 end
-Then /^the submenu "([^"]*)" should be inactive$/ do |menu|
-  page.should have_no_css("li.active", :text => menu)
+Then /^the (?:menu|submenu) "([^"]*)" should be inactive$/ do |menu|
+  page.should have_no_css(".active", :text => menu)
 end
 
 # EXISTENCE -------------------
@@ -68,17 +77,35 @@ Then /^I should see no links at the bottom of the page$/ do
   page.should have_no_css("div#bottom_links a")
 end
 
-Then /^I should see a "([^"]*)" image$/ do |alt|
+Then /^I should see (?:a|an) "([^"]*)" image$/ do |alt|
   page.should have_xpath("//img[@alt='#{alt}']")
 end
 Then /^I should see no "([^"]*)" image$/ do |alt|
   page.should have_no_xpath("//img[@alt='#{alt}']")
+end
+Then /^I should see (?:a|an) "([^"]*)" image within the (\w+) "([^"]*)" (\w+)$/ do |img,ordr,id,cat|
+  Then %(I should see a "#{img}" image within "#{cat_id(cat,id,ordr)}")
+end
+Then /^I should see a "([^"]*)" image within "([^"]*)"$/ do |img,id|
+  with_scope(id) do
+    page.should have_xpath("//img[@alt='#{img}']")
+  end
 end
 
 # LINKS -----------------------
 
 Then /^I should see a "([^"]*)" link$/ do |lnk|
   page.should have_css("a", :text => lnk)
+end
+Then /^I should see (?:a|an) "([^"]*)" link within the "([^"]*)" section$/ do |lnk,id|
+  with_scope("div##{id}") do
+    page.should have_css("a", :text => lnk)
+  end
+end
+Then /^I should see no "([^"]*)" link within the "([^"]*)" section$/ do |lnk,id|
+  with_scope("div##{id}") do
+    page.should have_no_css("a", :text => lnk)
+  end
 end
 
 Then /^I should see a "([^"]*)" image link$/ do |lnk|

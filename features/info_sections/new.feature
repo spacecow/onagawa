@@ -10,6 +10,7 @@ And the first through fourth "Filename" fields should be empty
 But I should see no "Pos" field
 And I should see no fifth "Content" field
 And I should see no fifth "Filename" field
+And I should see no "New Info Section" link within the "submenu" section
 
 Scenario: Create an info subsection
 When I go to the new info section page
@@ -24,5 +25,4 @@ And 1 info_subsections should exist
 Scenario: 4 Info subsections should be visible on the error page
 When I go to the new info section page
 And I press "Create Info Section"
-Then show me the page
 Then I should see a first through fourth "Content" field

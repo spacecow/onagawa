@@ -1,6 +1,11 @@
 Onagawa::Application.routes.draw do
   resources :info_sections do
-    resources :info_subsections
+    resources :info_subsections do
+      member do
+        put 'ascend'
+        put 'descend'
+      end    
+    end
   end
 
   resources :messages

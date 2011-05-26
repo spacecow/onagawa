@@ -2,7 +2,9 @@ class InfoSubsectionsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @info_subsections = InfoSubsection.all
+    @info_sections = InfoSection.order("pos asc")
+    @info_section = InfoSection.find(params[:info_section_id])
+    @info_subsections = @info_section.info_subsections
   end
 
   def show

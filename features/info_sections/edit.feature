@@ -7,6 +7,7 @@ Scenario: Info Section Edit View
 When I go to that info_section's edit page
 Then the "Title" field should contain "Onagawa"
 And the first through fourth "Content" field should be empty
+And I should see a "New Info Section" link within the "submenu" section
 
 Scenario: Info Subsection Edit View
 Given an info_subsection exists with info_section: that info_section, content: "Onagawa was a beautiful little town.", filename: "Onagawa1"
