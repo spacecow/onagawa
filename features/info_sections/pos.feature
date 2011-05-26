@@ -2,11 +2,6 @@ Feature:
 Background:
 Given I am logged in as admin
 
-Scenario: New info section view
-When I go to the new info section page
-Then the "Title" field should be empty
-And I should see no "Pos" field
-
 Scenario: If the info section is the first one created, pos should be set to 1
 When I go to the new info_section page
 And I fill in "Title" with "Onagawa"

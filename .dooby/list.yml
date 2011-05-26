@@ -17,3 +17,5 @@ d5ae1f: !ruby/object:Dooby::Task
   todo: make info_section a model :done
 d07f6f: !ruby/object:Dooby::Task 
   todo: new section and subsection :done
+8d8b12: !ruby/object:Dooby::Task 
+  todo: accept nested attributes for :done

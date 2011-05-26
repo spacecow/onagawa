@@ -14,6 +14,7 @@ class InfoSectionsController < ApplicationController
   end
 
   def new
+    4.times{ @info_section.info_subsections.build }
   end
 
   def create
@@ -21,12 +22,16 @@ class InfoSectionsController < ApplicationController
     if @info_section.save
       redirect_to @info_section, :notice => created(:info_section)
     else
+      (4-@info_section.info_subsections.length).times do
+        @info_section.info_subsections.build
+      end
       render :action => 'new'
     end
   end
 
   def edit
     @info_section = InfoSection.find(params[:id])
+    build_info_subsections
   end
 
   def update
@@ -46,6 +51,11 @@ class InfoSectionsController < ApplicationController
 
   private
     
+    def build_info_subsections
+      (4-@info_section.info_subsections.count).times do
+        @info_section.info_subsections.build
+      end
+    end
     def last_section_pos; InfoSection.count == 0 ? 0 : ordered_section_pos.last end
     def ordered_section_pos; InfoSection.select(:pos).order("pos asc").map(&:pos) end
 end

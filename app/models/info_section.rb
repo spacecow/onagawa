@@ -1,7 +1,7 @@
 class InfoSection < ActiveRecord::Base
   has_many :info_subsections
-
-  attr_accessible :title
+  accepts_nested_attributes_for :info_subsections, :reject_if => lambda {|a| a[:content].blank?}, :allow_destroy => true
+  attr_accessible :title, :info_subsections_attributes
 
   validates :pos, :uniqueness => true
   validates :title, :presence => true, :uniqueness => true

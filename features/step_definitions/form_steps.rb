@@ -39,7 +39,28 @@ end
 # Fields -------------------------------
 
 Then /^the "([^"]*)" field should be empty$/ do |lbl|
-  Then %(the "#{lbl}" field should contain "")
+  field = find_field(lbl)
+  if field.tag_name == 'textarea'
+    field.text.should == ""
+  else
+    field.value.should == nil
+  end
+end
+Then /^the (\w+) "([^"]*)" field should be empty$/ do |ordr,lbl|
+  Then %(the "#{field_id(lbl,ordr)}" field should be empty)
+end
+Then /^the (\w+) through (\w+) "([^"]*)" fields? should be empty$/ do |ordr1,ordr2,lbl|
+  (zdigit(ordr1)..zdigit(ordr2)).each do |ordr|
+    Then %(the "#{field_id(lbl,zword(ordr))}" field should be empty)
+  end  
+end
+
+Then /^the (\w+) "([^"]*)" field should contain "([^"]*)"$/ do |ordr,lbl,txt|
+  Then %(the "#{field_id(lbl,ordr)}" field should contain "#{txt}")
+end
+
+When /^I fill in the (\w+) "([^"]*)" with "([^"]*)"$/ do |ordr,lbl,txt|
+  When %(I fill in "#{field_id(lbl,ordr)}" with "#{txt}") 
 end
 
 When /^I fill in "([^"]*)" with "([^"]*)" within the (.+) section$/ do |fld, txt, div|
@@ -68,4 +89,7 @@ end
 def error_no(prnt,chld,attr,ordr)
   "#{attr_no(prnt,chld,attr,ordr)} p.inline-errors"
 end
-
+def field_id(lbl,ordr)
+  id = find(:css, "label", :text => lbl)[:for]
+  id.gsub(/\d/,zdigit(ordr).to_s)
+end
