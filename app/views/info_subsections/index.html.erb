@@ -1,22 +1,15 @@
-<% title pl(:info subsection) %>
-
-<table>
-  <tr>
-    <th><%= t('formtastic.labels.info_section_id') %></th>
-    <th><%= t('formtastic.labels.content') %></th>
-  </tr>
-  <% for info_subsection in @info_subsections %>
-    <tr>
-      <td><%= info_subsection.info_section_id %></td>
-      <td><%= info_subsection.content %></td>
-      <td><%= link_to t(:show), info_subsection if can? :show, info_subsection %></td>
-      <td><%= link_to t(:edit), edit_info_subsection_path(info_subsection) if can? :edit, info_subsection %></td>
-      <td><%= link_to t(:del), info_subsection, :confirm => sure?, :method => :delete if can? :destroy, info_subsection %></td>
-    </tr>
+<ul id="subsections">
+  <% @info_subsections.each do |info_subsection| %>
+    <li>
+      <%= info_subsection.content %>
+      <%= link_to t(:show), info_subsection if can? :show, info_subsection %>
+      <%= link_to t(:edit), edit_info_subsection_path(info_subsection) if can? :edit, info_subsection %>
+      <%= link_to t(:del), info_subsection, :confirm => sure?, :method => :delete if can? :destroy, info_subsection %>
+    </li>
   <% end %>
-</table>
+</ul>
 
 <div id="bottom_links">
-  <%= link_to new(:info subsection),
+  <%= link_to new(:info_subsection),
   new_info_subsection_path if can? :new, InfoSubsection %>
 </div>

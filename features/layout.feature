@@ -17,11 +17,12 @@ When I go to the root page
 And I follow "Info" within the "menu" section
 And I follow "<link>" within the "submenu" section
 Then I should be on the info_section: "<path>" page
-And the submenu "Onagawa" should be active
+And the submenu "<link>" should be active
+And the submenu "<other_link>" should be inactive
 Examples:
-|link|path|
-|Onagawa|onagawa|
-|Ishinomaki|ishinomaki|
+|link|path|other_link|
+|Onagawa|onagawa|Ishinomaki|
+|Ishinomaki|ishinomaki|Onagawa|
 
 Scenario: The default info section is the one with lowest position
 Given an info_section: "2" exists with pos: 2
