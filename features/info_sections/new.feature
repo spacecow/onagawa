@@ -18,7 +18,7 @@ And I fill in the first "Content" with "Onagawa was a beautiful little city."
 And I press "Create Info Section"
 Then an info_section should exist with title: "Onagawa"
 And 1 info_sections should exist
-And an info_subsection should exist with content: "Onagawa was a beautiful little city.", info_section: that info_section
+And an info_subsection should exist with content: "Onagawa was a beautiful little city.", info_section: that info_section, pos: 1
 And 1 info_subsections should exist
 
 Scenario: 4 Info subsections should be visible on the error page

@@ -42,7 +42,7 @@
             <ul id="submenu">
               <% unless @info_sections.nil? %>
                 <% @info_sections.each do |info_section| %>
-                  <li class="<%= @info_section==info_section ? 'active' : '' %>"><%= link_to info_section.title, info_section %></li>
+                  <li class="<%= @info_section==info_section ? 'active' : '' %> submenu"><%= link_to info_section.title, info_section %></li>
                 <% end %>
               <% end %>
               <% if can? :new, InfoSection %>

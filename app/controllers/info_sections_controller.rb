@@ -20,6 +20,7 @@ class InfoSectionsController < ApplicationController
   def create
     @info_section.pos = last_section_pos+1
     if @info_section.save
+      update_info_subsections_pos
       redirect_to @info_section, :notice => created(:info_section)
     else
       build_info_subsections
@@ -35,6 +36,7 @@ class InfoSectionsController < ApplicationController
   def update
     @info_section = InfoSection.find(params[:id])
     if @info_section.update_attributes(params[:info_section])
+      update_info_subsections_pos
       redirect_to @info_section, :notice  => updated(:info_section)
     else
       render :action => 'edit'
@@ -56,4 +58,9 @@ class InfoSectionsController < ApplicationController
     end
     def last_section_pos; InfoSection.count == 0 ? 0 : ordered_section_pos.last end
     def ordered_section_pos; InfoSection.select(:pos).order("pos asc").map(&:pos) end
+    def update_info_subsections_pos
+      @info_section.info_subsections.each_with_index do |info_subsection,i|
+        info_subsection.update_attributes(:pos => i+1)
+      end
+    end
 end

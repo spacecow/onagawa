@@ -23,7 +23,7 @@ And I fill in the first "Filename" with "Onagawa2"
 And I press "Update Info Section"
 Then an info_section should exist with title: "Onagawa"
 And 1 info_sections should exist
-And an info_subsection should exist with info_section: that info_section, content: "Onagawa will be beautiful again.", filename: "Onagawa2"
+And an info_subsection should exist with info_section: that info_section, content: "Onagawa will be beautiful again.", filename: "Onagawa2", pos: 1
 And 1 info_subsections should exist
 
 Scenario: Create a new info_subsection to an existing info section
@@ -34,8 +34,8 @@ And I fill in the second "Filename" with "Onagawa2"
 And I press "Update Info Section"
 Then an info_section should exist with title: "Onagawa"
 And 1 info_sections should exist
-And an info_subsection should exist with info_section: that info_section, content: "Onagawa was a beautiful little town.", filename: "Onagawa1"
-And an info_subsection should exist with info_section: that info_section, content: "Onagawa will be beautiful again.", filename: "Onagawa2"
+And an info_subsection should exist with info_section: that info_section, content: "Onagawa was a beautiful little town.", filename: "Onagawa1", pos: 1
+And an info_subsection should exist with info_section: that info_section, content: "Onagawa will be beautiful again.", filename: "Onagawa2", pos: 2
 And 2 info_subsections should exist
 
 Scenario: Info subsections should be dipslayed in order after position

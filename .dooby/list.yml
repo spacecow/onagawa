@@ -21,3 +21,7 @@ d07f6f: !ruby/object:Dooby::Task
   todo: accept nested attributes for :done
 9c989d: !ruby/object:Dooby::Task 
   todo: nest subsections within section :done
+855f09: !ruby/object:Dooby::Task 
+  todo: set limit to 4 for info subsection in each section
+"021675": !ruby/object:Dooby::Task 
+  todo: handle pos within subsections :done
