@@ -7,14 +7,14 @@ Scenario: Info Section Edit View
 When I go to that info_section's edit page
 Then the "Title" field should contain "Onagawa"
 And the first through fourth "Content" field should be empty
-And the first "Filename" field should contain "Onagawa1"
-And the second "Filename" field should contain "Onagawa2"
-And the third "Filename" field should contain "Onagawa3"
-And the fourth "Filename" field should contain "Onagawa4"
+And the first "Filename" field should contain "onagawa1"
+And the second "Filename" field should contain "onagawa2"
+And the third "Filename" field should contain "onagawa3"
+And the fourth "Filename" field should contain "onagawa4"
 And I should see a "New Info Section" link within the "submenu" section
 
 Scenario: Info Subsection Edit View
-Given an info_subsection exists with info_section: that info_section, content: "Onagawa was a beautiful little town.", filename: "Onagawa1"
+Given an info_subsection exists with info_section: that info_section, content: "Onagawa was a beautiful little town.", filename: "Onagawa1", pos: 1
 When I go to that info_section's edit page
 Then the first "Content" field should contain "Onagawa was a beautiful little town."
 And the first "Filename" field should contain "Onagawa1"
@@ -50,5 +50,5 @@ And an info_subsection exists with info_section: that info_section, content: "On
 When I go to that info_section's edit page
 Then the first "Filename" field should contain "Onagawa1"
 And the second "Filename" field should contain "Onagawa2"
-And the third "Filename" field should contain "Onagawa3"
-And the fourth "Filename" field should contain "Onagawa4"
+And the third "Filename" field should contain "onagawa3"
+And the fourth "Filename" field should contain "onagawa4"

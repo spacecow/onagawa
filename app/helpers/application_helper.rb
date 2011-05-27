@@ -7,6 +7,7 @@ module ApplicationHelper
   def edit_p(s); tp2(:edit,s) end
   def lbl(s); chain(:label,s) end
   def info_active?; !@info_section.nil? end
+  def list(s); tp2(:list,s) end
   def new(s); t2(:new,s) end
   def pl(s); t(s).match(/\w/) ? t(s).pluralize : t(s) end
   def save(s); t2(:save,s) end

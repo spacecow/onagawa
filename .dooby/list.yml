@@ -29,9 +29,7 @@ d07f6f: !ruby/object:Dooby::Task
   todo: clean up subsection index page :done
 14a162: !ruby/object:Dooby::Task 
   todo: title cannot have spaces
-b0052e: !ruby/object:Dooby::Task 
-  todo: view subsections link
-e91c05: !ruby/object:Dooby::Task 
-  todo: filename cant be blank :doing
 2cddd6: !ruby/object:Dooby::Task 
   todo: filename cant be blank :done
+9ce8b2: !ruby/object:Dooby::Task 
+  todo: list subsections link :done

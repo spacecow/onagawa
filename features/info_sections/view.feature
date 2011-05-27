@@ -20,16 +20,16 @@ Examples:
 |2|
 
 Scenario: Thumbs are displayed for all subsections within a section
-Given an info_subsection exists with info_section: that info_section, pos: 1
-And an info_subsection exists with info_section: that info_section, pos: 2
+Given an info_subsection exists with info_section: that info_section, filename: "onagawa1"
+And an info_subsection exists with info_section: that info_section, filename: "onagawa2"
 When I go to that info_section page
 Then I should see a "Onagawa1thumb" image
 And I should see a "Onagawa2thumb" image
 And I should see no "Onagawa3thumb" image
 
 Scenario Outline: Thumb links on the info section page
-Given an info_subsection exists with info_section: that info_section, pos: 1
-And an info_subsection exists with info_section: that info_section, pos: 2
+Given an info_subsection exists with info_section: that info_section, filename: "onagawa1"
+And an info_subsection exists with info_section: that info_section, filename: "onagawa2"
 When I go to that info_section page
 And I click the image "<thumb>"
 Then I should see a "<image>" image
@@ -41,4 +41,4 @@ Examples:
 Scenario: Links for admin
 Given I am logged in as admin
 When I go to that info_section page
-Then I should see links "Edit Info Section" at the bottom of the page
+Then I should see links "Edit Info Section, List Subsections" at the bottom of the page

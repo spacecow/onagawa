@@ -55,7 +55,7 @@ class InfoSectionsController < ApplicationController
         last = @info_section.info_subsections.build
         new_count = i+1+count
         last.pos = new_count
-        last.filename = "#{@info_section.title}#{new_count.to_s}"
+        last.filename = "#{@info_section.title.downcase}#{new_count.to_s}"
       end
     end
     def last_section_pos; InfoSection.count == 0 ? 0 : ordered_section_pos.last end

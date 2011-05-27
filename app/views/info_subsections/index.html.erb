@@ -4,7 +4,6 @@
       <li>
         <%= image_tag info_subsection.file_thumb %>
         <%= truncate(info_subsection.content, :length => 150) %>
-        <%= link_to t(:del), [@info_section, info_subsection], :confirm => sure?, :method => :delete if can? :destroy, info_subsection %>
         <% if can? :descend, info_subsection %>
           <td><%= link_to("▲", descend_info_section_info_subsection_path(@info_section,info_subsection), :method => :put) unless @info_subsections.first == info_subsection %></td>
         <% end %>
