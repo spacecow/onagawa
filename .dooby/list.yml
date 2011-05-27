@@ -25,7 +25,13 @@ d07f6f: !ruby/object:Dooby::Task
   todo: set limit to 4 for info subsection in each section
 "021675": !ruby/object:Dooby::Task 
   todo: handle pos within subsections :done
-692bed: !ruby/object:Dooby::Task 
-  todo: info/contact/order active
 795b39: !ruby/object:Dooby::Task 
   todo: clean up subsection index page :done
+14a162: !ruby/object:Dooby::Task 
+  todo: title cannot have spaces
+b0052e: !ruby/object:Dooby::Task 
+  todo: view subsections link
+e91c05: !ruby/object:Dooby::Task 
+  todo: filename cant be blank :doing
+2cddd6: !ruby/object:Dooby::Task 
+  todo: filename cant be blank :done

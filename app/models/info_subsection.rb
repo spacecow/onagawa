@@ -3,6 +3,9 @@ class InfoSubsection < ActiveRecord::Base
 
   attr_accessible :info_section, :content, :pos, :filename
 
+  validates :pos, :presence => true, :uniqueness => {:scope => :info_section_id}
+  validates :filename, :presence => true
+
   def file
     return "#{filename}.png" unless filename.blank?
     "#{info_section_title.downcase}#{pos}.png"

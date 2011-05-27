@@ -1,10 +1,12 @@
 class InfoSubsectionsController < ApplicationController
+  include PosController
+
   load_and_authorize_resource
 
   def index
     @info_sections = InfoSection.order("pos asc")
     @info_section = InfoSection.find(params[:info_section_id])
-    @info_subsections = @info_section.info_subsections
+    @info_subsections = @info_section.info_subsections.order("pos asc")
   end
 
   def show
@@ -41,5 +43,15 @@ class InfoSubsectionsController < ApplicationController
     @info_subsection = InfoSubsection.find(params[:id])
     @info_subsection.destroy
     redirect_to info_subsections_url, :notice => deleted(:info_subsection)
+  end
+
+  def ascend
+    @info_section = InfoSection.find(params[:info_section_id])
+    ascend_pos(@info_section,@info_subsection)
+  end 
+
+  def descend
+    @info_section = InfoSection.find(params[:info_section_id])
+    descend_pos(@info_section,@info_subsection)
   end
 end

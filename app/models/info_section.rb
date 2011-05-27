@@ -1,10 +1,14 @@
 class InfoSection < ActiveRecord::Base
+  include PosModel
+
   has_many :info_subsections
   accepts_nested_attributes_for :info_subsections, :reject_if => lambda {|a| a[:content].blank?}, :allow_destroy => true
   attr_accessible :title, :info_subsections_attributes
 
-  validates :pos, :uniqueness => true
+  validates :pos, :uniqueness => true, :presence => true
   validates :title, :presence => true, :uniqueness => true
+
+  def children; info_subsections end
 end
 
 # == Schema Information

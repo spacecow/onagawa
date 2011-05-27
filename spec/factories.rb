@@ -5,6 +5,8 @@ end
 
 Factory.define :info_subsection do |f|
   f.association :info_section, :factory => :info_section
+  f.sequence(:pos){|n| n}
+  f.filename "factory.file"
 end
 
 Factory.define :message do |f|

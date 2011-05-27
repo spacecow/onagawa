@@ -15,16 +15,13 @@ class InfoSectionsController < ApplicationController
 
   def new
     load_info_sections
-    build_info_subsections
   end
 
   def create
     @info_section.pos = last_section_pos+1
     if @info_section.save
-      update_info_subsections_pos
       redirect_to @info_section, :notice => created(:info_section)
     else
-      build_info_subsections
       render :action => 'new'
     end
   end
@@ -37,7 +34,6 @@ class InfoSectionsController < ApplicationController
   def update
     @info_section = InfoSection.find(params[:id])
     if @info_section.update_attributes(params[:info_section])
-      update_info_subsections_pos
       redirect_to @info_section, :notice  => updated(:info_section)
     else
       render :action => 'edit'
@@ -50,11 +46,16 @@ class InfoSectionsController < ApplicationController
     redirect_to info_sections_url, :notice => deleted(:info_section)
   end
 
+
   private
     
     def build_info_subsections
-      (4-@info_section.info_subsections.count).times do
-        @info_section.info_subsections.build
+      count = @info_section.info_subsections.count
+      (4-count).times do |i|
+        last = @info_section.info_subsections.build
+        new_count = i+1+count
+        last.pos = new_count
+        last.filename = "#{@info_section.title}#{new_count.to_s}"
       end
     end
     def last_section_pos; InfoSection.count == 0 ? 0 : ordered_section_pos.last end

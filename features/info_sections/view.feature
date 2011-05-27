@@ -4,12 +4,12 @@ Given an info_section exists with title: "Onagawa"
 
 Scenario: Default info subsection is the one with the lowest position
 Given an info_subsection: "2" exists with info_section: that info_section, pos: 2
-And an info_subsection: "1" exists with info_section: that info_section, pos: 1
+And an info_subsection: "1" exists with info_section: that info_section, pos: 1, filename: "Onagawa1"
 When I go to that info_section page
 Then I should see a "Onagawa1" image
 
 Scenario Outline: Subsection view
-Given an info_subsection exists with info_section: that info_section, pos: <no>, content: "This was before called the city Onagawa." 
+Given an info_subsection exists with info_section: that info_section, content: "This was before called the city Onagawa.", filename: "Onagawa<no>" 
 When I go to that info_section page
 Then I should see a "Onagawa<no>" image
 And I should see a "Onagawa<no>colour" image
@@ -18,12 +18,6 @@ Examples:
 |no|
 |1|
 |2|
-
-Scenario: Image can be set explicitly
-Given an info_subsection exists with info_section: that info_section, pos: 1, filename: "onagawa2"
-When I go to that info_section page
-Then I should see a "Onagawa2" image
-And I should see a "Onagawa2colour" image
 
 Scenario: Thumbs are displayed for all subsections within a section
 Given an info_subsection exists with info_section: that info_section, pos: 1
