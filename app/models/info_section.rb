@@ -1,8 +1,9 @@
 class InfoSection < ActiveRecord::Base
   include PosModel
 
-  has_many :info_subsections
+  has_many :info_subsections, :limit => 4
   accepts_nested_attributes_for :info_subsections, :reject_if => lambda {|a| a[:content].blank?}, :allow_destroy => true
+
   attr_accessible :title, :info_subsections_attributes
 
   validates :pos, :uniqueness => true, :presence => true

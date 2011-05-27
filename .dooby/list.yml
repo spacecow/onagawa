@@ -33,7 +33,5 @@ d07f6f: !ruby/object:Dooby::Task
   todo: filename cant be blank :done
 9ce8b2: !ruby/object:Dooby::Task 
   todo: list subsections link :done
-bbcb98: !ruby/object:Dooby::Task 
-  todo: cleaning up pos module :doing
 55f2e8: !ruby/object:Dooby::Task 
   todo: cleaning up pos module :done
