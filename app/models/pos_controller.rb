@@ -1,9 +1,9 @@
 module PosController
-  def ascend_pos(parent,child)
+  def ascend
     change_pos(parent,child,parent.next_pos_child(child.pos))
   end
 
-  def descend_pos(parent,child)
+  def descend
     change_pos(parent,child,parent.prev_pos_child(child.pos))
   end
 

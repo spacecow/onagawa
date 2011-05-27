@@ -45,13 +45,7 @@ class InfoSubsectionsController < ApplicationController
     redirect_to info_subsections_url, :notice => deleted(:info_subsection)
   end
 
-  def ascend
-    @info_section = InfoSection.find(params[:info_section_id])
-    ascend_pos(@info_section,@info_subsection)
-  end 
-
-  def descend
-    @info_section = InfoSection.find(params[:info_section_id])
-    descend_pos(@info_section,@info_subsection)
-  end
+  private
+    def child; @info_subsection end
+    def parent; @info_section ||= InfoSection.find(params[:info_section_id]) end
 end

@@ -13,7 +13,6 @@ And the submenu "Onagawa" should be active
 Scenario: Position arrows on subsections 
 Given 3 info_subsections exist with info_section: that info_section
 When I go to that info_section's info_subsections page
-Then show me the page
 Then I should see "▼" but not "▲" within the first "subsections" listing
 And I should see "▼" and "▲" within the second "subsections" listing
 And I should see "▲" but not "▼" within the third "subsections" listing
