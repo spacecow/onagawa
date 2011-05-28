@@ -200,18 +200,18 @@ div#container div#contents div#image_container img {
   width: 440px;
 }
 /* line 148, ../../app/stylesheets/application.sass */
-div#container div#contents div#form_container {
+div#container div#contents div#order_container {
   margin: 20px 20px 0 0;
   background: rgba(255, 255, 255, 0.8);
   border: 2px solid black;
   float: right;
 }
 /* line 155, ../../app/stylesheets/application.sass */
-div#container div#contents div#form_container form {
+div#container div#contents div#order_container form {
   padding: 10px;
 }
 /* line 157, ../../app/stylesheets/application.sass */
-div#container div#contents div#form_container form input.submit {
+div#container div#contents div#order_container form input.submit {
   text-align: right;
 }
 /* line 159, ../../app/stylesheets/application.sass */

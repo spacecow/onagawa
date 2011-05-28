@@ -4,6 +4,14 @@ class OrdersController < ApplicationController
   def new
   end
 
+  def purchase
+    @order = Order.new(params[:order])
+    if @order.save
+    else
+      render 'new'
+    end
+  end
+
   def create
     @order = Order.new(params[:order])
     @order.ip_address = request.remote_ip

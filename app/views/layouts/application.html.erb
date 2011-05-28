@@ -57,18 +57,11 @@
           <%= yield %>
         </div>
         <div id="image_container"></div>
-        <div id="form_container">
-          <%= semantic_form_for @order do |f| %>
-            <%= f.input :first_name %>
-            <%= f.input :last_name %>
-            <%= f.input :card_type, :as => :select, :collection => [["Visa","visa"],["MasterCard","master"],["Discover","discover"],["American Express","american_express"]] %>
-            <%= f.input :card_number %>
-            <%= f.input :card_verification %>
-            <%= f.input :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => Date.today.year+10, :add_month_numbers => true %>
-            <%= f.input :quantity %>
-            <%= f.submit "Purchase", :class => :submit %>
-          <% end %>
-        </div>
+        <% if request.path == purchase_orders_path && @order.valid? %>
+          <%= render 'purchase' %>
+        <% else %>
+          <%= render 'order' %>
+        <% end %>
       </div>
     </div>
   </body>

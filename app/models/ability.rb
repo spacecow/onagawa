@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    can [:new,:create], Order
+    can [:new,:purchase,:create], Order
     can :create, User
     can [:new,:create], Message
     can :show, InfoSection

@@ -5,7 +5,9 @@ class Order < ActiveRecord::Base
 
   attr_accessor :card_number, :card_verification
 
-  validate :validate_card, :on => :create
+  #validate :validate_card, :on => :create
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
   validates :quantity, :numericality => true, :format => {:with => /^(?!-).*$/} 
 
   def purchase
