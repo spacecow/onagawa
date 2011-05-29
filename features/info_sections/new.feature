@@ -7,7 +7,7 @@ When I go to the new info section page
 Then the "Title" field should be empty
 And I should see no "Content" field
 And I should see no "Filename" field
-But I should see no "Pos" field
+But I should see no "Pos*" field
 And I should see no "New Info Section" link within the "submenu" section
 
 Scenario: Create an info section

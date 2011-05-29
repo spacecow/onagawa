@@ -57,10 +57,11 @@
           <%= yield %>
         </div>
         <div id="image_container"></div>
-        <% if request.path == purchase_orders_path && @order.valid? %>
-          <%= render 'purchase' %>
+        <% if request.path == purchase_orders_path && @order.valid? ||
+              request.path == orders_path %>
+          <%= render 'orders/purchase' %>
         <% else %>
-          <%= render 'order' %>
+          <%= render 'orders/order' %>
         <% end %>
       </div>
     </div>

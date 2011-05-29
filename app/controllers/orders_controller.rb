@@ -6,24 +6,30 @@ class OrdersController < ApplicationController
 
   def purchase
     @order = Order.new(params[:order])
-    if @order.save
+    if @order.valid?
+      @purchase = Purchase.new
     else
       render 'new'
     end
   end
 
   def create
-    @order = Order.new(params[:order])
-    @order.ip_address = request.remote_ip
-    if @order.save
-      #redirect_to @order.paypal_url(@order.quantity, new_order_url, root_url)
-      if @order.purchase
-        render :action => "success"
-      else
-        render :action => "failure"
-      end
+    @purchase = Purchase.new(params[:purchase])
+    if @purchase.save
     else
-      render :action => 'new'
+      render 'purchase'
     end
   end
+    #@order = Order.new(params[:order])
+    #@order.ip_address = request.remote_ip
+    #if @order.save
+    #  #redirect_to @order.paypal_url(@order.quantity, new_order_url, root_url)
+    #  if @order.purchase
+    #    render :action => "success"
+    #  else
+    #    render :action => "failure"
+    #  end
+    #else
+    #  render :action => 'new'
+    #end
 end

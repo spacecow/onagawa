@@ -1,0 +1,13 @@
+<div id="order_container">
+  <%= semantic_form_for @order, :url => purchase_orders_path, :method => :get do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <%= f.input :address %>
+    <%= f.input :city %>
+    <%= f.input :zipcode %>
+    <%= f.input :country, :as => :select, :collection => [["Canada","canada"],["USA","usa"]] %>
+    <%= f.submit t(:continue_to_purchase), :class => :submit %>
+  <% end %>
+</div>

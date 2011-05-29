@@ -60,6 +60,7 @@ en:
       password: "Password"
       password_confirmation: "Password confirmation"
       username: "Username"
+      zipcode: "Postal/Zip"
 
   anonymous: "Anonymous"
   comment: "Comment"
@@ -68,4 +69,5 @@ en:
   message: "Message"
   my_opinion: "My Opinion"
   opinion: "Opinion"
+  purchase: "Purchase"
   subsection: "Subsection"
