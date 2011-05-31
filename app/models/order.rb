@@ -52,6 +52,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: orders
@@ -68,5 +69,7 @@ end
 #  zipcode    :string(255)
 #  email      :string(255)
 #  phone      :string(255)
+#  latitude   :float
+#  longitude  :float
 #
 
