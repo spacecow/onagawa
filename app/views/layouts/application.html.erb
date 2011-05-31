@@ -34,28 +34,35 @@
         <%= content_tag :h1, yield(:title) if show_title? %>
         <div id="main_container">
           <div id="menu">
-            <%= link_to "Info", info_path %>
-            <%= link_to "Contact", new_message_path %>
-            <%= link_to "Order", new_order_path %>
+            <ul id="menu">
+              <li class="<%= info_active? ? 'active' : '' %>"><%= link_to "Info", default_info_section %></li>
+              <li class="<%= contact_active? ? 'active' : '' %>"><%= link_to "Contact", new_message_path %></li>
+              <li><%= link_to "Order", new_order_path %></li>
+            </ul>
           </div>
+          <div class="clear"></div>
           <div id="submenu">
-            <%= link_to InfoSection.first.title %>
+            <ul id="submenu">
+              <% unless @info_sections.nil? %>
+                <% @info_sections.each do |info_section| %>
+                  <li class="<%= @info_section==info_section ? 'active' : '' %> submenu"><%= link_to info_section.title, info_section %></li>
+                <% end %>
+              <% end %>
+              <% if can?(:new, InfoSection) && info_active? && request.path != new_info_section_path %>
+                <li><%= link_to new(:info_section), new_info_section_path %></li>
+              <% end %>
+              <div class="clear"></div>
+            </ul>
           </div>
           <%= yield %>
         </div>
         <div id="image_container"></div>
-        <div id="form_container">
-          <%= semantic_form_for @order do |f| %>
-            <%= f.input :first_name %>
-            <%= f.input :last_name %>
-            <%= f.input :card_type, :as => :select, :collection => [["Visa","visa"],["MasterCard","master"],["Discover","discover"],["American Express","american_express"]] %>
-            <%= f.input :card_number %>
-            <%= f.input :card_verification %>
-            <%= f.input :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => Date.today.year+10, :add_month_numbers => true %>
-            <%= f.input :quantity %>
-            <%= f.submit "Purchase", :class => :submit %>
-          <% end %>
-        </div>
+        <% if request.path == purchase_orders_path && @order.valid? && params[:address_checked] == "true" ||
+              request.path == orders_path %>
+          <%= render 'orders/purchase' %>
+        <% else %>
+          <%= render 'orders/order' %>
+        <% end %>
       </div>
     </div>
   </body>

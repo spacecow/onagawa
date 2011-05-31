@@ -73,21 +73,53 @@ div#container
       float: left
       background: rgba(255,255,255,0.8)
       div#menu
-        a
-          font-size: 40px
-          color: black
-          margin-right: 10px
+        ul
+          li 
+            list-style-type: none
+            float: left
+            a
+              font-size: 30px
+              color: black
+              margin-right: 10px
+      div#submenu
+        ul
+          li.active
+            background: #bbb
+          li
+            list-style-type: none
+            padding: 0 2px 0 2px
+            float: left
+          li.submenu
+            a
+              color: #555
+              font-size: 15px
       div#main
         width: $main_width 
+        ul
+          li
+            float: left
+            list-style-type: none
+            img
+              float: left
+              margin: 0 5px 5px 0
         form
           margin-top: 10px
+          fieldset
+            padding: 5px 0
+            border: 1px solid black
+            +border-radius(10px)
+            margin-top: 5px
+            ol
+              li
+                margin: 0
+                padding: 0
           li
             label
               width: 100px
             input
               width: 200px
             textarea
-              width: 200px
+              width: 270px
               height: 150px
               resize: none
           li.error
@@ -113,7 +145,7 @@ div#container
       img
         visibility: hidden
         width: 440px
-    div#form_container
+    div#order_container
       margin: 20px 20px 0 0
       background: rgba(255,255,255,0.8)
       border: 2px solid black
@@ -124,6 +156,9 @@ div#container
         padding: 10px
         input.submit
           text-align: right  
+        li
+          img
+            float: right
     div#user_nav
       float: right
     form.formtastic

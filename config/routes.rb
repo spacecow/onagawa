@@ -1,5 +1,12 @@
 Onagawa::Application.routes.draw do
-  resources :info_sections
+  resources :info_sections do
+    resources :info_subsections do
+      member do
+        put 'ascend'
+        put 'descend'
+      end    
+    end
+  end
 
   resources :messages
 
@@ -11,7 +18,11 @@ Onagawa::Application.routes.draw do
 
   resources :payment_notifications
 
-  resources :orders
+  resources :orders do
+    collection do
+      post 'purchase'
+    end
+  end
 
   match 'info' => 'operator#info'
   match 'info2' => 'operator#info2'

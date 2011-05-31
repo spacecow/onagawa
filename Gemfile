@@ -10,6 +10,7 @@ gem "mocha", :group => :test
 gem 'json', '1.4.6'
 gem 'annotate'
 gem 'activemerchant'
+gem 'geocoder'
 
 group :development do
   gem 'jquery-rails'
@@ -18,6 +19,7 @@ group :development do
 end
 
 group :test do
+  gem 'rspec-expectations'
   gem 'spork'
   gem 'cucumber-rails', '0.3.2' #rails g cucumber:install --capybara --rspec
   gem 'cucumber', '0.10.0'

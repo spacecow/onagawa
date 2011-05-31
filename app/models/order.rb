@@ -1,12 +1,18 @@
 class Order < ActiveRecord::Base
   has_many :transactions, :class_name => "OrderTransaction"
 
-  attr_accessible :quantity, :card_expires_on, :first_name, :last_name, :card_type, :card_number, :card_verification
+  attr_accessible :first_name, :last_name, :email, :address, :city, :zipcode, :country
 
-  attr_accessor :card_number, :card_verification
+  geocoded_by :full_address
+  after_validation :geocode
 
-  validate :validate_card, :on => :create
-  validates :quantity, :numericality => true, :format => {:with => /^(?!-).*$/} 
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
+  validates_format_of :email, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
+  validates :address, :presence => true
+  validates :city, :presence => true
+  validates :zipcode, :presence => true
+  validates :country, :presence => true
 
   def purchase
     response = GATEWAY.purchase(1000, credit_card, :ip => ip_address)
@@ -40,18 +46,27 @@ class Order < ActiveRecord::Base
         :last_name          => last_name
       )
     end
+
+    def full_address; "#{address}, #{city}, #{country}" end
 end
+
+
 
 # == Schema Information
 #
 # Table name: orders
 #
-#  id              :integer(4)      not null, primary key
-#  cart_id         :integer(4)
-#  ip_address      :string(255)
-#  first_name      :string(255)
-#  last_name       :string(255)
-#  card_type       :string(255)
-#  card_expires_on :date
-#  created_at      :datetime
-#  updated_at      :datetime
+#  id         :integer(4)      not null, primary key
+#  ip_address :string(255)
+#  first_name :string(255)
+#  last_name  :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  country    :string(255)
+#  city       :string(255)
+#  address    :string(255)
+#  zipcode    :string(255)
+#  email      :string(255)
+#  phone      :string(255)
+#
+

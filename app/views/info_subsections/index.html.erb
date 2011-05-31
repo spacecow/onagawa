@@ -1,0 +1,20 @@
+<div id="main">
+  <ul id="subsections">
+    <% @info_subsections.each do |info_subsection| %>
+      <li>
+        <%= image_tag info_subsection.file_thumb %>
+        <%= truncate(info_subsection.content, :length => 150) %>
+        <% if can? :descend, info_subsection %>
+          <td><%= link_to("▲", descend_info_section_info_subsection_path(@info_section,info_subsection), :method => :put) unless @info_subsections.first == info_subsection %></td>
+        <% end %>
+        <% if can? :ascend, info_subsection %>
+          <td><%= link_to("▼", ascend_info_section_info_subsection_path(@info_section,info_subsection), :method => :put ) unless @info_subsections.last == info_subsection %></td>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+  <div id="bottom_links">
+    <%= link_to edit(:info_section), edit_info_section_path(@info_section) if can? :edit, InfoSection %>
+  </div>
+</div>

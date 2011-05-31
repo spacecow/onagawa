@@ -1,11 +1,58 @@
 Feature:
 
-Scenario Outline: Page links
+Scenario: Static links
 When I go to the root page
-And I follow "<link>"
-Then I should be on the <path> page
+And I follow "Contact"
+Then I should be on the new message page
+And the menu "Contact" should be active
+
+Scenario: The New Info Section should not be shown on other sections
+Given I am logged in as admin
+When I go to the root page
+And I follow "Contact"
+And I should see no "New Info Section" link within the "submenu" section
+
+Scenario: Submenu links are not shown unless the Info menu is activated
+Given an info_section exists with title: "Onagawa"
+And I go to the root page
+Then I should not see "Onagawa" within the "submenu" section
+
+Scenario Outline: Info link
+Given an info_section: "onagawa" exists with title: "Onagawa"
+And an info_section: "ishinomaki" exists with title: "Ishinomaki"
+When I go to the root page
+And I follow "Info" within the "menu" section
+And I follow "<link>" within the "submenu" section
+Then I should be on the info_section: "<path>" page
+And the submenu "<link>" should be active
+And the submenu "<other_link>" should be inactive
 Examples:
-|link|path|
-|Info|info|
-|Contact|new message|
-|Order|new order|
+|link|path|other_link|
+|Onagawa|onagawa|Ishinomaki|
+|Ishinomaki|ishinomaki|Onagawa|
+
+Scenario: The default info section is the one with lowest position
+Given an info_section: "2" exists with pos: 2
+And an info_section: "1" exists with pos: 1
+When I go to the root page
+And I follow "Info"
+Then I should be on the info_section: "1" page
+
+Scenario: Default Info for non-admin is same place if there are none
+When I go to the root page
+And I follow "Info" within the "menu" section
+Then I should be on the new order page
+
+Scenario: Default Info for admin is New Info if there are none
+Given I am logged in as admin
+When I go to the root page
+And I follow "Info" within the "menu" section
+Then I should be on the new info_section page
+
+Scenario: Admin can reach the new info section from the root page
+Given I am logged in as admin
+And an info_section exists
+When I go to the root page
+And I follow "Info" within the "menu" section
+And I follow "New Info Section" within the "submenu" section
+Then I should be on the new info_section page

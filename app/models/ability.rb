@@ -2,9 +2,10 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    can [:new,:create], Order
+    can [:new,:purchase,:create], Order
     can :create, User
     can [:new,:create], Message
+    can :show, InfoSection
 
     if user
       if user.role? :god
@@ -19,6 +20,8 @@ class Ability
         end
         if user.role? :admin
           can [:edit_roles, :update_roles, :destroy], User
+          can [:create,:update], InfoSection
+          can [:index,:destroy,:ascend,:descend], InfoSubsection
         end
       end
     end

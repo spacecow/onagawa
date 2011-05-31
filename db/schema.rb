@@ -10,17 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110524162457) do
-
-  create_table "carts", :force => true do |t|
-    t.datetime "purchased_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110531054252) do
 
   create_table "info_sections", :force => true do |t|
     t.string   "title"
     t.integer  "pos"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "info_subsections", :force => true do |t|
+    t.integer  "info_section_id"
+    t.text     "content"
+    t.integer  "pos"
+    t.string   "filename"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,15 +49,19 @@ ActiveRecord::Schema.define(:version => 20110524162457) do
   end
 
   create_table "orders", :force => true do |t|
-    t.integer  "quantity"
     t.string   "ip_address"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "card_type"
-    t.date     "card_expires_on"
-    t.datetime "purchased_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "country"
+    t.string   "city"
+    t.string   "address"
+    t.string   "zipcode"
+    t.string   "email"
+    t.string   "phone"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "payment_notifications", :force => true do |t|
@@ -62,6 +69,15 @@ ActiveRecord::Schema.define(:version => 20110524162457) do
     t.integer  "order_id"
     t.string   "status"
     t.string   "transaction_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "purchases", :force => true do |t|
+    t.integer  "quantity"
+    t.string   "card_type"
+    t.date     "card_expires_on"
+    t.datetime "purchased_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

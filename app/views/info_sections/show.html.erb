@@ -1,20 +1,18 @@
-<% title "Info Section" %>
+<%= content_for(:head) do %>
+  <%= javascript_include_tag "info" %>
+<% end %>
 
-<p>
-  <strong><%= t('formtastic.labels.title') %>:</strong>
-  <%= @info_section.title %>
-</p>
-<p>
-  <strong><%= t('formtastic.labels.pos') %>:</strong>
-  <%= @info_section.pos %>
-</p>
+<% unless @info_subsections.empty? %>
+  <%= render @info_subsection %>
+<% end %>
+
+<div id="footer">
+  <% @info_subsections.each do |subsection| %>
+    <%= link_to(image_tag(subsection.file_thumb), info_section_path(@info_section, :pos => subsection.pos)) %>
+  <% end %>
+</div>
 
 <div id="bottom_links">
-  <% if can? :edit, @info section %>
-    <%= link_to t(:edit), edit_info_section_path(@info_section) %> |
-  <% end %>
-  <% if can? :delete, @info section %>
-    <%= link_to t(:delete), @info_section, :confirm => 'Are you sure?', :method => :delete %> |
-  <% end %>
-  <%= link_to view(:info section), info_sections_path if can? :index, InfoSection %>
+  <%= link_to edit(:info_section), edit_info_section_path(@info_section) if can? :edit, InfoSection %>
+  <%= link_to list(:subsection), info_section_info_subsections_path(@info_section) if can? :index, InfoSubsection %>
 </div>
