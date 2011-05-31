@@ -13,12 +13,12 @@ class AddAddressFieldsToOrder < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :orders, :phone
-    remove_column :orders, :email
-    remove_column :orders, :zipcode
-    remove_column :orders, :address
-    remove_column :orders, :city
-    remove_column :orders, :country
+#    remove_column :orders, :phone
+#    remove_column :orders, :email
+#    remove_column :orders, :zipcode
+#    remove_column :orders, :address
+#    remove_column :orders, :city
+#    remove_column :orders, :country
     add_column :orders, :quantity, :integer
     add_column :orders, :card_type, :string
     add_column :orders, :card_expires_on, :date
