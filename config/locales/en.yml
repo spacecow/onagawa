@@ -52,13 +52,17 @@ en:
     updated: "Successfully updated %{obj}."  
   formtastic:
     labels:
+      address: "Address"
       affiliation: "Affiliation"
       card_verification: "Card verification (CVV)"
       content: "Content"
       email: "Email"
+      first_name: "First name"
+      last_name: "First name"
       name: "Name"
       password: "Password"
       password_confirmation: "Password confirmation"
+      phone: "Phone"
       username: "Username"
       zipcode: "Postal/Zip"
 

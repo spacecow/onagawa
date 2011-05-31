@@ -13,6 +13,7 @@ class Order < ActiveRecord::Base
   validates :city, :presence => true
   validates :zipcode, :presence => true
   validates :country, :presence => true
+  validates :email, :presence => true
 
   def purchase
     response = GATEWAY.purchase(1000, credit_card, :ip => ip_address)
@@ -21,6 +22,7 @@ class Order < ActiveRecord::Base
     response.success?
   end
 
+  def full_address; "#{address}, #{city}, #{country}" end
 
   private
   
@@ -47,7 +49,6 @@ class Order < ActiveRecord::Base
       )
     end
 
-    def full_address; "#{address}, #{city}, #{country}" end
 end
 
 
