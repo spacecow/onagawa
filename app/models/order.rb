@@ -3,6 +3,8 @@ class Order < ActiveRecord::Base
 
   attr_accessible :first_name, :last_name, :email, :address, :city, :zipcode, :country
 
+  geocoded_by :full_address
+  after_validation :geocode
 
   validates :first_name, :presence => true
   validates :last_name, :presence => true
@@ -44,6 +46,8 @@ class Order < ActiveRecord::Base
         :last_name          => last_name
       )
     end
+
+    def full_address; "#{address}, #{city}, #{country}" end
 end
 
 

@@ -37,5 +37,7 @@ e1d87d: !ruby/object:Dooby::Task
   todo: move credit card information from order to a purchase model
 e6c630: !ruby/object:Dooby::Task 
   todo: set limit to 4 for info subsection in each section :done
-573af4: !ruby/object:Dooby::Task 
-  todo: add address fields to order :doing
+c1cdd3: !ruby/object:Dooby::Task 
+  todo: add address fields to order :done
+ed88a7: !ruby/object:Dooby::Task 
+  todo: integrate geocode :done

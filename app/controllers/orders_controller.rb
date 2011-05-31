@@ -7,8 +7,16 @@ class OrdersController < ApplicationController
   def purchase
     @order = Order.new(params[:order])
     if @order.valid?
-      @purchase = Purchase.new
+      if params[:address_checked] == "true"
+        @purchase = Purchase.new
+      else
+        params[:address_checked] = true
+        @map_url = map_url
+        render 'new'
+      end
     else
+      params[:address_checked] = true
+      @map_url = map_url
       render 'new'
     end
   end
@@ -31,5 +39,17 @@ class OrdersController < ApplicationController
     #  end
     #else
     #  render :action => 'new'
-    #end
+
+  private
+
+     def map_url
+      "http://maps.google.com/maps/api/staticmap?" +
+      [["size=335x130"],
+       ["maptype=roadmap"],
+       ["sensor=false"],
+       ["center=#{@order.latitude},#{@order.longitude}"],
+       ["zoom=12"],
+       ["style=feature:all|element:all|saturation:-100"],
+       ["markers=color:0xEE127B|#{@order.latitude},#{@order.longitude}"]].join("&")
+     end
 end

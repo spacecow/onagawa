@@ -2,6 +2,7 @@ Feature:
 
 Scenario: Purchase form view
 When I complete an order
+And I press "Continue to Purchase"
 Then I should see no "new_order" form
 But the "Quantity" field should be empty
 And nothing should be selected in the "Card type" field

@@ -57,7 +57,7 @@
           <%= yield %>
         </div>
         <div id="image_container"></div>
-        <% if request.path == purchase_orders_path && @order.valid? ||
+        <% if request.path == purchase_orders_path && @order.valid? && params[:address_checked] == "true" ||
               request.path == orders_path %>
           <%= render 'orders/purchase' %>
         <% else %>

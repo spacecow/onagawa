@@ -8,6 +8,8 @@
     <%= f.input :city %>
     <%= f.input :zipcode %>
     <%= f.input :country, :as => :select, :collection => [["Canada","canada"],["USA","usa"]] %>
+    <li><%= image_tag @map_url unless @map_url.nil? %></li>
+    <%= hidden_field_tag :address_checked, params[:address_checked] %>
     <%= f.submit t(:continue_to_purchase), :class => :submit %>
   <% end %>
 </div>

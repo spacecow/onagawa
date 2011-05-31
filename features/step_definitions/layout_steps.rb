@@ -64,17 +64,16 @@ end
 Then /^I should see (?:a|an) "([^"]*)" (section|form)$/ do |id,cat|
   if cat=="section"
     page.should have_css("div##{id}")
-  else
+  elsif cat=="form"
     page.should have_css("form##{id}")
-  end    
+  end 
 end
-
 Then /^I should see no "([^"]*)" (section|form)$/ do |id,cat|
   if cat=="section"
     page.should have_no_css("div##{id}")
-  else
+  elsif cat=="form"
     page.should have_no_css("form##{id}")
-  end
+  end 
 end
 
 Then /^I should see no (\w+) flash message$/ do |cat|
@@ -91,6 +90,14 @@ end
 Then /^I should see no "([^"]*)" image$/ do |alt|
   page.should have_no_xpath("//img[@alt='#{alt}']")
 end
+
+Then /^I should see an image within the "([^"]*)" form$/ do |id|
+  page.should have_css("form##{id} img")
+end
+Then /^I should see no image within the "([^"]*)" form$/ do |id|
+  page.should have_no_css("form##{id} img")
+end
+
 Then /^I should see (?:a|an) "([^"]*)" image within the (\w+) "([^"]*)" (\w+)$/ do |img,ordr,id,cat|
   Then %(I should see a "#{img}" image within "#{cat_id(cat,id,ordr)}")
 end
@@ -105,6 +112,7 @@ end
 Then /^I should see a "([^"]*)" link$/ do |lnk|
   page.should have_css("a", :text => lnk)
 end
+
 Then /^I should see (?:a|an) "([^"]*)" link within the "([^"]*)" section$/ do |lnk,id|
   with_scope("div##{id}") do
     page.should have_css("a", :text => lnk)

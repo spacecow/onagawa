@@ -33,8 +33,11 @@ Then /^I should see no (\w+) (\w+) error$/ do |mdl,attr|
   page.should have_no_css("li##{mdl}_#{attr}_input p.inline-errors")
 end
 
-# Select Fields ------------------------
+# Selection ----------------------------
 
+Then /^"([^"]*)" should be selected in the "([^"]*)" field$/ do |txt, lbl|
+  find_field(lbl).native.xpath("//option[@selected]").inner_html.should eq txt
+end
 Then /^nothing should be selected in the "([^"]*)" field$/ do |lbl|
   find_field(lbl).native.xpath("//option[@selected]").inner_html.should be_blank
 end
@@ -44,9 +47,8 @@ end
 When /^I press the button$/ do
   find(:xpath, "//input[@type='submit']").click
 end
-
 Then /^I should see a "([^"]*)" button$/ do |lbl|
-  page.should have_xpath("//input[@value='#{lbl}']")
+  page.should have_button(lbl)
 end
 
 # Fields -------------------------------
