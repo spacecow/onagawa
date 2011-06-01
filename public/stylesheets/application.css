@@ -224,34 +224,36 @@ div#container div#contents div#user_nav {
 }
 /* line 166, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li.error p.inline-errors {
+  font-style: italic;
+  font-size: 13px;
   margin-left: 160px;
   color: #ff5555;
 }
-/* line 169, ../../app/stylesheets/application.sass */
+/* line 171, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li {
   list-style-type: none;
 }
-/* line 171, ../../app/stylesheets/application.sass */
+/* line 173, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li label {
   float: left;
   width: 150px;
   text-align: right;
   margin: 2px 10px 0 0;
 }
-/* line 176, ../../app/stylesheets/application.sass */
+/* line 178, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li label abbr {
   color: #ff5555;
 }
-/* line 180, ../../app/stylesheets/application.sass */
+/* line 182, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li fieldset ol li {
   margin: 0;
   padding: 0;
 }
-/* line 183, ../../app/stylesheets/application.sass */
+/* line 185, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic input.submit {
   margin: 10px 0 0 160px;
 }
-/* line 185, ../../app/stylesheets/application.sass */
+/* line 187, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic input.small_submit {
   margin-top: 10px;
 }
