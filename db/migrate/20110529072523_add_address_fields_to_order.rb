@@ -1,11 +1,11 @@
 class AddAddressFieldsToOrder < ActiveRecord::Migration
   def self.up
-#    add_column :orders, :country, :string
-#    add_column :orders, :city, :string
-#    add_column :orders, :address, :string
-#    add_column :orders, :zipcode, :string
-#    add_column :orders, :email, :string
-#    add_column :orders, :phone, :string
+    add_column :orders, :country, :string
+    add_column :orders, :city, :string
+    add_column :orders, :address, :string
+    add_column :orders, :zipcode, :string
+    add_column :orders, :email, :string
+    add_column :orders, :phone, :string
     remove_column :orders, :quantity
     remove_column :orders, :card_type
     remove_column :orders, :card_expires_on
