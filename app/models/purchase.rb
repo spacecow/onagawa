@@ -1,7 +1,10 @@
 class Purchase < ActiveRecord::Base
   validate :validate_card, :on => :create
-  validates :quantity, :numericality => true, :format => {:with => /^(?!-).*$/} 
+  validates :quantity, :numericality => true, :presence => true, :format => {:with => /^(?!-).*$/} 
   validates :card_type, :presence => true
+  validates :card_number, :presence => true
+  validates :card_verification, :presence => true
+  validates :card_expires_on, :presence => true
 
   attr_accessor :card_number, :card_verification, :first_name, :last_name
 

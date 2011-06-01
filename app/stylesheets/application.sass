@@ -163,11 +163,11 @@ div#container
       float: right
     form.formtastic
       li.error
-        color: white
-        background: black
         p.inline-errors
+          font-style: italic
+          font-size: 13px
           margin-left: $label_full_width
-          color: white
+          color: #ff5555
       li
         list-style-type: none
         label
@@ -175,6 +175,8 @@ div#container
           width: $label_width
           text-align: right
           margin: 2px $label_margin 0 0
+          abbr
+            color: #ff5555 
         fieldset
           ol
             li
