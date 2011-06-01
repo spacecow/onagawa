@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
         render 'new'
       end
     else
+      @prize = "100"
       params[:address_checked] = true
       @map_url = map_url
       render 'new'

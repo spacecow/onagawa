@@ -1,10 +1,13 @@
+<%= @purchase.errors %>
 <div id="order_container">
   <%= semantic_form_for @purchase, :url => orders_path do |f| %>
-    <%= f.input :quantity %>
+    <%= f.input :quantity, :hint => @prize %>
     <%= f.input :card_type, :as => :select, :collection => [["Visa","visa"],["MasterCard","master"],["Discover","discover"],["American Express","american_express"]] %>
     <%= f.input :card_number %>
     <%= f.input :card_verification %>
     <%= f.input :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => Date.today.year+10, :add_month_numbers => true %>
+    <%= hidden_field_tag :first_name, @order.first_name %>
     <%= f.submit t(:purchase) %>
+    <%= f.submit t(:calculate_prize) %>
   <% end %>
 </div>

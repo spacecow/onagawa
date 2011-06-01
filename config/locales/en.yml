@@ -67,6 +67,7 @@ en:
       zipcode: "Postal/Zip"
 
   anonymous: "Anonymous"
+  calculate_prize: "Calculate Prize"
   comment: "Comment"
   continue_to_purchase: "Continue to Purchase"
   info_section: "Info Section"
