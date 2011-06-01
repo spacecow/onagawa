@@ -43,3 +43,5 @@ ed88a7: !ruby/object:Dooby::Task
   todo: integrate geocode :done
 dd4db4: !ruby/object:Dooby::Task 
   todo: form layout :done
+4592fe: !ruby/object:Dooby::Task 
+  todo: complete a purchase :done

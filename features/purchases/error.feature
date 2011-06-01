@@ -1,5 +1,6 @@
 Feature:
 
+@quantity
 Scenario: Quantity cannot be left blank
 When I complete an order
 And I press "Continue to Purchase"

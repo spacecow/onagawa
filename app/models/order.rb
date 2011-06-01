@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
   has_many :transactions, :class_name => "OrderTransaction"
 
-  attr_accessible :first_name, :last_name, :email, :address, :city, :zipcode, :country
+  attr_accessible :first_name, :last_name, :email, :phone, :address, :city, :zipcode, :country
 
   geocoded_by :full_address
   after_validation :geocode unless ::Rails.env == "test"

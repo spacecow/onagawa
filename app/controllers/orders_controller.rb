@@ -15,7 +15,6 @@ class OrdersController < ApplicationController
         render 'new'
       end
     else
-      @prize = "100"
       params[:address_checked] = true
       @map_url = map_url
       render 'new'
@@ -24,8 +23,19 @@ class OrdersController < ApplicationController
 
   def create
     @purchase = Purchase.new(params[:purchase])
-    if @purchase.save
+    if @purchase.valid?
+      if params[:prize_checked] == "true"
+        render 'success'
+      else
+        params[:prize_checked] = true
+        @order = Order.new(params[:order])
+        @prize = 13 * @purchase.quantity.to_i 
+        render 'purchase'
+      end
     else
+      params[:prize_checked] = true
+      @order = Order.new(params[:order])
+      @prize = 13 * @purchase.quantity.to_i 
       render 'purchase'
     end
   end

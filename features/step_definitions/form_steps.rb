@@ -33,7 +33,11 @@ Then /^I should see no (\w+) (\w+) error$/ do |mdl,attr|
   page.should have_no_css("li##{mdl}_#{attr}_input p.inline-errors")
 end
 
-# Selection -----------------------------
+# Hint ---------------------------------
+
+
+
+# Selection ----------------------------
 
 Then /^"([^"]*)" should be selected in the "([^"]*)" field$/ do |txt, lbl|
   find_field(lbl).native.xpath("//option[@selected]").inner_html.should eq txt

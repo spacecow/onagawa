@@ -1,12 +1,24 @@
-<%= @purchase.errors %>
 <div id="order_container">
   <%= semantic_form_for @purchase, :url => orders_path do |f| %>
-    <%= f.input :quantity, :hint => @prize %>
+    <%= hidden_field_tag 'purchase[first_name]', @order.first_name %>
+    <%= hidden_field_tag 'purchase[last_name]', @order.last_name %>
+    <%= f.input :quantity, :hint => "13 USD/piece" %>
     <%= f.input :card_type, :as => :select, :collection => [["Visa","visa"],["MasterCard","master"],["Discover","discover"],["American Express","american_express"]] %>
     <%= f.input :card_number %>
     <%= f.input :card_verification %>
     <%= f.input :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => Date.today.year+10, :add_month_numbers => true %>
-    <%= hidden_field_tag :first_name, @order.first_name %>
+    <%= hidden_field_tag 'order[first_name]', @order.first_name %>
+    <%= hidden_field_tag 'order[last_name]', @order.last_name %>
+    <%= hidden_field_tag 'order[email]', @order.email %>
+    <%= hidden_field_tag 'order[phone]', @order.phone %>
+    <%= hidden_field_tag 'order[address]', @order.address %>
+    <%= hidden_field_tag 'order[city]', @order.city %>
+    <%= hidden_field_tag 'order[zipcode]', @order.zipcode %>
+    <%= hidden_field_tag 'order[country]', @order.country %>
+    <%= hidden_field_tag 'prize_checked', params[:prize_checked] %>
+    <div id="prize">
+      Your order will cost: <%= @prize %>
+    </div>
     <%= f.submit t(:purchase) %>
     <%= f.submit t(:calculate_prize) %>
   <% end %>
