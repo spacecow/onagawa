@@ -222,26 +222,25 @@ div#container div#contents div#order_container form li img {
 div#container div#contents div#user_nav {
   float: right;
 }
-/* line 165, ../../app/stylesheets/application.sass */
-div#container div#contents form.formtastic li.error {
-  color: white;
-  background: black;
-}
-/* line 168, ../../app/stylesheets/application.sass */
+/* line 166, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li.error p.inline-errors {
   margin-left: 160px;
-  color: white;
+  color: #ff5555;
 }
-/* line 171, ../../app/stylesheets/application.sass */
+/* line 169, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li {
   list-style-type: none;
 }
-/* line 173, ../../app/stylesheets/application.sass */
+/* line 171, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li label {
   float: left;
   width: 150px;
   text-align: right;
   margin: 2px 10px 0 0;
+}
+/* line 176, ../../app/stylesheets/application.sass */
+div#container div#contents form.formtastic li label abbr {
+  color: #ff5555;
 }
 /* line 180, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li fieldset ol li {
