@@ -22,6 +22,12 @@ Examples:
 |email|
 |email@address|
 
+Scenario: Email cannot be blank
+When I go to the new order page
+And I fill in "Email" with ""
+And I press the button
+Then I should see an order email error "is invalid and can't be blank"
+
 Scenario: Phone is optional
 When I go to the new order page
 And I fill in "Phone" with ""
