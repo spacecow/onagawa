@@ -22,7 +22,7 @@ class Order < ActiveRecord::Base
     response.success?
   end
 
-  def full_address; "#{address}, #{city}, #{country}" end
+  def full_address; "#{address}, #{city}, #{zipcode} #{country}" end
 
   private
   
