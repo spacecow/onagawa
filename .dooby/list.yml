@@ -47,3 +47,5 @@ dd4db4: !ruby/object:Dooby::Task
   todo: complete a purchase :done
 0fab3e: !ruby/object:Dooby::Task 
   todo: continuation of purchase testing :done
+e0c912: !ruby/object:Dooby::Task 
+  todo: switch to https when purchase
