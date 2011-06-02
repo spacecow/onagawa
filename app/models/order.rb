@@ -1,6 +1,4 @@
 class Order < ActiveRecord::Base
-  has_many :transactions, :class_name => "OrderTransaction"
-
   attr_accessible :first_name, :last_name, :email, :phone, :address, :city, :zipcode, :country
 
   geocoded_by :full_address
@@ -15,12 +13,6 @@ class Order < ActiveRecord::Base
   validates :country, :presence => true
   validates :email, :presence => true
 
-  def purchase
-    response = GATEWAY.purchase(1000, credit_card, :ip => ip_address)
-    transactions.create!(:action => "purchase", :amount => 1000, :response => response)
-    update_attribute(:purchased_at, Time.now) if response.success?
-    response.success?
-  end
 
   def full_address; "#{address}, #{city}, #{zipcode} #{country}" end
 

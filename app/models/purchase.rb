@@ -1,4 +1,6 @@
 class Purchase < ActiveRecord::Base
+  has_many :transactions, :class_name => "OrderTransaction"
+
   validate :validate_card, :on => :create
   validates :quantity, :numericality => true, :presence => true, :format => {:with => /^(?!-).*$/} 
   validates :card_type, :presence => true
@@ -8,6 +10,13 @@ class Purchase < ActiveRecord::Base
 
   attr_accessor :card_number, :card_verification, :first_name, :last_name
 
+  def purchase
+    response = GATEWAY.purchase(1000, credit_card, :ip => ip_address)
+    transactions.create!(:action => "purchase", :amount => 1000, :response => response)
+    update_attribute(:purchased_at, Time.now) if response.success?
+    response.success?
+  end
+
   private
 
     def validate_card
@@ -16,6 +25,7 @@ class Purchase < ActiveRecord::Base
           err = "card_expires_on" if err=="year"
           err = "card_number" if err=="number"
           err = "card_verification" if err=="verification_value"
+          err = "card_type" if err=="type"
           errors.add(err.to_sym, mess)
         end
       end
@@ -23,8 +33,8 @@ class Purchase < ActiveRecord::Base
     
     def credit_card
       @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
-        :type               => card_type,
-        :number             => card_number,
+        :type               => (::Rails.env=="test" ? "bogus" : card_type),
+        :number             => (::Rails.env=="test" ? 1 : card_number),
         :verification_value => card_verification,
         :month              => card_expires_on ? card_expires_on.month : "",
         :year               => card_expires_on ? card_expires_on.year : "",

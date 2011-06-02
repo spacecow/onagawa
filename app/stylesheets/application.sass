@@ -95,6 +95,14 @@ div#container
               font-size: 15px
       div#main
         width: $main_width 
+        table
+          tbody
+            tr
+              td
+                &:first-child
+                  font-weight: bold
+                  text-align: right
+                  padding-right: 5px
         ul
           li
             float: left
@@ -170,6 +178,10 @@ div#container
           color: #ff5555
       li
         list-style-type: none
+        p.inline-hints
+          margin-left: $label_full_width
+          font-size: 13px
+          font-style: italic
         label
           float: left
           width: $label_width

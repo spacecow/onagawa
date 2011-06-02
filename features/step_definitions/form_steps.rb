@@ -35,7 +35,10 @@ end
 
 # Hint ---------------------------------
 
-
+Then /^the "([^"]*)" hint should say "([^"]*)"$/ do |lbl, txt|
+  id = find(:css, "label", :text => lbl)[:for]
+  page.should have_css("li##{id}_input p.inline-hints", :text => txt)
+end
 
 # Selection ----------------------------
 

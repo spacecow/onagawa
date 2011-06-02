@@ -17,9 +17,11 @@
     <%= hidden_field_tag 'order[country]', @order.country %>
     <%= hidden_field_tag 'prize_checked', params[:prize_checked] %>
     <div id="prize">
-      Your order will cost: <%= @prize %>
+      <% if @prize %>
+        Your order will cost: <%= @prize %>
+      <% end %>
     </div>
-    <%= f.submit t(:purchase) %>
+    <%= f.submit t(:purchase), :class => :submit %>
     <%= f.submit t(:calculate_prize) %>
   <% end %>
 </div>

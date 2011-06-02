@@ -24,8 +24,14 @@ class OrdersController < ApplicationController
   def create
     @purchase = Purchase.new(params[:purchase])
     if @purchase.valid?
-      if params[:prize_checked] == "true"
-        render 'success'
+      if params[:prize_checked] == "true" && params[:commit] == "Purchase"
+        @purchase.save
+        purchase = @purchase.purchase
+        if purchase
+          render :action => "success"
+        else
+          render :action => "failure"
+        end
       else
         params[:prize_checked] = true
         @order = Order.new(params[:order])
@@ -33,7 +39,7 @@ class OrdersController < ApplicationController
         render 'purchase'
       end
     else
-      params[:prize_checked] = true
+      params[:prize_checked] = true if @purchase.quantity
       @order = Order.new(params[:order])
       @prize = 13 * @purchase.quantity.to_i 
       render 'purchase'

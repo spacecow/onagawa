@@ -1,6 +1,5 @@
 Feature:
 
-@quantity
 Scenario: Quantity cannot be left blank
 When I complete an order
 And I press "Continue to Purchase"
@@ -27,14 +26,14 @@ When I complete an order
 And I press "Continue to Purchase"
 And I fill in "Card number" with ""
 And I press the button
-Then I should see a purchase card_number error "is required and can't be blank"
+Then I should see a purchase card_number error "can't be blank"
 
 Scenario: Card verification cannot be left blank
 When I complete an order
 And I press "Continue to Purchase"
 And I fill in "Card verification (CVV)" with ""
 And I press the button
-Then I should see a purchase card_verification error "is required and can't be blank"
+Then I should see a purchase card_verification error "can't be blank"
 
 Scenario: Card expires on cannot be left unselected
 When I complete an order

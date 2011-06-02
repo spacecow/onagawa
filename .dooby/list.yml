@@ -45,3 +45,5 @@ dd4db4: !ruby/object:Dooby::Task
   todo: form layout :done
 4592fe: !ruby/object:Dooby::Task 
   todo: complete a purchase :done
+0fab3e: !ruby/object:Dooby::Task 
+  todo: continuation of purchase testing :done
