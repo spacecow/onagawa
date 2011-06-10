@@ -48,6 +48,7 @@ ja:
       password: "パスワード"
       password_confirmation: "パスワード確認"
       username: "ユーザー名"
+  info: "情報"
 
   date:
     formats:

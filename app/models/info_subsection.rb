@@ -1,11 +1,12 @@
 class InfoSubsection < ActiveRecord::Base
   belongs_to :info_section
 
-  attr_accessible :info_section, :content, :pos, :filename
+  attr_accessible :info_section, :content, :pos, :filename, :content_ja
 
   validates :pos, :presence => true, :uniqueness => {:scope => :info_section_id}
   validates :filename, :presence => true
 
+  def get_content(english); english ? content : content_ja end
   def file
     return "#{filename}.png" unless filename.blank?
     "#{info_section_title.downcase}#{pos}.png"

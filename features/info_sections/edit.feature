@@ -13,22 +13,26 @@ And the third "Filename" field should contain "onagawa3"
 And the fourth "Filename" field should contain "onagawa4"
 And I should see a "New Info Section" link within the "submenu" section
 
+@japanese
 Scenario: Info Subsection Edit View
-Given an info_subsection exists with info_section: that info_section, content: "Onagawa was a beautiful little town.", filename: "Onagawa1", pos: 1
+Given an info_subsection exists with info_section: that info_section, content: "Onagawa was a beautiful little town.", filename: "Onagawa1", pos: 1, content_ja: "女川魚"
 When I go to that info_section's edit page
 Then the first "Content" field should contain "Onagawa was a beautiful little town."
+And the first "Content (JA)" field should contain "女川魚"
 And the first "Filename" field should contain "Onagawa1"
 And the second through fourth "Content" field should be empty
 
+@japanese
 Scenario: Edit an info subsection
-Given an info_subsection exists with info_section: that info_section, content: "Onagawa was a beautiful little town.", filename: "Onagawa1", pos: 1
+Given an info_subsection exists with info_section: that info_section, content: "Onagawa was a beautiful little town.", filename: "Onagawa1", pos: 1, content_ja: "女川魚"
 When I go to that info_section's edit page
 And I fill in the first "Content" with "Onagawa will be beautiful again."
+And I fill in the first "Content (JA)" with "日本語"
 And I fill in the first "Filename" with "Onagawa2"
 And I press "Update Info Section"
 Then an info_section should exist with title: "Onagawa"
 And 1 info_sections should exist
-And an info_subsection should exist with info_section: that info_section, content: "Onagawa will be beautiful again.", filename: "Onagawa2", pos: 1
+And an info_subsection should exist with info_section: that info_section, content: "Onagawa will be beautiful again.", filename: "Onagawa2", pos: 1, content_ja: "日本語"
 And 1 info_subsections should exist
 
 Scenario: Create a new info_subsection to an existing info section

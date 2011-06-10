@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   def deleted(s); success(:deleted,s) end
   def d(s); t(s).downcase end
   def dp(s); pl(s).downcase end
-  def english?; session[:language] == 'en' end
+  def english?; I18n.locale == :en end
   def ft(s); t("formtastic.labels.#{s.to_s}") end
   def ftd(s); d("formtastic.labels.#{s.to_s}") end  
   def notify(act); t("notice.#{act}") end
@@ -52,6 +52,7 @@ class ApplicationController < ActionController::Base
     
     def load_order; @order = Order.new end
     def set_language
+      session[:language] = params[:language].to_sym if params[:language]
       I18n.locale = session[:language] || I18n.default_locale
     end
 end
