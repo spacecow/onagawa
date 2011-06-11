@@ -51,3 +51,7 @@ e0c912: !ruby/object:Dooby::Task
   todo: switch to https when purchase
 9109d6: !ruby/object:Dooby::Task 
   todo: japanized change, info_subsecion content :done
+445e94: !ruby/object:Dooby::Task 
+  todo: there should only be on setting
+cb4ff2: !ruby/object:Dooby::Task 
+  todo: setting model for universal settings :done

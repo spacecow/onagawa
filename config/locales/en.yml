@@ -55,6 +55,7 @@ en:
       address: "Address"
       affiliation: "Affiliation"
       card_verification: "Card verification (CVV)"
+      contact_info: "Contact Info"
       content: "Content"
       content_ja: "Content (JA)"
       email: "Email"

@@ -1,4 +1,6 @@
 Onagawa::Application.routes.draw do
+  resources :settings, :only => [:edit, :update]
+
   resources :info_sections do
     resources :info_subsections do
       member do

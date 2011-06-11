@@ -22,6 +22,7 @@ class Ability
           can [:edit_roles, :update_roles, :destroy], User
           can [:create,:update], InfoSection
           can [:index,:destroy,:ascend,:descend], InfoSubsection
+          can :update, Setting
         end
       end
     end
