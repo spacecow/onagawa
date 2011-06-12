@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20110610113943) do
   create_table "settings", :force => true do |t|
     t.string   "prefix"
     t.string   "contact_info"
+    t.string   "contact_info_ja"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
