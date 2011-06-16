@@ -1,4 +1,11 @@
 Onagawa::Application.routes.draw do
+  resources :locales, :only => [:create,:update]
+  resources :translations, :only => [:index,:create] do
+    collection do
+      delete 'delete'
+    end
+  end
+
   resources :info_sections do
     resources :info_subsections do
       member do
@@ -42,5 +49,6 @@ Onagawa::Application.routes.draw do
     end
   end
 
+  match 'welcome' => 'orders#new'
   root :to => "orders#new"
 end

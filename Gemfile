@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rake', '0.8.7'
+gem 'rake'
 gem 'rails', '3.0.5'
 gem 'mysql2', '0.2.7'
 gem 'formtastic' #rails g formtastic:install
@@ -8,10 +8,11 @@ gem 'formtastic' #rails g formtastic:install
 gem 'cancan' #rails g cancan:ability
 gem "bcrypt-ruby", :require => "bcrypt"
 gem "mocha", :group => :test
-gem 'json', '1.4.6'
 gem 'annotate'
 gem 'activemerchant'
 gem 'geocoder'
+gem 'redis'
+gem 'escape_utils'
 
 group :development do
   gem 'jquery-rails'
@@ -22,12 +23,11 @@ end
 group :test do
   gem 'rspec-expectations'
   gem 'spork'
-  gem 'cucumber-rails', '0.3.2' #rails g cucumber:install --capybara --rspec
-  gem 'cucumber', '0.10.0'
+  gem 'cucumber-rails' #rails g cucumber:install --capybara --rspec
+  gem 'cucumber'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'pickle' #rails g pickle --paths --email
   gem 'launchy'
   gem 'factory_girl'
-  gem 'gherkin', '2.3.6'
 end

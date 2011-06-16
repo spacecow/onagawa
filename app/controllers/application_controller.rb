@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include ControllerAuthentication
   rescue_from CanCan::AccessDenied do |exception|
     if current_user
-      redirect_to root_url, :alert => exception.message
+      redirect_to welcome_url, :alert => exception.message
     else
       redirect_to login_url, :alert => exception.message
     end
@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_language, :load_order
   helper_method :current_user, :english?, :ft, :default_info_section
 
+  def added(s); success(:added,s) end
   def alert(act); t("alert.#{act}") end
   def alert2(act,obj); t("alert.#{act}",:obj=>obj) end
   def created(s); success(:created,s) end

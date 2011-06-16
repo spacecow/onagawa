@@ -10,10 +10,20 @@ Factory.define :info_subsection do |f|
   f.filename "factory.file"
 end
 
+Factory.define :locale do |f|
+  f.title "en"
+end
+
 Factory.define :message do |f|
   f.name "Default factory name"
   f.email "default@factory.mail"
   f.content "Default factory content."
+end
+
+Factory.define :translation do |f|
+  f.association :locale
+  f.key "welcome"
+  f.value "Welcome!"
 end
 
 Factory.define :user do |f|

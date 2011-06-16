@@ -33,13 +33,6 @@ Then /^I should see no (\w+) (\w+) error$/ do |mdl,attr|
   page.should have_no_css("li##{mdl}_#{attr}_input p.inline-errors")
 end
 
-# Hint ---------------------------------
-
-Then /^the "([^"]*)" hint should say "([^"]*)"$/ do |lbl, txt|
-  id = find(:css, "label", :text => lbl)[:for]
-  page.should have_css("li##{id}_input p.inline-hints", :text => txt)
-end
-
 # Selection ----------------------------
 
 Then /^"([^"]*)" should be selected in the "([^"]*)" field$/ do |txt, lbl|
@@ -49,13 +42,20 @@ Then /^nothing should be selected in the "([^"]*)" field$/ do |lbl|
   find_field(lbl).native.xpath("//option[@selected]").inner_html.should be_blank
 end
 
+Then /^the "([^"]*)" field should have options "([^"]*)"$/ do |lbl,optns|
+  find_field(lbl).all(:css, "option").map{|e| e.text.blank? ? "BLANK" : e.text}.join(', ').should eq optns
+end
+
 # Buttons ------------------------------
 
 When /^I press the button$/ do
   find(:xpath, "//input[@type='submit']").click
 end
-Then /^I should see a "([^"]*)" button$/ do |lbl|
+Then /^I should see (?:a|an) "([^"]*)" button$/ do |lbl|
   page.should have_button(lbl)
+end
+Then /^I should see no "([^"]*)" button$/ do |lbl|
+  page.should have_no_button(lbl)
 end
 
 # Fields -------------------------------
@@ -65,7 +65,8 @@ Then /^the "([^"]*)" field should be empty$/ do |lbl|
   if field.tag_name == 'textarea'
     field.text.should == ""
   else
-    field.value.should == nil
+    field_value = field.value || ""
+    field_value.should be_empty 
   end
 end
 Then /^the (\w+) "([^"]*)" field should be empty$/ do |ordr,lbl|
@@ -99,8 +100,20 @@ When /^I create (?:a|an) (\w+) with ("[^"]*")((?:, "[^"]*")*)$/ do |mdl, arg1, a
   And %(I press "Create #{mdl.capitalize}")
 end
 
-Then /^I should see no "([^"]*)" field$/ do |txt|
-  page.should have_no_css("label", :text => txt)
+Then /^I should see fields from "([^"]*)" to "([^"]*)"$/ do |lbl1, lbl2|
+  (lbl1.split[-1].to_i..lbl2.split[-1].to_i).each do |no|
+    Then %(I should see a "#{lbl1.split[0]} #{no}" field)
+  end
+end
+Then /^I should see (?:a|an) "([^"]*)" field$/ do |lbl|
+  page.should have_css("label", :text => lbl)
+end
+Then /^I should see no "([^"]*)" field$/ do |lbl|
+  page.should have_no_css("label", :text => lbl)
+end
+
+Then /^I should see (\d+) "([^"]*)" fields$/ do |no,lbl|
+  all(:css, "label", :text => lbl).length.should eq no.to_i
 end
 
 # Functions ----------------------------
@@ -112,6 +125,6 @@ def error_no(prnt,chld,attr,ordr)
   "#{attr_no(prnt,chld,attr,ordr)} p.inline-errors"
 end
 def field_id(lbl,ordr)
-  id = find(:css, "label", :text => lbl)[:for]
-  id.gsub(/\d/,zdigit(ordr).to_s)
+  all(:css, "label", :text => lbl)[zdigit(ordr)][:for]
+  #id.gsub(/\d/,zdigit(ordr).to_s)
 end

@@ -113,16 +113,16 @@ Then /^I should see a "([^"]*)" link$/ do |lnk|
   page.should have_css("a", :text => lnk)
 end
 
-Then /^I should see (?:a|an) "([^"]*)" link within the "([^"]*)" section$/ do |lnk,id|
-  with_scope("div##{id}") do
-    page.should have_css("a", :text => lnk)
-  end
-end
-Then /^I should see no "([^"]*)" link within the "([^"]*)" section$/ do |lnk,id|
-  with_scope("div##{id}") do
-    page.should have_no_css("a", :text => lnk)
-  end
-end
+#Then /^I should see (?:a|an) "([^"]*)" link within the "([^"]*)" section$/ do |lnk,id|
+#  with_scope("div##{id}") do
+#    page.should have_css("a", :text => lnk)
+#  end
+#end
+#Then /^I should see no "([^"]*)" link within the "([^"]*)" section$/ do |lnk,id|
+#  with_scope("div##{id}") do
+#    page.should have_no_css("a", :text => lnk)
+#  end
+#end
 
 Then /^I should see a "([^"]*)" image link$/ do |lnk|
   page.should have_css("a img", :alt => lnk)
@@ -131,8 +131,12 @@ Then /^I should see no "([^"]*)" image link$/ do |lnk|
   page.should have_no_css("a img", :alt => lnk)
 end
 
+Then /^I should see links "([^"]*)"$/ do |lnks|
+  all("a").map(&:text).join(", ").should eq lnks
+end
+
 Then /^I should see links "([^"]*)" at the (\w+) of the page$/ do |lnks,pos|
-  all("div##{pos}_links a").map(&:text).join(", ").should eq lnks
+  Then %(I should see links "#{lnks}" within the "#{pos}_links" section)
 end
 
 When /^I follow "([^"]*)" at the bottom of the page$/ do |lnk|

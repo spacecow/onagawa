@@ -22,6 +22,8 @@ class Ability
           can [:edit_roles, :update_roles, :destroy], User
           can [:create,:update], InfoSection
           can [:index,:destroy,:ascend,:descend], InfoSubsection
+          can [:create,:update], Locale
+          can [:index,:create,:delete], Translation
         end
       end
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110602025440) do
+ActiveRecord::Schema.define(:version => 20110610060750) do
 
   create_table "info_sections", :force => true do |t|
     t.string   "title"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(:version => 20110602025440) do
     t.text     "content"
     t.integer  "pos"
     t.string   "filename"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locales", :force => true do |t|
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -80,6 +86,14 @@ ActiveRecord::Schema.define(:version => 20110602025440) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "ip_address"
+  end
+
+  create_table "translations", :force => true do |t|
+    t.integer  "locale_id"
+    t.string   "key"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
