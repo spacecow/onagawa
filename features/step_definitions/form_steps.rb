@@ -1,4 +1,5 @@
 # Error messages ----------------------
+
 Then /^I should see (?:a|an) (\w+) (\w+) error "([^"]*)"$/ do |mdl,attr,txt|
   page.should have_css("li##{mdl}_#{attr}_input p.inline-errors", :text => txt)
 end
@@ -31,6 +32,13 @@ Then /^I should see a (\w+) (\w+) error$/ do |mdl,attr|
 end
 Then /^I should see no (\w+) (\w+) error$/ do |mdl,attr|
   page.should have_no_css("li##{mdl}_#{attr}_input p.inline-errors")
+end
+
+# Hint ---------------------------------
+
+Then /^the "([^"]*)" hint should say "([^"]*)"$/ do |lbl, txt|
+  id = find(:css, "label", :text => lbl)[:for]
+  page.should have_css("li##{id}_input p.inline-hints", :text => txt)
 end
 
 # Selection ----------------------------
@@ -126,5 +134,4 @@ def error_no(prnt,chld,attr,ordr)
 end
 def field_id(lbl,ordr)
   all(:css, "label", :text => lbl)[zdigit(ordr)][:for]
-  #id.gsub(/\d/,zdigit(ordr).to_s)
 end

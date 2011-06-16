@@ -27,10 +27,13 @@ require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "sel
 module WithinHelpers
   def with_scope(locator)
     if locator
-      if data = locator.match(/^the (.+) (table row)$/)
+      if data = locator.match(/^the (\w+) (table row)$/)
         within(table_row data[1]){ yield }
-      elsif data = locator.match(/^the "([^"]*)" (section)$/)
-        within("div##{data[1]}"){ yield }
+      elsif data = locator.match(/^the "([^"]*)" (section|form)$/)
+        within("div##{data[1]}"){ yield } if data[2] == "section"
+        within("form##{data[1]}"){ yield } if data[2] == "form"
+      elsif data = locator.match(/^the (\w+) "([^"]*)" (listing)$/)
+        within(cat_id("listing",data[2],data[1])){ yield }
       else
         within(*selector_for(locator)) { yield }
       end
@@ -41,10 +44,6 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
-def table_row(tbl="",order)
-  return "table##{tbl} tr:nth-child(#{digit order})" unless tbl.blank?
-  "table tr:nth-child(#{digit order})"
-end
 
 # Single-line step scoper
 When /^(.*) within (.*[^:])$/ do |step, parent|
