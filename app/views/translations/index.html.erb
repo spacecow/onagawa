@@ -1,12 +1,14 @@
+# -*- coding: utf-8 -*-
 <div id="main">
   <h1><%= pl(:translation) %></h1>
 
   <table>
     <% last = "" %>
+    <% $KCODE = 'UTF-8' %>
     <% @translations.keys.sort_by{|e| locale(e)}.each do |key| %>
       <tr>
         <td><%= key %></td>
-        <td><%= @translations[key].to_s %></td>
+        <td><%= unicode @translations[key] %></td>
         <td><%= link_to t(:edit), translations_path(:key => key) %></td>
         <td><%= link_to t(:del), delete_translations_path(:key => key), :confirm => sure?, :method => :delete %></td>
         <td>
