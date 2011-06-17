@@ -43,23 +43,25 @@ h1
   font-size: $h1_size
   margin-bottom: 2*$spacing
 
-div#flash_notice
-  float: left  
-  margin-bottom: 5px
-  padding: 3px 10px
-  border: 1px solid black
-  +custom_gradient($notice_light,$notice_dark)
-div#flash_alert
-  float: left
-  margin-bottom: 5px
-  padding: 3px 10px
-  border: 1px solid black
-  +custom_gradient($alert_light,$alert_dark)
+div#flash_container
+  height: 35px
+  div#flash_notice
+    float: left  
+    margin-bottom: 5px
+    padding: 3px 10px
+    border: 1px solid black
+    +custom_gradient($notice_light,$notice_dark)
+  div#flash_alert
+    float: left
+    margin-bottom: 5px
+    padding: 3px 10px
+    border: 1px solid black
+    +custom_gradient($alert_light,$alert_dark)
 
 $main_width: 400px
 div#container
   font: normal $font_size "Helvetica Neue", Arial, Helvetica, sans-serif
-  margin: 20px auto
+  margin: 0 auto
   width: 854px 
   div#header
     img

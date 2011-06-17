@@ -15,3 +15,5 @@ a342ba: !ruby/object:Dooby::Task
   todo: left box always same size
 011965: !ruby/object:Dooby::Task 
   todo: menu active :done
+c6cb44: !ruby/object:Dooby::Task 
+  todo: static flash height :done
