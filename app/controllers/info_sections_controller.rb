@@ -33,14 +33,14 @@ class InfoSectionsController < ApplicationController
   end
 
   def destroy
-    @info_section.deleted = 1
+    @info_section.marked_deleted = true 
     @info_section.save
     redirect_to default_info_sections_path
   end
 
   def default
-    redirect_to new_info_section_path and return if InfoSection.where(:deleted => 0).count == 0 && can?(:new, InfoSection)
-    redirect_to InfoSection.where(:deleted => 0).order("pos asc").first
+    redirect_to new_info_section_path and return if InfoSection.where(:marked_deleted => false).count == 0 && can?(:new, InfoSection)
+    redirect_to InfoSection.where(:marked_deleted => false).order("pos asc").first
   end
 
   private
@@ -55,7 +55,7 @@ class InfoSectionsController < ApplicationController
       end
     end
     def last_section_pos; InfoSection.count == 0 ? 0 : ordered_section_pos.last end
-    def load_info_sections; @info_sections = InfoSection.where(:deleted => 0).order("pos asc") end
+    def load_info_sections; @info_sections = InfoSection.where(:marked_deleted => false).order("pos asc") end
     def ordered_section_pos; InfoSection.select(:pos).order("pos asc").map(&:pos) end
     def update_info_subsections_pos
       @info_section.info_subsections.each_with_index do |info_subsection,i|

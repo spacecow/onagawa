@@ -19,7 +19,7 @@ describe InfoSectionsController do
           response.redirect_url.should_not eq(login_url)
         end
         it "should not reach the #{action} page if it is marked deleted" do
-          @info_section = Factory(:info_section, :deleted => 1)
+          @info_section = Factory(:info_section, :marked_deleted => true)
           send("#{req}", "#{action}", :id => @info_section.id)
           response.redirect_url.should eq(login_url)
         end
@@ -48,7 +48,7 @@ describe InfoSectionsController do
         end
       elsif action=="show"
         it "should reach the #{action} page even if it is marked deleted" do
-          @info_section = Factory(:info_section, :deleted => 1)
+          @info_section = Factory(:info_section, :marked_deleted => true)
           send("#{req}", "#{action}", :id => @info_section.id)
           response.redirect_url.should_not eq(welcome_url)
         end
