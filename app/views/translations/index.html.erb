@@ -6,8 +6,8 @@
       <tr>
         <td><%= key %></td>
         <td><%= unicode @translations[key] %></td>
-        <td><%= link_to t(:edit), translations_path(:key => key) %></td>
-        <td><%= link_to t(:del), delete_translations_path(:key => key), :confirm => sure?, :method => :delete %></td>
+        <td class="link"><%= link_to t(:edit), translations_path(:key => key) %></td>
+        <td class="link"><%= link_to t(:del), delete_translations_path(:key => key), :confirm => sure?, :method => :delete %></td>
       </tr>
     <% end %>
   </table>
