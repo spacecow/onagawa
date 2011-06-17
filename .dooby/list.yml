@@ -7,3 +7,5 @@ bcd8df: !ruby/object:Dooby::Task
   todo: editing locales :done
 a9fa97: !ruby/object:Dooby::Task 
   todo: ie exceptions
+061cbd: !ruby/object:Dooby::Task 
+  todo: yml output on translation page
