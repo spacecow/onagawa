@@ -25,7 +25,7 @@
     <%= f.input :locale, :as => :select, :collection => @locales %>
     <%= f.input :key %>
     <%= f.input :value %>
-    <%= f.submit (@translation.key.blank? ? create(:translation) : update(:translation)), :class => :submit %>
+    <%= f.submit either_of(@translation.key.blank?,create(:translation),update(:translation)), :class => :submit %>
   <% end %>
   <div class="clear"></div>
 
@@ -33,7 +33,7 @@
 
   <%= semantic_form_for @locale do |f| %>
     <%= f.input :title %>
-    <%= f.submit (@locale.new_record? ? create(:locale) : update(:locale)), :class => :submit %>
+    <%= f.submit either_of(@locale.new_record?,create(:locale),update(:locale)), :class => :submit %>
   <% end %>
   <div class="clear"></div>
 
