@@ -3,3 +3,5 @@
   todo: mergin translations and language :done
 cf0347: !ruby/object:Dooby::Task 
   todo: converting escaped unicode to unicode :done
+bcd8df: !ruby/object:Dooby::Task 
+  todo: editing locales :done
