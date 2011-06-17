@@ -31,3 +31,13 @@ Examples:
 | link | order  |
 | ▼    | first  |
 | ▲    | second |
+
+Scenario: Links for admin
+Given I am logged in as admin
+When I go to that info_section's info_subsections page
+Then I should see links "Edit Info Section, Delete Info Section" at the bottom of the page
+
+Scenario: Deleted Info Section are not to be visible in the menu
+Given an info_section exists with title: "Ishinomaki", deleted: true
+When I go to that info_section's info_subsections page
+Then I should not see "Ishinomaki" within the "submenu" section 

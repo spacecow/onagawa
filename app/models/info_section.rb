@@ -12,6 +12,7 @@ class InfoSection < ActiveRecord::Base
   def children; info_subsections end
 end
 
+
 # == Schema Information
 #
 # Table name: info_sections
@@ -21,5 +22,6 @@ end
 #  pos        :integer(4)
 #  created_at :datetime
 #  updated_at :datetime
+#  deleted    :boolean(1)
 #
 

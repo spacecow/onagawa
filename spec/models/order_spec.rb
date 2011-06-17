@@ -10,12 +10,12 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: orders
 #
 #  id         :integer(4)      not null, primary key
-#  ip_address :string(255)
 #  first_name :string(255)
 #  last_name  :string(255)
 #  created_at :datetime

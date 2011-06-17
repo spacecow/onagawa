@@ -4,7 +4,7 @@ class InfoSubsectionsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @info_sections = InfoSection.order("pos asc")
+    @info_sections = InfoSection.where(:deleted => false).order("pos asc")
     @info_section = InfoSection.find(params[:info_section_id])
     @info_subsections = @info_section.info_subsections.order("pos asc")
   end

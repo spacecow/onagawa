@@ -4,6 +4,7 @@ describe Purchase do
   pending "add some examples to (or delete) #{__FILE__}"
 end
 
+
 # == Schema Information
 #
 # Table name: purchases
@@ -15,5 +16,6 @@ end
 #  purchased_at    :datetime
 #  created_at      :datetime
 #  updated_at      :datetime
+#  ip_address      :string(255)
 #
 

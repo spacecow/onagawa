@@ -63,3 +63,9 @@ When I go to the root page
 When I follow "日本語" within the "user_nav" section
 Then I should see "情報" within the "menu" section
 And I should see "English" within the "user_nav" section
+
+Scenario: Deleted Info Sections are not displayed in the menu
+Given an info_section exists with deleted: true, title: "Onagawa"
+When I go to the root page
+And I follow "Info" within the "menu" section
+Then I should not see "Onagawa" within the "submenu" section 

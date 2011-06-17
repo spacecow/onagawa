@@ -48,7 +48,7 @@ Examples:
 Scenario: Links for admin
 Given I am logged in as admin
 When I go to that info_section page
-Then I should see links "Edit Info Section, List Subsections" at the bottom of the page
+Then I should see links "Edit Info Section, List Subsections, Delete Info Section" at the bottom of the page
 
 Scenario Outline: The Info Link should be active
 Given I am logged in as admin

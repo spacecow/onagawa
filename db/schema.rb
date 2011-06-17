@@ -10,13 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110610113943) do
+ActiveRecord::Schema.define(:version => 20110617085003) do
 
   create_table "info_sections", :force => true do |t|
     t.string   "title"
     t.integer  "pos"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "deleted",    :default => false
   end
 
   create_table "info_subsections", :force => true do |t|

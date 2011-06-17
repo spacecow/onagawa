@@ -28,21 +28,19 @@
           <% if current_user %>
             <%= t('message.welcome',:user=>current_user.username) %>
             <%= t('message.not_you?') %>
-            <%= link_to t(:log_out), logout_path %>
-          <% elsif false %>
-            <%= link_to t(:sign_up), signup_path %><%= t(:or) %><%= link_to t(:log_in), login_path %>
+            <%= link_to t(:log_out), logout_path, :class => :bright %>
           <% end %>
           <% if english? %>
-            <%= link_to "日本語", :language => 'ja' %>
+            <%= link_to "日本語", {:language => 'ja'}, {:class => :bright} %>
           <% else %>
-            <%= link_to "English", :language => 'en' %>
+            <%= link_to "English", {:language => 'en'}, {:class => :bright} %>
           <% end %>
         </div>
         <%= content_tag :h1, yield(:title) if show_title? %>
         <div id="main_container">
           <div id="menu">
             <ul id="menu">
-              <li class="<%= info_active? ? 'active' : '' %>"><%= link_to t(:info), default_info_section %></li>
+              <li class="<%= info_active? ? 'active' : '' %>"><%= link_to t(:info), default_info_sections_path %></li>
               <li class="<%= contact_active? ? 'active' : '' %>"><%= link_to t(:contact), new_message_path %></li>
               <li><%= link_to t(:order), new_order_path %></li>
               <% if can? :index, Translation %>

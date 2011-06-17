@@ -9,6 +9,9 @@ Onagawa::Application.routes.draw do
   resources :settings, :only => [:show, :edit, :update]
 
   resources :info_sections, :except => :index do
+    collection do
+      get 'default'
+    end
     resources :info_subsections do
       member do
         put 'ascend'
@@ -43,6 +46,6 @@ Onagawa::Application.routes.draw do
     end
   end
 
-  match 'welcome' => 'orders#new'
-  root :to => "orders#new"
+  match 'welcome' => 'info_sections#default'
+  root :to => "info_sections#default"
 end

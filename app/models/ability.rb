@@ -5,7 +5,8 @@ class Ability
     can [:new,:purchase,:create], Order
     can :create, User
     can [:new,:create], Message
-    can :show, InfoSection
+    can :show, InfoSection, :deleted => false
+    can :default, InfoSection
 
     if user
       if user.role? :god
@@ -20,7 +21,7 @@ class Ability
         end
         if user.role? :admin
           can [:edit_roles, :update_roles, :destroy], User
-          can [:create,:update], InfoSection
+          can [:show,:create,:update,:destroy], InfoSection
           can [:index,:destroy,:ascend,:descend], InfoSubsection
           can [:create,:update], Locale
           can [:index,:create,:delete], Translation

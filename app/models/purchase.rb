@@ -44,6 +44,7 @@ class Purchase < ActiveRecord::Base
     end
 end
 
+
 # == Schema Information
 #
 # Table name: purchases
@@ -55,5 +56,6 @@ end
 #  purchased_at    :datetime
 #  created_at      :datetime
 #  updated_at      :datetime
+#  ip_address      :string(255)
 #
 

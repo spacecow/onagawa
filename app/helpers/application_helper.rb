@@ -7,6 +7,7 @@ module ApplicationHelper
   end
   def create(s); t2(:create,s) end
   def current_language; english? ? t(:japanese) : t(:english) end
+  def delete(s); t2(:delete,s) end
   def edit(s); t2(:edit,s) end
   def edit_p(s); tp2(:edit,s) end
   def either_of(b,s1,s2); b ? s1 : s2 end

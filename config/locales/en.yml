@@ -20,6 +20,7 @@ en:
   label:
     add: "Add %{obj}"
     create: "Create %{obj}"
+    delete: "Delete %{obj}"
     edit: "Edit %{obj}"
     list: "List %{obj}"
     new: "New %{obj}"

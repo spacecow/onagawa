@@ -16,10 +16,6 @@ class ApplicationController < ActionController::Base
   def alert(act); t("alert.#{act}") end
   def alert2(act,obj); t("alert.#{act}",:obj=>obj) end
   def created(s); success(:created,s) end
-  def default_info_section
-    return new_info_section_path if InfoSection.count == 0 && can?(:new, InfoSection)
-    InfoSection.order("pos asc").first
-  end
   def deleted(s); success(:deleted,s) end
   def d(s); t(s).downcase end
   def dp(s); pl(s).downcase end
