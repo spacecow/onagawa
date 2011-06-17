@@ -15,7 +15,7 @@ module ApplicationHelper
   def info_active?; !@info_section.nil? end
   def list(s); tp2(:list,s) end
   def new(s); t2(:new,s) end
-  def pl(s); t(s).match(/\w/) ? t(s).pluralize : t(s) end
+  def pl(s); t(s).match(/[a-z,A-Z]/) ? t(s).pluralize : t(s) end
   def save(s); t2(:save,s) end
   def submit(s); t2(:submit,s) end
   def sure?; t('messages.sure?') end
