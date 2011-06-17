@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20110617085003) do
     t.integer  "pos"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "deleted",    :default => false
+    t.integer  "deleted",    :default => 0
   end
 
   create_table "info_subsections", :force => true do |t|

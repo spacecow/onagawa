@@ -1,5 +1,6 @@
 Feature:
 
+@bajs
 Scenario: Static links
 When I go to the root page
 And I follow "Contact"
