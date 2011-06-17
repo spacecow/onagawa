@@ -267,7 +267,7 @@ div#container div#contents form.formtastic li label abbr {
 }
 /* line 195, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li input {
-  width: 200px;
+  width: 180px;
 }
 /* line 199, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li fieldset ol li {
