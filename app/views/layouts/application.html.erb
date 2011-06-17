@@ -43,7 +43,9 @@
               <li class="<%= info_active? ? 'active' : '' %>"><%= link_to t(:info), default_info_section %></li>
               <li class="<%= contact_active? ? 'active' : '' %>"><%= link_to t(:contact), new_message_path %></li>
               <li><%= link_to t(:order), new_order_path %></li>
-              <li><%= link_to pl(:translation), translations_path %></li>
+              <% if can? :index, Translation %>
+                <li><%= link_to pl(:translation), translations_path %></li>
+              <% end %>
             </ul>
           </div>
           <div class="clear"></div>
