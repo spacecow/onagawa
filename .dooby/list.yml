@@ -11,3 +11,5 @@ a9fa97: !ruby/object:Dooby::Task
   todo: yml output on translation page
 2ef4fc: !ruby/object:Dooby::Task 
   todo: table width :done
+3e1990: !ruby/object:Dooby::Task 
+  todo: menu active :doing

@@ -10,7 +10,6 @@ en:
   log_out: "Log out"
   member: "Member"
   mini_admin: "mini-admin"
-  or: " or "
   order: "Order"
   possessive: "%{owner}'s %{obj}"
   profile: "Profile"
