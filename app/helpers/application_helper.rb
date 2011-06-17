@@ -2,6 +2,9 @@ module ApplicationHelper
   def add(s); t2(:add,s) end
   def chain(s1,s2); "#{s1.to_s}.#{s2.to_s}" end
   def contact_active?; !@message.nil? end
+  def contact_info(english)
+    @contact_info ||= Setting.count == 0 ? "" : ( english ? Setting.first.contact_info : Setting.first.contact_info_ja )
+  end
   def create(s); t2(:create,s) end
   def current_language; english? ? t(:japanese) : t(:english) end
   def edit(s); t2(:edit,s) end

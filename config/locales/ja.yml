@@ -29,7 +29,7 @@ ja:
     verify: "%{obj}確認"
     view: "すべとの%{obj}"
     view_own: "自分の%{obj}"
-  message:
+  messages:
     not_you?: "違いますか？"
     sure?: "本当に削除してよろしいですか"
     welcome: "ようこそ%{user}さん。"
@@ -44,10 +44,13 @@ ja:
       affiliation: "所属"
       content: "コメント"
       email: "Eメール"
-      name: "名前"
+      message: "メッセージ"
+      name: "お名前"
       password: "パスワード"
       password_confirmation: "パスワード確認"
       username: "ユーザー名"
+  info: "情報"
+  message: "メッセージ"
 
   date:
     formats:

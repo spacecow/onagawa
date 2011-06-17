@@ -30,12 +30,17 @@
           <% elsif false %>
             <%= link_to t(:sign_up), signup_path %><%= t(:or) %><%= link_to t(:log_in), login_path %>
           <% end %>
+          <% if english? %>
+            <%= link_to "日本語", :language => 'ja' %>
+          <% else %>
+            <%= link_to "English", :language => 'en' %>
+          <% end %>
         </div>
         <%= content_tag :h1, yield(:title) if show_title? %>
         <div id="main_container">
           <div id="menu">
             <ul id="menu">
-              <li class="<%= info_active? ? 'active' : '' %>"><%= link_to "Info", default_info_section %></li>
+              <li class="<%= info_active? ? 'active' : '' %>"><%= link_to t(:info), default_info_section %></li>
               <li class="<%= contact_active? ? 'active' : '' %>"><%= link_to "Contact", new_message_path %></li>
               <li><%= link_to "Order", new_order_path %></li>
             </ul>

@@ -24,6 +24,7 @@ class Ability
           can [:index,:destroy,:ascend,:descend], InfoSubsection
           can [:create,:update], Locale
           can [:index,:create,:delete], Translation
+          can [:show,:update], Setting
         end
       end
     end

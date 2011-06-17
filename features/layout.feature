@@ -27,9 +27,9 @@ Then I should be on the info_section: "<path>" page
 And the submenu "<link>" should be active
 And the submenu "<other_link>" should be inactive
 Examples:
-|link|path|other_link|
-|Onagawa|onagawa|Ishinomaki|
-|Ishinomaki|ishinomaki|Onagawa|
+| link       | path       | other_link |
+| Onagawa    | onagawa    | Ishinomaki |
+| Ishinomaki | ishinomaki | Onagawa    |
 
 Scenario: The default info section is the one with lowest position
 Given an info_section: "2" exists with pos: 2
@@ -56,3 +56,10 @@ When I go to the root page
 And I follow "Info" within the "menu" section
 And I follow "New Info Section" within the "submenu" section
 Then I should be on the new info_section page
+
+@language
+Scenario: Switch to Japanese
+When I go to the root page
+When I follow "日本語" within the "user_nav" section
+Then I should see "情報" within the "menu" section
+And I should see "English" within the "user_nav" section

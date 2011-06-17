@@ -19,6 +19,13 @@ Examples:
 |1|
 |2|
 
+@japanese
+Scenario: Subsection View in Japanese
+Given an info_subsection exists with info_section: that info_section, content_ja: "女川魚", filename: "Onagawa<no>" 
+When I go to that info_section page
+And I follow "日本語"
+Then I should see "女川魚"
+
 Scenario: Thumbs are displayed for all subsections within a section
 Given an info_subsection exists with info_section: that info_section, filename: "onagawa1"
 And an info_subsection exists with info_section: that info_section, filename: "onagawa2"

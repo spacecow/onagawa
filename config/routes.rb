@@ -6,6 +6,8 @@ Onagawa::Application.routes.draw do
     end
   end
 
+  resources :settings, :only => [:show, :edit, :update]
+
   resources :info_sections do
     resources :info_subsections do
       member do
@@ -16,13 +18,6 @@ Onagawa::Application.routes.draw do
   end
 
   resources :messages
-
-  get "operator/info"
-  get "operator/info2"
-  get "operator/info3"
-  get "operator/info4"
-  get "operator/contact"
-
   resources :payment_notifications
 
   resources :orders do
