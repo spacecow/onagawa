@@ -4,6 +4,6 @@ class AddDeleteFlagToInfoSection < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :info_sections, :deleted
+    remove_column :info_sections, :marked_deleted
   end
 end
