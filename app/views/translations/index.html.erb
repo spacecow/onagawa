@@ -6,7 +6,7 @@
     <% @translations.keys.sort_by{|e| locale(e)}.each do |key| %>
       <tr>
         <td><%= key %></td>
-        <td><%= @translations[key].force_encoding("UTF-8") %></td>
+        <td><%= (@translations[key]i).force_encoding("UTF-8") %></td>
         <td><%= link_to t(:edit), translations_path(:key => key) %></td>
         <td><%= link_to t(:del), delete_translations_path(:key => key), :confirm => sure?, :method => :delete %></td>
         <td>
