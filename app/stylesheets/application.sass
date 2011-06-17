@@ -26,6 +26,9 @@ $notice_light: #4CC417
   +border-radius($corner)
   +linear-gradient(color-stops($light, $dark))
 
+li.active
+  background: #bbb
+
 div.clear
   clear: both
   height: 0
@@ -80,11 +83,9 @@ div#container
             a
               font-size: 30px
               color: black
-              margin-right: 10px
+              margin: 0 5px
       div#submenu
         ul
-          li.active
-            background: #bbb
           li
             list-style-type: none
             padding: 0 2px 0 2px

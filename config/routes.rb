@@ -8,7 +8,7 @@ Onagawa::Application.routes.draw do
 
   resources :settings, :only => [:show, :edit, :update]
 
-  resources :info_sections do
+  resources :info_sections, :except => :index do
     resources :info_subsections do
       member do
         put 'ascend'

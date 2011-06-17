@@ -1,6 +1,4 @@
 <div id="main">
-  <h1><%= pl(:translation) %></h1>
-
   <table>
     <% @translations.keys.sort_by{|e| locale(e)}.each do |key| %>
       <tr>

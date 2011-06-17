@@ -49,3 +49,14 @@ Scenario: Links for admin
 Given I am logged in as admin
 When I go to that info_section page
 Then I should see links "Edit Info Section, List Subsections" at the bottom of the page
+
+Scenario Outline: The Info Link should be active
+Given I am logged in as admin
+When I go to <path> page
+Then the menu "Info" should be active 
+Examples:
+| path                                 |
+| that info_section                    |
+| that info_section's edit             |
+| the new info_section                 |
+| that info_section's info_subsections |

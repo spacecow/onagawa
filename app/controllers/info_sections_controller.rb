@@ -27,6 +27,7 @@ class InfoSectionsController < ApplicationController
   end
 
   def edit
+    load_info_sections
     @info_section = InfoSection.find(params[:id])
     build_info_subsections
   end

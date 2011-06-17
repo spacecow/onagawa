@@ -12,6 +12,7 @@ And the second "Filename" field should contain "onagawa2"
 And the third "Filename" field should contain "onagawa3"
 And the fourth "Filename" field should contain "onagawa4"
 And I should see a "New Info Section" link within the "submenu" section
+And the submenu "Onagawa" should be active
 
 @japanese
 Scenario: Info Subsection Edit View
