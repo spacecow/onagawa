@@ -13,3 +13,5 @@ a9fa97: !ruby/object:Dooby::Task
   todo: table width :done
 3e1990: !ruby/object:Dooby::Task 
   todo: menu active :doing
+a342ba: !ruby/object:Dooby::Task 
+  todo: left box always same size

@@ -265,16 +265,20 @@ div#container div#contents form.formtastic li label {
 div#container div#contents form.formtastic li label abbr {
   color: #ff5555;
 }
-/* line 197, ../../app/stylesheets/application.sass */
+/* line 195, ../../app/stylesheets/application.sass */
+div#container div#contents form.formtastic li input {
+  width: 200px;
+}
+/* line 199, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li fieldset ol li {
   margin: 0;
   padding: 0;
 }
-/* line 200, ../../app/stylesheets/application.sass */
+/* line 202, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic input.submit {
   margin: 10px 0 0 160px;
 }
-/* line 202, ../../app/stylesheets/application.sass */
+/* line 204, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic input.small_submit {
   margin-top: 10px;
 }
