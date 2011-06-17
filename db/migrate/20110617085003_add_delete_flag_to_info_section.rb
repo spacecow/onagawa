@@ -1,6 +1,6 @@
 class AddDeleteFlagToInfoSection < ActiveRecord::Migration
   def self.up
-    add_column :info_sections, :deleted, :boolean, :default => false
+    add_column :info_sections, :deleted, :boolean
   end
 
   def self.down
