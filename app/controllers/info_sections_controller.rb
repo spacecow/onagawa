@@ -39,8 +39,14 @@ class InfoSectionsController < ApplicationController
   end
 
   def default
-    redirect_to new_info_section_path and return if InfoSection.where(:marked_deleted => 0).count == 0 && can?(:new, InfoSection)
-    redirect_to InfoSection.where(:marked_deleted => 0).order("pos asc").first
+    flash[:notice] = flash[:notice]
+    flash[:error] = flash[:error]
+    if InfoSection.where(:marked_deleted => 0).count == 0
+      redirect_to new_info_section_path and return if can?(:new, InfoSection)
+      redirect_to new_order_path
+    else
+      redirect_to InfoSection.where(:marked_deleted => 0).order("pos asc").first
+    end
   end
 
   private
@@ -51,7 +57,8 @@ class InfoSectionsController < ApplicationController
         last = @info_section.info_subsections.build
         new_count = i+1+count
         last.pos = new_count
-        last.filename = "#{@info_section.title.downcase}#{new_count.to_s}"
+        last.content_key = "#{@info_section.title_to_var}#{new_count}_content_key"
+        last.filename = "#{@info_section.title_to_var}#{new_count.to_s}"
       end
     end
     def last_section_pos; InfoSection.count == 0 ? 0 : ordered_section_pos.last end

@@ -89,6 +89,9 @@ end
 Then /^the (\w+) "([^"]*)" field should contain "([^"]*)"$/ do |ordr,lbl,txt|
   Then %(the "#{field_id(lbl,ordr)}" field should contain "#{txt}")
 end
+Then /^the (\w+) "([^"]*)" field should not contain "([^"]*)"$/ do |ordr,lbl,txt|
+  Then %(the "#{field_id(lbl,ordr)}" field should not contain "#{txt}")
+end
 
 When /^I fill in the (\w+) "([^"]*)" with "([^"]*)"$/ do |ordr,lbl,txt|
   When %(I fill in "#{field_id(lbl,ordr)}" with "#{txt}") 

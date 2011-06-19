@@ -8,9 +8,16 @@ class Translation < ActiveRecord::Base
   def initialize_from_redis(key)
     self.locale = Locale.find_by_title(key.split('.')[0..-2].join('.'))
     self.key = key.split('.')[-1]
-    self.value = I18n.t(key.split('.')[1..-1].join('.'))
+    #self.value = I18n.t(key.split('.')[1..-1].join('.'))
+    self.value = unicode $redis[key]
     self
   end
+
+  private
+
+    def unicode(s)
+      s[1..-2].split('\u').reject(&:blank?).map{|e| e =~ /^[0-9,a-f]{4}$/ ? e.hex : e.unpack("U*")}.flatten.pack("U*")
+    end
 end
 
 # == Schema Information

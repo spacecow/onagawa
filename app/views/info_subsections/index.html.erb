@@ -1,6 +1,7 @@
 <div id="main">
   <ul id="subsections">
     <% @info_subsections.each do |info_subsection| %>
+      <%= info_subsection %>
       <li>
         <%= image_tag info_subsection.file_thumb %>
         <%= truncate(info_subsection.content, :length => 150) %>
