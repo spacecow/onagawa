@@ -2,7 +2,7 @@
   <%= semantic_form_for @purchase, :url => orders_path do |f| %>
     <%= hidden_field_tag 'purchase[first_name]', @order.first_name %>
     <%= hidden_field_tag 'purchase[last_name]', @order.last_name %>
-    <%= f.input :quantity, :hint => "13 USD/piece" %>
+    <%= f.input :quantity, :hint => "15 USD/piece" %>
     <%= f.input :card_type, :as => :select, :collection => [["Visa","visa"],["MasterCard","master"],["Discover","discover"],["American Express","american_express"]] %>
     <%= f.input :card_number %>
     <%= f.input :card_verification %>
