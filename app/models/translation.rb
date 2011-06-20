@@ -1,4 +1,6 @@
 class Translation < ActiveRecord::Base
+  include Unicoder
+
   belongs_to :locale
 
   attr_accessible :locale_id, :key, :value
@@ -12,12 +14,6 @@ class Translation < ActiveRecord::Base
     self.value = unicode $redis[key]
     self
   end
-
-  private
-
-    def unicode(s)
-      s[1..-2].split('\u').reject(&:blank?).map{|e| e =~ /^[0-9,a-f]{4}$/ ? e.hex : e.unpack("U*")}.flatten.pack("U*")
-    end
 end
 
 # == Schema Information

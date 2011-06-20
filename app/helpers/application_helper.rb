@@ -18,10 +18,6 @@ module ApplicationHelper
   def submit(s); t2(:submit,s) end
   def sure?; t('messages.sure?') end
   def t2(s1,s2); t(lbl(s1), :obj => t(s2)) end
-  def unicode(s)
-    return "" if s.nil? or s.blank?
-    s[1..-2].split('\u').reject(&:blank?).map{|e| e =~ /^[0-9,a-f]{4}$/ ? e.hex : e.unpack("U*")}.flatten.pack("U*")
-  end
   def tp2(s1,s2); t(lbl(s1), :obj => pl(s2)) end
   def update(s); t2(:update,s) end
   def update_p(s); tp2(:update,s) end

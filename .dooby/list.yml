@@ -21,3 +21,7 @@ c6cb44: !ruby/object:Dooby::Task
   todo: info section rspec routing :done
 6d9543: !ruby/object:Dooby::Task 
   todo: deletion of an info_section should only mark it as deleted :done
+de761e: !ruby/object:Dooby::Task 
+  todo: separator on the bottom links
+40752b: !ruby/object:Dooby::Task 
+  todo: fine tuning after weekend :done

@@ -8,14 +8,13 @@ And an info_subsection: "1" exists with info_section: that info_section, pos: 1,
 When I go to that info_section page
 Then I should see a "Onagawa1" image
 
-@bajs
 Scenario Outline: Subsection view
-Given an info_subsection exists with info_section: that info_section, content_key: "onagawa1_content_key", filename: "Onagawa<no>"
-And a pair exists with locale: "en", key: "onagawa1_content_key", value: "This was before called the city Onagawa."
+Given an info_subsection exists with info_section: that info_section, content_key: "mitos1_content_key", filename: "mitos<no>"
+And a pair exists with locale: "en", key: "mitos1_content_key", value: "This was before called the city Mitos."
 When I go to that info_section page
-Then I should see an "Onagawa<no>" image
-And I should see an "Onagawa<no>colour" image
-And I should see "This was before called the city Onagawa."
+Then I should see an "mitos<no>" image
+And I should see an "mitos<no>colour" image
+And I should see "This was before called the city Mitos."
 Examples:
 |no|
 |1|

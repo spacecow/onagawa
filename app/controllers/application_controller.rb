@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
   protect_from_forgery
   before_filter :set_language, :load_order
-  helper_method :current_user, :english?, :ft, :default_info_section
+  helper_method :current_user, :english?, :ft, :default_info_section, :unicode
 
   def added(s); success(:added,s) end
   def alert(act); t("alert.#{act}") end
@@ -28,6 +28,10 @@ class ApplicationController < ActionController::Base
   def success(act,mdl); t("success.#{act}",:obj=>d(mdl)) end
   def success_p(act,mdl); t("success.#{act}",:obj=>dp(mdl)) end
   def success_p(act,owner,mdl); t("success.#{act}",:obj=>t(:possessive,:owner=>owner,:obj=>dp(mdl))) end
+  def unicode(s)
+    return "" if s.nil? or s.blank?
+    s.gsub(/^"/,'').gsub(/"$/,'').split('\u').reject(&:blank?).map{|e| e =~ /^[0-9,a-f]{4}$/ ? e.hex : e.unpack("U*")}.flatten.pack("U*")
+  end
   def updated(s); success(:updated,s) end
   def updated_p(s); success_p(:updated,s) end
   def updated_p(s1,s2); success_p(:updated,s1,s2) end
