@@ -133,3 +133,9 @@ ja:
           attributes:
             pdf:
               carrierwave_integrity_error: "ファイルは許可されていません"
+        purchase:
+          attributes:
+            quantity:
+              blank: "を入力してください。" 
+            card_type:
+              blank: "を入力してください。" 
