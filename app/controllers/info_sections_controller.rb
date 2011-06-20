@@ -26,6 +26,9 @@ class InfoSectionsController < ApplicationController
 
   def update
     if @info_section.update_attributes(params[:info_section])
+      @info_section.info_subsections.each do |info_subsection|
+        info_subsection.save_content_to_redis
+      end
       redirect_to @info_section, :notice  => updated(:info_section)
     else
       render :action => 'edit'

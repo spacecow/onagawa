@@ -3,12 +3,10 @@ class InfoSubsection < ActiveRecord::Base
 
   belongs_to :info_section
 
-  attr_accessible :info_section, :content_en, :pos, :filename, :content_ja
+  attr_accessible :info_section, :content_en, :pos, :filename, :content_ja, :info_section_id, :created_at, :updated_at
 
   validates :pos, :presence => true, :uniqueness => {:scope => :info_section_id}
   validates :filename, :presence => true
-
-  after_save :save_content_to_redis
 
   def content; I18n.t(content_key) end
   def content_key; "#{info_section.title_to_var}#{pos}_content_key" end
@@ -31,12 +29,13 @@ class InfoSubsection < ActiveRecord::Base
     "#{info_section_title.downcase}#{pos}thumb.png"
   end
 
+  def save_content_to_redis
+    $redis["en."+content_key] = '"'+content_en+'"'
+    $redis["ja."+content_key] = '"'+content_ja+'"'
+  end
+
   private
     def info_section_title; info_section.title end
-    def save_content_to_redis
-      $redis["en."+content_key] = '"'+content_en+'"'
-      $redis["ja."+content_key] = '"'+content_ja+'"'
-    end
 end
 
 

@@ -5,7 +5,6 @@ class ChangeToRedisFieldsInInfoSection < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :info_subsections, :content_key
     add_column :info_subsections, :content, :string
     add_column :info_subsections, :content_ja, :string
   end

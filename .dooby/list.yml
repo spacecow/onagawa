@@ -25,3 +25,5 @@ de761e: !ruby/object:Dooby::Task
   todo: separator on the bottom links
 40752b: !ruby/object:Dooby::Task 
   todo: fine tuning after weekend :done
+8c27ee: !ruby/object:Dooby::Task 
+  todo: why doesnt redis save a content update? :done
