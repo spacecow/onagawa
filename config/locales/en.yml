@@ -72,6 +72,10 @@ en:
       username: "Username"
       year: "Year"
       zipcode: "Postal/Zip"
+  credit_card:
+    expired: "expired"
+    is_not_a_valid_year: "is not a valid year"
+    is_required: "is required"
 
   anonymous: "Anonymous"
   calculate_price: "Calculate Price"

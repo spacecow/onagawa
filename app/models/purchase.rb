@@ -26,7 +26,7 @@ class Purchase < ActiveRecord::Base
           err = "card_number" if err=="number"
           err = "card_verification" if err=="verification_value"
           err = "card_type" if err=="type"
-          errors.add(err.to_sym, mess)
+          errors.add(err.to_sym, mess.map{|e| I18n.t("credit_card."+e.gsub(/\s/,'_'))})
         end
       end
     end
