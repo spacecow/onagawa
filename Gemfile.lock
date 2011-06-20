@@ -120,6 +120,7 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
+    redis (2.2.1)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
@@ -173,6 +174,7 @@ DEPENDENCIES
   pickle
   rails (= 3.0.5)
   rake (= 0.8.7)
+  redis
   rspec-expectations
   rspec-rails
   spork

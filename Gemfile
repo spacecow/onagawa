@@ -12,6 +12,7 @@ gem 'json', '1.4.6'
 gem 'annotate'
 gem 'activemerchant'
 gem 'geocoder'
+gem 'redis'
 
 group :development do
   gem 'jquery-rails'
