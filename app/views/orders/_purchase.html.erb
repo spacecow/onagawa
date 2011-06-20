@@ -6,7 +6,7 @@
     <%= f.input :card_type, :as => :select, :collection => [["Visa","visa"],["MasterCard","master"],["Discover","discover"],["American Express","american_express"]] %>
     <%= f.input :card_number %>
     <%= f.input :card_verification %>
-    <%= f.input :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => Date.today.year+10, :add_month_numbers => true %>
+    <%= f.input :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => Date.today.year+10, :add_month_numbers => true, :labels => {:year => ft(:year), :month => ft(:month)} %>
     <%= hidden_field_tag 'order[first_name]', @order.first_name %>
     <%= hidden_field_tag 'order[last_name]', @order.last_name %>
     <%= hidden_field_tag 'order[email]', @order.email %>
