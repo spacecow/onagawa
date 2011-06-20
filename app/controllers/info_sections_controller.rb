@@ -39,8 +39,12 @@ class InfoSectionsController < ApplicationController
   end
 
   def default
-    redirect_to new_info_section_path and return if InfoSection.where(:marked_deleted => 0).count == 0 && can?(:new, InfoSection)
-    redirect_to InfoSection.where(:marked_deleted => 0).order("pos asc").first
+    if InfoSection.where(:marked_deleted => 0).count == 0
+      redirect_to new_info_section_path and return if can?(:new, InfoSection)
+      redirect_to new_order_path
+    else
+      redirect_to InfoSection.where(:marked_deleted => 0).order("pos asc").first
+    end
   end
 
   private
