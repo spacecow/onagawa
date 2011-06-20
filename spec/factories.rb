@@ -7,7 +7,6 @@ Factory.define :info_subsection do |f|
   f.association :info_section, :factory => :info_section
   f.sequence(:pos){|n| n}
   f.filename "factory.file"
-  f.content_key "content_key_test"
 end
 
 Factory.define :locale do |f|

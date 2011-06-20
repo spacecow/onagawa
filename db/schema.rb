@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(:version => 20110617131100) do
     t.string   "filename"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "content_key"
   end
 
   create_table "locales", :force => true do |t|

@@ -30,7 +30,7 @@ module WithinHelpers
       if data = locator.match(/^the (\w+) (table row)$/)
         within(table_row data[1]){ yield }
       elsif data = locator.match(/^the "([^"]*)" (section|form)$/)
-        within("div##{data[1]}"){ yield } if data[2] == "section"
+        within("div##{underscore data[1]}"){ yield } if data[2] == "section"
         within("form##{data[1]}"){ yield } if data[2] == "form"
       elsif data = locator.match(/^the (\w+) "([^"]*)" (listing)$/)
         within(cat_id("listing",data[2],data[1])){ yield }

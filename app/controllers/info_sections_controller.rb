@@ -57,7 +57,6 @@ class InfoSectionsController < ApplicationController
         last = @info_section.info_subsections.build
         new_count = i+1+count
         last.pos = new_count
-        last.content_key = "#{@info_section.title_to_var}#{new_count}_content_key"
         last.filename = "#{@info_section.title_to_var}#{new_count.to_s}"
       end
     end
