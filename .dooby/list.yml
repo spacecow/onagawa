@@ -27,3 +27,5 @@ de761e: !ruby/object:Dooby::Task
   todo: fine tuning after weekend :done
 8c27ee: !ruby/object:Dooby::Task 
   todo: why doesnt redis save a content update? :done
+11aae1: !ruby/object:Dooby::Task 
+  todo: dont show content key in translations :doing

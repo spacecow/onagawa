@@ -1,6 +1,6 @@
 <div id="main">
   <table>
-    <% @translations.keys.sort_by{|e| locale(e)}.each do |key| %>
+    <% @translations.keys.reject{|e| e =~ /content_key/}.sort_by{|e| locale(e)}.each do |key| %>
       <tr>
         <td><%= key %></td>
         <td><%= unicode @translations[key] %></td>
