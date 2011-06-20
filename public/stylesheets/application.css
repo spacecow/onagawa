@@ -102,7 +102,7 @@ div#container div#contents div#main_container.full_width {
 /* line 80, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container {
   width: 420px;
-  margin: 20px 0 0 20px;
+  margin: 6px 0 0 20px;
   padding: 0 10px 10px 10px;
   float: left;
   background: rgba(255, 255, 255, 0.8);
@@ -129,10 +129,6 @@ div#container div#contents div#main_container div#submenu ul li.submenu a {
   color: #555555;
   font-size: 15px;
 }
-/* line 105, ../../app/stylesheets/application.sass */
-div#container div#contents div#main_container div#main {
-  width: 400px;
-}
 /* line 109, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#main table tbody tr.hover {
   background: #dddddd;
@@ -140,27 +136,28 @@ div#container div#contents div#main_container div#main table tbody tr.hover {
 /* line 112, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#main table tbody tr td.link {
   width: 30px;
+  padding-left: 5px;
 }
-/* line 115, ../../app/stylesheets/application.sass */
+/* line 116, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#main table tbody tr td:first-child {
   font-weight: bold;
   padding-right: 5px;
 }
-/* line 119, ../../app/stylesheets/application.sass */
+/* line 120, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#main ul li {
   float: left;
   list-style-type: none;
 }
-/* line 122, ../../app/stylesheets/application.sass */
+/* line 123, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#main ul li img {
   float: left;
   margin: 0 5px 5px 0;
 }
-/* line 125, ../../app/stylesheets/application.sass */
+/* line 126, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#main form {
   margin-top: 10px;
 }
-/* line 127, ../../app/stylesheets/application.sass */
+/* line 128, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#main form fieldset {
   padding: 5px 0;
   border: 1px solid black;
@@ -172,133 +169,133 @@ div#container div#contents div#main_container div#main form fieldset {
   border-radius: 10px;
   margin-top: 5px;
 }
-/* line 133, ../../app/stylesheets/application.sass */
+/* line 134, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#main form fieldset ol li {
   margin: 0;
   padding: 0;
 }
-/* line 137, ../../app/stylesheets/application.sass */
+/* line 138, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#main form li label {
   width: 100px;
 }
-/* line 139, ../../app/stylesheets/application.sass */
+/* line 140, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#main form li input {
   width: 200px;
 }
-/* line 141, ../../app/stylesheets/application.sass */
+/* line 142, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#main form li textarea {
   width: 270px;
   height: 150px;
   resize: none;
 }
-/* line 146, ../../app/stylesheets/application.sass */
+/* line 147, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#main form li.error p.inline-errors {
   margin-left: 110px;
 }
-/* line 148, ../../app/stylesheets/application.sass */
+/* line 149, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#main form input.submit {
   margin-left: 110px;
 }
-/* line 150, ../../app/stylesheets/application.sass */
+/* line 151, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#main div#image {
   position: relative;
   height: 220px;
 }
-/* line 153, ../../app/stylesheets/application.sass */
+/* line 154, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#main div#image img {
   position: absolute;
   height: 220px;
 }
-/* line 156, ../../app/stylesheets/application.sass */
+/* line 157, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#main div#text {
   height: 110px;
 }
-/* line 159, ../../app/stylesheets/application.sass */
+/* line 160, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#footer a {
   margin-right: 7px;
 }
-/* line 161, ../../app/stylesheets/application.sass */
+/* line 162, ../../app/stylesheets/application.sass */
 div#container div#contents div#image_container {
   position: absolute;
   left: 173px;
   top: 175px;
 }
-/* line 165, ../../app/stylesheets/application.sass */
+/* line 166, ../../app/stylesheets/application.sass */
 div#container div#contents div#image_container img {
   visibility: hidden;
   width: 440px;
 }
-/* line 168, ../../app/stylesheets/application.sass */
+/* line 169, ../../app/stylesheets/application.sass */
 div#container div#contents div#order_container {
   width: 364px;
-  margin: 20px 20px 0 0;
+  margin: 5px 20px 0 0;
   background: rgba(255, 255, 255, 0.8);
   border: 2px solid black;
   float: right;
 }
-/* line 176, ../../app/stylesheets/application.sass */
+/* line 177, ../../app/stylesheets/application.sass */
 div#container div#contents div#order_container form {
   padding: 10px;
 }
-/* line 178, ../../app/stylesheets/application.sass */
+/* line 179, ../../app/stylesheets/application.sass */
 div#container div#contents div#order_container form input.submit {
   text-align: right;
 }
-/* line 181, ../../app/stylesheets/application.sass */
+/* line 182, ../../app/stylesheets/application.sass */
 div#container div#contents div#order_container form li img {
   float: right;
 }
-/* line 183, ../../app/stylesheets/application.sass */
+/* line 184, ../../app/stylesheets/application.sass */
 div#container div#contents div#user_nav {
   text-align: right;
   display: block;
 }
-/* line 188, ../../app/stylesheets/application.sass */
+/* line 189, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li.error p.inline-errors {
   font-style: italic;
   font-size: 13px;
   margin-left: 160px;
   color: #ff5555;
 }
-/* line 193, ../../app/stylesheets/application.sass */
+/* line 194, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li {
   list-style-type: none;
 }
-/* line 195, ../../app/stylesheets/application.sass */
+/* line 196, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li p.inline-hints {
   margin-left: 160px;
   font-size: 13px;
   font-style: italic;
 }
-/* line 199, ../../app/stylesheets/application.sass */
+/* line 200, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li label {
   float: left;
   width: 150px;
   text-align: right;
   margin: 2px 10px 0 0;
 }
-/* line 204, ../../app/stylesheets/application.sass */
+/* line 205, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li label abbr {
   color: #ff5555;
 }
-/* line 206, ../../app/stylesheets/application.sass */
+/* line 207, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li input {
   width: 175px;
 }
-/* line 209, ../../app/stylesheets/application.sass */
+/* line 210, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li fieldset ol {
   float: left;
 }
-/* line 211, ../../app/stylesheets/application.sass */
+/* line 212, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li fieldset ol li {
   margin: 0;
   padding: 0;
 }
-/* line 214, ../../app/stylesheets/application.sass */
+/* line 215, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic input.submit {
   margin: 10px 0 0 160px;
 }
-/* line 216, ../../app/stylesheets/application.sass */
+/* line 217, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic input.small_submit {
   margin-top: 10px;
 }
