@@ -109,7 +109,7 @@ div#container div#contents div#main_container div#menu ul li {
 }
 /* line 88, ../../app/stylesheets/application.sass */
 div#container div#contents div#main_container div#menu ul li a {
-  font-size: 30px;
+  font-size: 29px;
   color: black;
   margin: 0 5px;
 }
@@ -244,50 +244,51 @@ div#container div#contents div#order_container form li img {
 }
 /* line 179, ../../app/stylesheets/application.sass */
 div#container div#contents div#user_nav {
-  float: right;
+  text-align: right;
+  display: block;
 }
-/* line 183, ../../app/stylesheets/application.sass */
+/* line 184, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li.error p.inline-errors {
   font-style: italic;
   font-size: 13px;
-  margin-left: 140px;
+  margin-left: 160px;
   color: #ff5555;
 }
-/* line 188, ../../app/stylesheets/application.sass */
+/* line 189, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li {
   list-style-type: none;
 }
-/* line 190, ../../app/stylesheets/application.sass */
+/* line 191, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li p.inline-hints {
-  margin-left: 140px;
+  margin-left: 160px;
   font-size: 13px;
   font-style: italic;
 }
-/* line 194, ../../app/stylesheets/application.sass */
+/* line 195, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li label {
   float: left;
-  width: 130px;
+  width: 150px;
   text-align: right;
   margin: 2px 10px 0 0;
 }
-/* line 199, ../../app/stylesheets/application.sass */
+/* line 200, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li label abbr {
   color: #ff5555;
 }
-/* line 201, ../../app/stylesheets/application.sass */
+/* line 202, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li input {
   width: 180px;
 }
-/* line 205, ../../app/stylesheets/application.sass */
+/* line 206, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic li fieldset ol li {
   margin: 0;
   padding: 0;
 }
-/* line 208, ../../app/stylesheets/application.sass */
+/* line 209, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic input.submit {
-  margin: 10px 0 0 140px;
+  margin: 10px 0 0 160px;
 }
-/* line 210, ../../app/stylesheets/application.sass */
+/* line 211, ../../app/stylesheets/application.sass */
 div#container div#contents form.formtastic input.small_submit {
   margin-top: 10px;
 }

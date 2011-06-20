@@ -27,5 +27,9 @@ de761e: !ruby/object:Dooby::Task
   todo: fine tuning after weekend :done
 8c27ee: !ruby/object:Dooby::Task 
   todo: why doesnt redis save a content update? :done
-11aae1: !ruby/object:Dooby::Task 
-  todo: dont show content key in translations :doing
+8750bf: !ruby/object:Dooby::Task 
+  todo: no language change on purchase page
+54b174: !ruby/object:Dooby::Task 
+  todo: dont show content key in translations :done
+198a92: !ruby/object:Dooby::Task 
+  todo: little front layout update :done
