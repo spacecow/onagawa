@@ -1,4 +1,4 @@
-en:
+ebabyn:
   admin: "Admin"
   contact: "Contact"
   del: "Del"
@@ -74,7 +74,7 @@ en:
       zipcode: "Postal/Zip"
 
   anonymous: "Anonymous"
-  calculate_prize: "Calculate Prize"
+  calculate_price: "Calculate Price"
   comment: "Comment"
   continue_to_purchase: "Continue to Purchase"
   info: "Info"
