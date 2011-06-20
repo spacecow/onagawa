@@ -12,7 +12,7 @@ When I go to the root page
 And I follow "Contact"
 And I should see no "New Info Section" link within the "submenu" section
 
-Scenario: Submenu links are shown if it is the default
+Scenario: Submenu links are shown if it is the default one
 Given an info_section exists with title: "Onagawa"
 And I go to the root page
 Then I should see "Onagawa" within the "submenu" section

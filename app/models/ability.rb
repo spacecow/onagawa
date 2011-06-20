@@ -5,7 +5,7 @@ class Ability
     can [:new,:purchase,:create], Order
     can :create, User
     can [:new,:create], Message
-    can :show, InfoSection, :marked_deleted => false
+    can :show, InfoSection, :marked_deleted => 0
     can :default, InfoSection
 
     if user

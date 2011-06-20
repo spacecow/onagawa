@@ -10,24 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110617085003) do
+ActiveRecord::Schema.define(:version => 20110617131100) do
 
   create_table "info_sections", :force => true do |t|
     t.string   "title"
     t.integer  "pos"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "marked_deleted", :default => false
+    t.integer  "marked_deleted", :default => 0
   end
 
   create_table "info_subsections", :force => true do |t|
     t.integer  "info_section_id"
-    t.text     "content"
     t.integer  "pos"
     t.string   "filename"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "content_ja"
+    t.string   "content_key"
   end
 
   create_table "locales", :force => true do |t|

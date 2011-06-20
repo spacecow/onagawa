@@ -2,9 +2,6 @@ module ApplicationHelper
   def add(s); t2(:add,s) end
   def chain(s1,s2); "#{s1.to_s}.#{s2.to_s}" end
   def contact_active?; !@message.nil? end
-  def contact_info(english)
-    @contact_info ||= Setting.count == 0 ? "" : ( english ? Setting.first.contact_info : Setting.first.contact_info_ja )
-  end
   def create(s); t2(:create,s) end
   def current_language; english? ? t(:japanese) : t(:english) end
   def delete(s); t2(:delete,s) end
@@ -22,6 +19,7 @@ module ApplicationHelper
   def sure?; t('messages.sure?') end
   def t2(s1,s2); t(lbl(s1), :obj => t(s2)) end
   def unicode(s)
+    return "" if s.nil? or s.blank?
     s[1..-2].split('\u').reject(&:blank?).map{|e| e =~ /^[0-9,a-f]{4}$/ ? e.hex : e.unpack("U*")}.flatten.pack("U*")
   end
   def tp2(s1,s2); t(lbl(s1), :obj => pl(s2)) end

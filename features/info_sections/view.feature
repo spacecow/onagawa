@@ -8,11 +8,13 @@ And an info_subsection: "1" exists with info_section: that info_section, pos: 1,
 When I go to that info_section page
 Then I should see a "Onagawa1" image
 
+@bajs
 Scenario Outline: Subsection view
-Given an info_subsection exists with info_section: that info_section, content: "This was before called the city Onagawa.", filename: "Onagawa<no>" 
+Given an info_subsection exists with info_section: that info_section, content_key: "onagawa1_content_key", filename: "Onagawa<no>"
+And a pair exists with locale: "en", key: "onagawa1_content_key", value: "This was before called the city Onagawa."
 When I go to that info_section page
-Then I should see a "Onagawa<no>" image
-And I should see a "Onagawa<no>colour" image
+Then I should see an "Onagawa<no>" image
+And I should see an "Onagawa<no>colour" image
 And I should see "This was before called the city Onagawa."
 Examples:
 |no|
@@ -21,7 +23,8 @@ Examples:
 
 @japanese
 Scenario: Subsection View in Japanese
-Given an info_subsection exists with info_section: that info_section, content_ja: "女川魚", filename: "Onagawa<no>" 
+Given an info_subsection exists with info_section: that info_section, content_key: "onagawa1_content_key"
+And a pair exists with locale: "ja", key: "onagawa1_content_key", value: "女川魚"
 When I go to that info_section page
 And I follow "日本語"
 Then I should see "女川魚"

@@ -22,6 +22,7 @@ describe InfoSubsection do
 end
 
 
+
 # == Schema Information
 #
 # Table name: info_subsections
@@ -34,5 +35,6 @@ end
 #  created_at      :datetime
 #  updated_at      :datetime
 #  content_ja      :string(255)
+#  content_key     :string(255)
 #
 
