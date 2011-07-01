@@ -1,0 +1,1 @@
+/home/johan/ruby/rails/sendai20/app/models/reset_password_model.rb

@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   include ControllerAuthentication
-  include ControllerAuthentication
   rescue_from CanCan::AccessDenied do |exception|
     if current_user
       redirect_to welcome_url, :alert => exception.message
@@ -10,11 +9,14 @@ class ApplicationController < ActionController::Base
   end
   protect_from_forgery
   before_filter :set_language, :load_order
-  helper_method :current_user, :english?, :ft, :default_info_section, :unicode
+  helper_method :current_user, :english?, :ft, :default_info_section, :unicode, :message, :chain
 
   def added(s); success(:added,s) end
+  def admin?; current_user.role? :admin end
   def alert(act); t("alert.#{act}") end
   def alert2(act,obj); t("alert.#{act}",:obj=>obj) end
+  def chain(s1,s2); "#{s1.to_s}.#{s2.to_s}" end
+  def changed(s); success(:changed,s) end
   def created(s); success(:created,s) end
   def deleted(s); success(:deleted,s) end
   def d(s); t(s).downcase end
@@ -22,6 +24,9 @@ class ApplicationController < ActionController::Base
   def english?; I18n.locale == :en end
   def ft(s); t("formtastic.labels.#{s.to_s}") end
   def ftd(s); d("formtastic.labels.#{s.to_s}") end  
+  def god?; current_user.role? :god end
+  def join(s1,s2); s1+t(:space)+s2 end
+  def message(s); t(chain(:messages,s)) end
   def notify(act); t("notice.#{act}") end
   def pl(s); t(s).match(/\w/) ? t(s).pluralize : t(s) end  
   def saved(s); success(:saved,s) end

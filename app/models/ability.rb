@@ -3,10 +3,11 @@ class Ability
 
   def initialize(user)
     can [:new,:purchase,:create], Order
-    can :create, User
+    can [:create,:change_password,:update_password], User
     can [:new,:create], Message
     can :show, InfoSection, :marked_deleted => 0
     can :default, InfoSection
+    can :create, Reset
 
     if user
       if user.role? :god

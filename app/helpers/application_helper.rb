@@ -1,6 +1,6 @@
 module ApplicationHelper
   def add(s); t2(:add,s) end
-  def chain(s1,s2); "#{s1.to_s}.#{s2.to_s}" end
+  def change(s); t2(:change,s) end
   def contact_active?; !@message.nil? end
   def create(s); t2(:create,s) end
   def current_language; english? ? t(:japanese) : t(:english) end
@@ -14,6 +14,7 @@ module ApplicationHelper
   def list(s); tp2(:list,s) end
   def new(s); t2(:new,s) end
   def pl(s); t(s).match(/[a-z,A-Z]/) ? t(s).pluralize : t(s) end
+  def reset(s); t2(:reset,s) end
   def save(s); t2(:save,s) end
   def submit(s); t2(:submit,s) end
   def sure?; t('messages.sure?') end
