@@ -23,6 +23,9 @@ Onagawa::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
+  #Mailing
+  config.action_mailer.default_url_options = { :host => "localhost", :port => 3000 }
+
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test
     ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(

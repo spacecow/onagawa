@@ -43,7 +43,7 @@ class InfoSectionsController < ApplicationController
 
   def default
     flash[:notice] = flash[:notice] if flash[:notice]
-    flash[:error] = flash[:error] if flash[:error]
+    flash[:alert] = flash[:alert] if flash[:alert]
     if InfoSection.where(:marked_deleted => 0).count == 0
       redirect_to new_info_section_path and return if can?(:new, InfoSection)
       redirect_to new_order_path

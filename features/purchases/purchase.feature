@@ -30,11 +30,11 @@ And I select "2015" from "Year"
 And I press "Purchase"
 And I fill in "Quantity" with "10"
 And I press "Purchase"
-Then I should see "Your order will cost: 130" within the "prize" section
+Then I should see "Your order will cost: 150 USD" within the "prize" section
 
 Scenario: Cannot complete a purchase with the calculate button
 Given I complete an order
 And I press "Continue to Purchase"
 And I complete a purchase
-And I press "Calculate Prize"
-Then I should see "Your order will cost: 130" within the "prize" section
+And I press "Calculate Price"
+Then I should see "Your order will cost: 150 USD" within the "prize" section

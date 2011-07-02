@@ -1,4 +1,6 @@
 Onagawa::Application.routes.draw do
+  resources :resets, :only => [:new,:create]
+
   resources :locales, :only => [:create,:update]
   resources :translations, :only => [:index,:create] do
     collection do
@@ -43,6 +45,8 @@ Onagawa::Application.routes.draw do
     member do
       get 'edit_roles'
       put 'update_roles'
+      put 'update_password'
+      get 'change_password'
     end
   end
 

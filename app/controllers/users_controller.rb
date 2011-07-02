@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include ResetPasswordController
+
   load_and_authorize_resource
 
   def index

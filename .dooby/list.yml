@@ -33,3 +33,5 @@ de761e: !ruby/object:Dooby::Task
   todo: dont show content key in translations :done
 198a92: !ruby/object:Dooby::Task 
   todo: little front layout update :done
+0e9839: !ruby/object:Dooby::Task 
+  todo: header layout :doing
