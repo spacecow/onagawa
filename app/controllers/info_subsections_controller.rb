@@ -4,7 +4,7 @@ class InfoSubsectionsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @info_sections = InfoSection.order("pos asc")
+    @info_sections = InfoSection.where(:marked_deleted => 0).order("pos asc")
     @info_section = InfoSection.find(params[:info_section_id])
     @info_subsections = @info_section.info_subsections.order("pos asc")
   end
@@ -48,4 +48,11 @@ class InfoSubsectionsController < ApplicationController
   private
     def child; @info_subsection end
     def parent; @info_section ||= InfoSection.find(params[:info_section_id]) end
+    def pos_function; "switch_redis_content_key" end
+    def switch_redis_content_key(p1,p2)
+      $redis["en."+p1.content_key],$redis["en."+p2.content_key] =
+      $redis["en."+p2.content_key],$redis["en."+p1.content_key]
+      $redis["ja."+p1.content_key],$redis["ja."+p2.content_key] =
+      $redis["ja."+p2.content_key],$redis["ja."+p1.content_key]
+    end
 end

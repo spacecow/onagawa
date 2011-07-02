@@ -1,28 +1,31 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-def controller_actions(controller)
-  Rails.application.routes.routes.inject({}) do |hash, route|
-    hash[route.requirements[:action]] = route.verb.downcase if route.requirements[:controller] == controller && !route.verb.nil?
-    hash
-  end
-end
 
 describe InfoSectionsController do
-  info_sections_controller_actions = controller_actions("info_sections")
-
-  before(:each) do
-    @info_section = Factory(:info_section)
-  end
+  controller_actions = controller_actions("info_sections")
 
   describe "a user is not logged in" do
-    info_sections_controller_actions.each do |action,req|
-      if %w().include?(action)
+    controller_actions.each do |action,req|
+      if %(default).include?(action)
         it "should reach the #{action} page" do
+          @info_section = Factory(:info_section)
           send("#{req}", "#{action}", :id => @info_section.id)
           response.redirect_url.should_not eq(login_url)
         end
+      elsif action == "show"
+        it "should reach the #{action} page if it not is marked deleted" do
+          @info_section = Factory(:info_section)
+          send("#{req}", "#{action}", :id => @info_section.id)
+          response.redirect_url.should_not eq(login_url)
+        end
+        it "should not reach the #{action} page if it is marked deleted" do
+          @info_section = Factory(:info_section, :marked_deleted => true)
+          send("#{req}", "#{action}", :id => @info_section.id)
+          response.redirect_url.should eq(login_url)
+        end
       else
         it "should not reach the #{action} page" do
+          @info_section = Factory(:info_section)
           send("#{req}", "#{action}", :id => @info_section.id)
           response.redirect_url.should eq(login_url)
         end
@@ -30,86 +33,32 @@ describe InfoSectionsController do
     end
   end
 
-  describe "a member is logged in" do
-    before(:each) do
-      user = Factory(:user, :roles_mask=>8)
-      @own_info_section = Factory(:info_section, :user_id => user.id )
-      session[:user_id] = user.id
-    end
-    
-    info_sections_controller_actions.each do |action,req|
-      if %w().include?(action)
-        it "should reach the #{action} page" do
-          send("#{req}", "#{action}", :id => @info_section.id)
-          response.redirect_url.should_not eq(welcome_url)
-        end
-      elsif %w().include?(action)
-        it "should reach his own #{action} page" do
-          send("#{req}", "#{action}", :id => @own_info_section.id)
-          response.redirect_url.should_not eq(root_url)
-        end
-        it "should not reach other's #{action} page" do
-          send("#{req}", "#{action}", :id => @info_section.id)
-          response.redirect_url.should eq(root_url)
-        end
-      else
-        it "should not reach the #{action} page" do
-          send("#{req}", "#{action}", :id => @info_section.id)
-          response.redirect_url.should eq(welcome_url)
-        end
-      end
-    end    
-  end
-
-  describe "a mini-admin is logged in" do
-    before(:each) do
-      session[:user_id] = Factory(:user, :roles_mask=>4).id
-    end
-    
-    info_sections_controller_actions.each do |action,req|
-      if %w().include?(action)
-        it "should reach the #{action} page" do
-          send("#{req}", "#{action}", :id => @info_section.id)
-          response.redirect_url.should_not eq(welcome_url)
-        end
-      else
-        it "should not reach the #{action} page" do
-          send("#{req}", "#{action}", :id => @info_section.id)
-          response.redirect_url.should eq(welcome_url)
-        end
-      end
-    end    
-  end  
-
   describe "an admin is logged in" do
     before(:each) do
-      session[:user_id] = Factory(:user, :roles_mask=>2).id
+      @user = Factory(:user, :roles_mask => 2)
+      session[:user_id] = @user.id
     end
     
-    info_sections_controller_actions.each do |action,req|
-      if %w().include?(action)
+    controller_actions.each do |action,req|
+      if %w(new create edit update destroy default).include?(action)
         it "should reach the #{action} page" do
+          @info_section = Factory(:info_section)
           send("#{req}", "#{action}", :id => @info_section.id)
-          response.redirect_url.should_not eq(root_url)
+          response.redirect_url.should_not eq(welcome_url)
+        end
+      elsif action=="show"
+        it "should reach the #{action} page even if it is marked deleted" do
+          @info_section = Factory(:info_section, :marked_deleted => true)
+          send("#{req}", "#{action}", :id => @info_section.id)
+          response.redirect_url.should_not eq(welcome_url)
         end
       else
         it "should not reach the #{action} page" do
+          @info_section = Factory(:info_section)
           send("#{req}", "#{action}", :id => @info_section.id)
-        response.redirect_url.should eq(root_url)
+          response.redirect_url.should eq(welcome_url)
+        end
       end
     end    
   end
-
-  describe "a god has come down to Earth" do
-    before(:each) do
-      session[:user_id] = Factory(:user, :roles_mask=>1).id
-    end
-    
-    info_sections_controller_actions.each do |action,req|
-      it "should reach the #{action} page" do
-        send("#{req}", "#{action}", :id => @info_section.id)
-        response.redirect_url.should_not eq(welcome_url)
-      end
-    end    
-  end  
 end

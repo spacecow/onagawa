@@ -21,16 +21,19 @@ describe InfoSubsection do
   end
 end
 
+
+
+
 # == Schema Information
 #
 # Table name: info_subsections
 #
 #  id              :integer(4)      not null, primary key
 #  info_section_id :integer(4)
-#  content         :text
 #  pos             :integer(4)
 #  filename        :string(255)
 #  created_at      :datetime
 #  updated_at      :datetime
+#  content_key     :string(255)
 #
 

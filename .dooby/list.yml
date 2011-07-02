@@ -1,59 +1,35 @@
 --- 
-b7505a: !ruby/object:Dooby::Task 
-  todo: initialize :done
-ff02e5: !ruby/object:Dooby::Task 
-  todo: payment notification :done
-71f01c: !ruby/object:Dooby::Task 
-  todo: adding quantity to order :done
-9f8a3d: !ruby/object:Dooby::Task 
-  todo: test form error :done
-b4a5c6: !ruby/object:Dooby::Task 
-  todo: inof and contact page links :done
-c891ae: !ruby/object:Dooby::Task 
-  todo: info page javascript picture mouseover :done
-df6dd1: !ruby/object:Dooby::Task 
-  todo: adding more pictures to info page :done
-d5ae1f: !ruby/object:Dooby::Task 
-  todo: make info_section a model :done
-d07f6f: !ruby/object:Dooby::Task 
-  todo: new section and subsection :done
-8d8b12: !ruby/object:Dooby::Task 
-  todo: accept nested attributes for :done
-9c989d: !ruby/object:Dooby::Task 
-  todo: nest subsections within section :done
-"021675": !ruby/object:Dooby::Task 
-  todo: handle pos within subsections :done
-795b39: !ruby/object:Dooby::Task 
-  todo: clean up subsection index page :done
-14a162: !ruby/object:Dooby::Task 
-  todo: title cannot have spaces
-2cddd6: !ruby/object:Dooby::Task 
-  todo: filename cant be blank :done
-9ce8b2: !ruby/object:Dooby::Task 
-  todo: list subsections link :done
-55f2e8: !ruby/object:Dooby::Task 
-  todo: cleaning up pos module :done
-e1d87d: !ruby/object:Dooby::Task 
-  todo: move credit card information from order to a purchase model
-e6c630: !ruby/object:Dooby::Task 
-  todo: set limit to 4 for info subsection in each section :done
-c1cdd3: !ruby/object:Dooby::Task 
-  todo: add address fields to order :done
-ed88a7: !ruby/object:Dooby::Task 
-  todo: integrate geocode :done
-dd4db4: !ruby/object:Dooby::Task 
-  todo: form layout :done
-4592fe: !ruby/object:Dooby::Task 
-  todo: complete a purchase :done
-0fab3e: !ruby/object:Dooby::Task 
-  todo: continuation of purchase testing :done
-e0c912: !ruby/object:Dooby::Task 
-  todo: switch to https when purchase
-9109d6: !ruby/object:Dooby::Task 
-  todo: japanized change, info_subsecion content :done
-445e94: !ruby/object:Dooby::Task 
-  todo: there should only be on setting
-cb4ff2: !ruby/object:Dooby::Task 
-  todo: setting model for universal settings :done
-8eee3e: !ruby/object:Dooby::Task 
-  todo: testing contact info :done
+806d55: !ruby/object:Dooby::Task 
+  todo: mergin translations and language :done
+cf0347: !ruby/object:Dooby::Task 
+  todo: converting escaped unicode to unicode :done
+bcd8df: !ruby/object:Dooby::Task 
+  todo: editing locales :done
+a9fa97: !ruby/object:Dooby::Task 
+  todo: ie exceptions
+061cbd: !ruby/object:Dooby::Task 
+  todo: yml output on translation page
+2ef4fc: !ruby/object:Dooby::Task 
+  todo: table width :done
+a342ba: !ruby/object:Dooby::Task 
+  todo: left box always same size
+011965: !ruby/object:Dooby::Task 
+  todo: menu active :done
+c6cb44: !ruby/object:Dooby::Task 
+  todo: static flash height :done
+"839799": !ruby/object:Dooby::Task 
+  todo: info section rspec routing :done
+6d9543: !ruby/object:Dooby::Task 
+  todo: deletion of an info_section should only mark it as deleted :done
+de761e: !ruby/object:Dooby::Task 
+  todo: separator on the bottom links
+40752b: !ruby/object:Dooby::Task 
+  todo: fine tuning after weekend :done
+8c27ee: !ruby/object:Dooby::Task 
+  todo: why doesnt redis save a content update? :done
+8750bf: !ruby/object:Dooby::Task 
+  todo: no language change on purchase page
+54b174: !ruby/object:Dooby::Task 
+  todo: dont show content key in translations :done
+198a92: !ruby/object:Dooby::Task 
+  todo: little front layout update :done

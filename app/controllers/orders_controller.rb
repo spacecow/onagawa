@@ -35,13 +35,13 @@ class OrdersController < ApplicationController
       else
         params[:prize_checked] = true
         @order = Order.new(params[:order])
-        @prize = 13 * @purchase.quantity.to_i 
+        @prize = 15 * @purchase.quantity.to_i 
         render 'purchase'
       end
     else
       params[:prize_checked] = true if @purchase.quantity
       @order = Order.new(params[:order])
-      @prize = 13 * @purchase.quantity.to_i 
+      @prize = 15 * @purchase.quantity.to_i 
       render 'purchase'
     end
   end

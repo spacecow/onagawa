@@ -8,15 +8,18 @@
       <%= stylesheet_link_tag 'ie.css', :media => 'screen, projection' %>
     <![endif]-->
     <%= stylesheet_link_tag "application", "formtastic" %>
+<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>
     <%= javascript_include_tag "jquery", "jquery_ujs", "application" %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
   <body>
     <div id="container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
+      <div id="flash_container">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% end %>
+      </div>
       <div class="clear"></div>
       <div id="header">
         <%= image_tag 'onagawa_header.gif' %>
@@ -26,23 +29,24 @@
           <% if current_user %>
             <%= t('message.welcome',:user=>current_user.username) %>
             <%= t('message.not_you?') %>
-            <%= link_to t(:log_out), logout_path %>
-          <% elsif false %>
-            <%= link_to t(:sign_up), signup_path %><%= t(:or) %><%= link_to t(:log_in), login_path %>
+            <%= link_to t(:log_out), logout_path, :class => :bright %>
           <% end %>
           <% if english? %>
-            <%= link_to "日本語", :language => 'ja' %>
+            <%= link_to "日本語", {:language => 'ja'}, {:class => :bright} %>
           <% else %>
-            <%= link_to "English", :language => 'en' %>
+            <%= link_to "English", {:language => 'en'}, {:class => :bright} %>
           <% end %>
         </div>
         <%= content_tag :h1, yield(:title) if show_title? %>
-        <div id="main_container">
+        <div id="main_container" class="<%= request.path == translations_path ? 'full_width' : ''%>">
           <div id="menu">
             <ul id="menu">
-              <li class="<%= info_active? ? 'active' : '' %>"><%= link_to t(:info), default_info_section %></li>
-              <li class="<%= contact_active? ? 'active' : '' %>"><%= link_to "Contact", new_message_path %></li>
-              <li><%= link_to "Order", new_order_path %></li>
+              <li class="<%= info_active? ? 'active' : '' %>"><%= link_to t(:info), default_info_sections_path %></li>
+              <li class="<%= contact_active? ? 'active' : '' %>"><%= link_to t(:contact), new_message_path %></li>
+              <li><%= link_to t(:order), new_order_path %></li>
+              <% if can? :index, Translation %>
+                <li><%= link_to pl(:translation), translations_path %></li>
+              <% end %>
             </ul>
           </div>
           <div class="clear"></div>
@@ -62,11 +66,13 @@
           <%= yield %>
         </div>
         <div id="image_container"></div>
-        <% if request.path == purchase_orders_path && @order.valid? && params[:address_checked] == "true" ||
-              request.path == orders_path %>
-          <%= render 'orders/purchase' %>
-        <% else %>
-          <%= render 'orders/order' %>
+        <% unless request.path == translations_path %>
+          <% if request.path == purchase_orders_path && @order.valid? && params[:address_checked] == "true" ||
+                request.path == orders_path %>
+            <%= render 'orders/purchase' %>
+          <% else %>
+            <%= render 'orders/order' %>
+          <% end %>
         <% end %>
       </div>
     </div>

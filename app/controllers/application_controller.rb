@@ -3,22 +3,19 @@ class ApplicationController < ActionController::Base
   include ControllerAuthentication
   rescue_from CanCan::AccessDenied do |exception|
     if current_user
-      redirect_to root_url, :alert => exception.message
+      redirect_to welcome_url, :alert => exception.message
     else
       redirect_to login_url, :alert => exception.message
     end
   end
   protect_from_forgery
   before_filter :set_language, :load_order
-  helper_method :current_user, :english?, :ft, :default_info_section
+  helper_method :current_user, :english?, :ft, :default_info_section, :unicode
 
+  def added(s); success(:added,s) end
   def alert(act); t("alert.#{act}") end
   def alert2(act,obj); t("alert.#{act}",:obj=>obj) end
   def created(s); success(:created,s) end
-  def default_info_section
-    return new_info_section_path if InfoSection.count == 0 && can?(:new, InfoSection)
-    InfoSection.order("pos asc").first
-  end
   def deleted(s); success(:deleted,s) end
   def d(s); t(s).downcase end
   def dp(s); pl(s).downcase end
@@ -31,6 +28,10 @@ class ApplicationController < ActionController::Base
   def success(act,mdl); t("success.#{act}",:obj=>d(mdl)) end
   def success_p(act,mdl); t("success.#{act}",:obj=>dp(mdl)) end
   def success_p(act,owner,mdl); t("success.#{act}",:obj=>t(:possessive,:owner=>owner,:obj=>dp(mdl))) end
+  def unicode(s)
+    return "" if s.nil? or s.blank?
+    s.gsub(/^"/,'').gsub(/"$/,'').split('\u').reject(&:blank?).map{|e| e =~ /^[0-9,a-f]{4}$/ ? e.hex : e.unpack("U*")}.flatten.pack("U*")
+  end
   def updated(s); success(:updated,s) end
   def updated_p(s); success_p(:updated,s) end
   def updated_p(s1,s2); success_p(:updated,s1,s2) end

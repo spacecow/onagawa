@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110610113943) do
+ActiveRecord::Schema.define(:version => 20110617131100) do
 
   create_table "carts", :force => true do |t|
     t.datetime "purchased_at"
@@ -23,16 +23,21 @@ ActiveRecord::Schema.define(:version => 20110610113943) do
     t.integer  "pos"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "marked_deleted", :default => 0
   end
 
   create_table "info_subsections", :force => true do |t|
     t.integer  "info_section_id"
-    t.text     "content"
     t.integer  "pos"
     t.string   "filename"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "content_ja"
+  end
+
+  create_table "locales", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "messages", :force => true do |t|
@@ -93,6 +98,14 @@ ActiveRecord::Schema.define(:version => 20110610113943) do
     t.string   "prefix"
     t.string   "contact_info"
     t.string   "contact_info_ja"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "translations", :force => true do |t|
+    t.integer  "locale_id"
+    t.string   "key"
+    t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

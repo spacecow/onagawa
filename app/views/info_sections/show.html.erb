@@ -13,6 +13,11 @@
 </div>
 
 <div id="bottom_links">
-  <%= link_to edit(:info_section), edit_info_section_path(@info_section) if can? :edit, InfoSection %>
-  <%= link_to list(:subsection), info_section_info_subsections_path(@info_section) if can? :index, InfoSubsection %>
+  <% if can? :edit, InfoSection %>
+    <%= link_to edit(:info_section), edit_info_section_path(@info_section) %> |
+  <% end %>
+  <% if can? :index, InfoSubsection %>
+    <%= link_to list(:subsection), info_section_info_subsections_path(@info_section) %> |
+  <% end %>
+  <%= link_to delete(:info_section), @info_section, :confirm => sure?, :method => :delete if can? :destroy, InfoSection %>
 </div>

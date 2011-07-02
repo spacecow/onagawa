@@ -1,10 +1,8 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Order do
-  it "should be valid" do
-    Order.new.should be_valid
-  end
 end
+
 
 
 
@@ -15,7 +13,6 @@ end
 # Table name: orders
 #
 #  id         :integer(4)      not null, primary key
-#  ip_address :string(255)
 #  first_name :string(255)
 #  last_name  :string(255)
 #  created_at :datetime

@@ -1,20 +1,14 @@
 class InfoSectionsController < ApplicationController
   load_and_authorize_resource
-
-  def index
-    @info_sections = InfoSection.all
-  end
+  before_filter :load_info_sections, :only => [:show,:new,:edit]
 
   def show
-    @info_section = InfoSection.find(params[:id])
-    load_info_sections
     @info_subsections = @info_section.info_subsections.order("pos asc")
     @info_subsection = params[:pos] ?
       @info_subsections.find_by_pos(params[:pos]) : @info_subsections.first
   end
 
   def new
-    load_info_sections
   end
 
   def create
@@ -27,13 +21,14 @@ class InfoSectionsController < ApplicationController
   end
 
   def edit
-    @info_section = InfoSection.find(params[:id])
     build_info_subsections
   end
 
   def update
-    @info_section = InfoSection.find(params[:id])
     if @info_section.update_attributes(params[:info_section])
+      @info_section.info_subsections.each do |info_subsection|
+        info_subsection.save_content_to_redis
+      end
       redirect_to @info_section, :notice  => updated(:info_section)
     else
       render :action => 'edit'
@@ -41,11 +36,21 @@ class InfoSectionsController < ApplicationController
   end
 
   def destroy
-    @info_section = InfoSection.find(params[:id])
-    @info_section.destroy
-    redirect_to info_sections_url, :notice => deleted(:info_section)
+    @info_section.marked_deleted = 1 
+    @info_section.save
+    redirect_to default_info_sections_path
   end
 
+  def default
+    flash[:notice] = flash[:notice] if flash[:notice]
+    flash[:error] = flash[:error] if flash[:error]
+    if InfoSection.where(:marked_deleted => 0).count == 0
+      redirect_to new_info_section_path and return if can?(:new, InfoSection)
+      redirect_to new_order_path
+    else
+      redirect_to InfoSection.where(:marked_deleted => 0).order("pos asc").first
+    end
+  end
 
   private
     
@@ -55,11 +60,11 @@ class InfoSectionsController < ApplicationController
         last = @info_section.info_subsections.build
         new_count = i+1+count
         last.pos = new_count
-        last.filename = "#{@info_section.title.downcase}#{new_count.to_s}"
+        last.filename = "#{@info_section.title_to_var}#{new_count.to_s}"
       end
     end
     def last_section_pos; InfoSection.count == 0 ? 0 : ordered_section_pos.last end
-    def load_info_sections; @info_sections = InfoSection.order("pos asc") end
+    def load_info_sections; @info_sections = InfoSection.where(:marked_deleted => 0).order("pos asc") end
     def ordered_section_pos; InfoSection.select(:pos).order("pos asc").map(&:pos) end
     def update_info_subsections_pos
       @info_section.info_subsections.each_with_index do |info_subsection,i|

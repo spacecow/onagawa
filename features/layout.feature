@@ -12,10 +12,10 @@ When I go to the root page
 And I follow "Contact"
 And I should see no "New Info Section" link within the "submenu" section
 
-Scenario: Submenu links are not shown unless the Info menu is activated
+Scenario: Submenu links are shown if it is the default one
 Given an info_section exists with title: "Onagawa"
 And I go to the root page
-Then I should not see "Onagawa" within the "submenu" section
+Then I should see "Onagawa" within the "submenu" section
 
 Scenario Outline: Info link
 Given an info_section: "onagawa" exists with title: "Onagawa"
@@ -63,3 +63,9 @@ When I go to the root page
 When I follow "日本語" within the "user_nav" section
 Then I should see "情報" within the "menu" section
 And I should see "English" within the "user_nav" section
+
+Scenario: Deleted Info Sections are not displayed in the menu
+Given an info_section exists with marked_deleted: 1, title: "Onagawa"
+When I go to the root page
+And I follow "Info" within the "menu" section
+Then I should not see "Onagawa" within the "submenu" section 

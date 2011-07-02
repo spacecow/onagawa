@@ -9,6 +9,7 @@ module PosController
 
   def change_pos(parent,child,change_to_child)
     redirect_to :back and return if change_to_child.nil?
+    send(pos_function,child,change_to_child)
     switch_pos(child,change_to_child)
     redirect_to send("#{snake parent}_#{snakes child}_path", parent)
   end 
