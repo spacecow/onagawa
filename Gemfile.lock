@@ -95,7 +95,7 @@ GEM
     mime-types (1.16)
     mocha (0.9.12)
     mysql2 (0.2.7)
-    nokogiri (1.4.7)
+    nokogiri (1.5.0)
     pickle (0.4.7)
       cucumber (>= 0.8)
       rake

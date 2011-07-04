@@ -24,6 +24,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: info_subsections
@@ -34,6 +35,5 @@ end
 #  filename        :string(255)
 #  created_at      :datetime
 #  updated_at      :datetime
-#  content_key     :string(255)
 #
 
