@@ -6,7 +6,7 @@ Scenario: Log in
 Given I go to the login page
 And I fill in "Username" with "test"
 And I fill in "Password" with "secret"
-And I press "Log in"
+And I press "Login"
 #Then I should see "Welcome test"
 
 #Scenario: A maintenance should not be created

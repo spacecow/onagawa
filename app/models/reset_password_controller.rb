@@ -4,7 +4,7 @@ module ResetPasswordController
       redirect_to edit_user_path(current_user)
     else
       @reset = Reset.find_by_code(params[:code])
-      if @reset and @reset.user == @user and @reset.no_status? :used
+      if @reset and @reset.user == @user and @reset.no_status?(:used)
       elsif @reset and @reset.status? :used
         redirect_to welcome_url, :alert => "The key you are trying to use has already been used."
       else
