@@ -2,16 +2,34 @@ class OrderTransaction < ActiveRecord::Base
   belongs_to :purchase
   serialize :params
 
-  def response=(response)
-    self.success       = response.success?
-    self.authorization = response.authorization
-    self.message       = response.message
-    self.params        = response.params
-  rescue ActiveMerchant::ActiveMerchantError => e
-    self.success       = false
-    self.authorization = nil
-    self.message       = e.message
-    self.params        = {}
+  class << self
+    def authorize(amount, credit_card, options = {})
+      process('authorization', amount) do |gw|
+      end
+    end
+  end
+
+  def process(action, amount=nil)
+    result = OrderTransaction.new
+    result.amount      = amount
+    result.action      = action
+
+    begin
+      response         = yield gateway
+
+      response.success       = response.success?
+      response.reference     = response.authorization
+      response.message       = response.message
+      response.params        = response.params
+      response.test          = response.test?
+    rescue ActiveMerchant::ActiveMerchantError => e
+      response.success       = false
+      response.reference     = nil
+      response.message       = e.message
+      response.params        = {}
+      response.test          = gateway.test?
+    end
+    result
   end
 end
 

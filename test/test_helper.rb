@@ -11,3 +11,18 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+def credit_card_hash(options = {}){ 
+  :number => '1',
+  :first_name => 'Cody',
+  :last_name => 'Fauser',
+  :month => '8',
+  :year => "#{ Time.now.year + 1 }",
+  :verification_value => '123',
+  :type => 'visa'
+  }.update(options)
+end
+
+def credit_card(options = {})
+  ActiveMerchant::Billing::CreditCard.new(credit_card_hash(options))
+end
