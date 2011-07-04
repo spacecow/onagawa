@@ -24,7 +24,7 @@ And I should see "You are not authorized to access this page." as alert flash me
 Scenario: A key that aleady have been used cannot be used again
 Given a reset exists with status: "used", email: "example@mail.com"
 When I go to user: "first"'s change_password page with that reset
-Then I should be on the welcome page
+Then I should be on the new order page
 And I should see "The key you are trying to use has already been used." as alert flash message
 
 @pending

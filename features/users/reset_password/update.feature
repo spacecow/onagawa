@@ -9,8 +9,9 @@ And I fill in "New Password*" with "new_password"
 And I fill in "New Password Confirmation" with "new_password"
 And I press "Update"
 Then I should see "Successfully changed password. You are now logged in." as notice flash message
-When I press "Logout"
-And I fill in "Login" with "example@mail.com"
+When I follow "Logout"
+And I go to the login page
+And I fill in "Email" with "example@mail.com"
 And I fill in "Password" with "new_password"
 And I press "Login"
 Then I should see "Successfully logged in." as notice flash message
@@ -18,14 +19,14 @@ Then I should see "Successfully logged in." as notice flash message
 Scenario: Update Password for member
 Given I am logged in as that user
 When I go to that user's change_password page
-Then show me the page
 And I fill in "Old Password" with "abc123"
 And I fill in "New Password*" with "new_password"
 And I fill in "New Password Confirmation" with "new_password"
 And I press "Update Password"
 Then I should see "Successfully changed password. You are now logged in." as notice flash message
-When I press "Logout"
-And I fill in "Login" with "example@mail.com"
+When I follow "Logout"
+And I go to the login page
+And I fill in "Email" with "example@mail.com"
 And I fill in "Password" with "new_password"
 And I press "Login"
 Then I should see "Successfully logged in." as notice flash message

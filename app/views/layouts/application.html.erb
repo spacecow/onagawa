@@ -29,7 +29,7 @@
           <% if current_user %>
             <%= t('message.welcome',:user=>current_user.username) %>
             <%= t('message.not_you?') %>
-            <%= link_to t(:log_out), logout_path, :class => :bright %>
+            <%= link_to t(:logout), logout_path, :class => :bright %>
           <% end %>
           <% if english? %>
             <%= link_to "日本語", {:language => 'ja'}, {:class => :bright} %>

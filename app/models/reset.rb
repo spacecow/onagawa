@@ -2,7 +2,7 @@ class Reset < ActiveRecord::Base
   belongs_to :user
 
   attr_accessor :email
-  attr_accessible :email
+  attr_accessible :email, :status
 
   before_create :save_user, :generate_code
 
