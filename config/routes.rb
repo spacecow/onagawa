@@ -25,7 +25,7 @@ Onagawa::Application.routes.draw do
   resources :messages
   resources :payment_notifications
 
-  resources :orders do
+  resources :profiles do
     collection do
       post 'purchase'
     end

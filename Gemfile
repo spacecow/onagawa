@@ -13,6 +13,7 @@ gem 'activemerchant'
 gem 'geocoder'
 gem 'redis'
 gem 'escape_utils'
+gem 'aasm'
 
 group :development do
   gem 'jquery-rails'

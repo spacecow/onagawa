@@ -6,6 +6,7 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
+    aasm (2.2.0)
     abstract (1.0.0)
     actionmailer (3.0.5)
       actionpack (= 3.0.5)
@@ -152,6 +153,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   activemerchant
   annotate
   bcrypt-ruby

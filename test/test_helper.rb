@@ -11,6 +11,7 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+include ActiveMerchant::Billing
 
 def credit_card_hash(options = {}){ 
   :number => '1',

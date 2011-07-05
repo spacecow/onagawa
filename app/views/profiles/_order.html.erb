@@ -1,0 +1,27 @@
+<div id="order_container">
+  <%= semantic_form_for @order, :url => profiles_path do |f| %>
+    <%= hidden_field_tag 'order[first_name]', @profile.first_name %>
+    <%= hidden_field_tag 'order[last_name]', @profile.last_name %>
+    <%= f.input :quantity, :hint => "15 USD/piece" %>
+    <%= f.input :card_type, :as => :select, :collection => [["Visa","visa"],["MasterCard","master"],["Discover","discover"],["American Express","american_express"]] %>
+    <%= f.input :card_number %>
+    <%= f.input :card_verification %>
+    <%= f.input :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => Date.today.year+10, :add_month_numbers => true, :labels => {:year => ft(:year), :month => ft(:month)} %>
+    <%= hidden_field_tag 'profile[first_name]', @profile.first_name %>
+    <%= hidden_field_tag 'profile[last_name]', @profile.last_name %>
+    <%= hidden_field_tag 'profile[email]', @profile.email %>
+    <%= hidden_field_tag 'profile[phone]', @profile.phone %>
+    <%= hidden_field_tag 'profile[address]', @profile.address %>
+    <%= hidden_field_tag 'profile[city]', @profile.city %>
+    <%= hidden_field_tag 'profile[zipcode]', @profile.zipcode %>
+    <%= hidden_field_tag 'profile[country]', @profile.country %>
+    <%= hidden_field_tag 'price_checked', params[:price_checked] %>
+    <div id="price">
+      <% if @price %>
+        Your order will cost: <%= @price %> USD
+      <% end %>
+    </div>
+    <%= f.submit t(:purchase), :class => :submit %>
+    <%= f.submit t(:calculate_price) %>
+  <% end %>
+</div>

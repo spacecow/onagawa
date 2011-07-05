@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110627045914) do
+ActiveRecord::Schema.define(:version => 20110705042258) do
 
   create_table "info_sections", :force => true do |t|
     t.string   "title"
@@ -46,15 +46,37 @@ ActiveRecord::Schema.define(:version => 20110627045914) do
     t.string   "action"
     t.integer  "amount"
     t.boolean  "success"
-    t.string   "authorization"
+    t.string   "reference"
     t.string   "message"
     t.text     "params"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "purchase_id"
+    t.integer  "order_id"
+    t.boolean  "test"
   end
 
   create_table "orders", :force => true do |t|
+    t.integer  "amount"
+    t.string   "card_type"
+    t.date     "card_expires_on"
+    t.datetime "purchased_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "ip_address"
+    t.string   "description"
+    t.string   "aasm_state"
+  end
+
+  create_table "payment_notifications", :force => true do |t|
+    t.text     "params"
+    t.integer  "order_id"
+    t.string   "status"
+    t.string   "transaction_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "profiles", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "created_at"
@@ -67,25 +89,6 @@ ActiveRecord::Schema.define(:version => 20110627045914) do
     t.string   "phone"
     t.float    "latitude"
     t.float    "longitude"
-  end
-
-  create_table "payment_notifications", :force => true do |t|
-    t.text     "params"
-    t.integer  "order_id"
-    t.string   "status"
-    t.string   "transaction_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "purchases", :force => true do |t|
-    t.integer  "quantity"
-    t.string   "card_type"
-    t.date     "card_expires_on"
-    t.datetime "purchased_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "ip_address"
   end
 
   create_table "resets", :force => true do |t|

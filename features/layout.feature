@@ -41,7 +41,7 @@ Then I should be on the info_section: "1" page
 Scenario: Default Info for non-admin is same place if there are none
 When I go to the root page
 And I follow "Info" within the "menu" section
-Then I should be on the new order page
+Then I should be on the new profile page
 
 Scenario: Default Info for admin is New Info if there are none
 Given I am logged in as admin
