@@ -67,11 +67,10 @@
         </div>
         <div id="image_container"></div>
         <% unless request.path == translations_path %>
-          <% if request.path == purchase_profiles_path && @profile.valid? && params[:address_checked] == "true" ||
-                request.path == profiles_path %>
-            <%= render 'profiles/order' %>
+          <% if request.path == new_order_path %>
+            <%= render 'orders/form' %>
           <% else %>
-            <%= render 'profiles/profile' %>
+            <%= render 'profiles/form' %>
           <% end %>
         <% end %>
       </div>

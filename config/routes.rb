@@ -30,6 +30,7 @@ Onagawa::Application.routes.draw do
       post 'purchase'
     end
   end
+  resources :orders, :only => [:new,:create]
 
   match 'info' => 'operator#info'
   match 'info2' => 'operator#info2'

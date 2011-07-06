@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     end
   end
   protect_from_forgery
-  before_filter :set_language, :load_profile
+  before_filter :set_language #, :load_profile
   helper_method :current_user, :english?, :ft, :default_info_section, :unicode, :message, :chain
 
   def added(s); success(:added,s) end
@@ -56,7 +56,7 @@ class ApplicationController < ActionController::Base
     def current_user_email; current_user && current_user.email end
     def current_user_affiliation; current_user && current_user.affiliation end
     
-    def load_profile; @profile = Profile.new end
+    def load_profile; @profile = Profile.new unless @profile end
     def set_language
       session[:language] = params[:language].to_sym if params[:language]
       I18n.locale = session[:language] || I18n.default_locale

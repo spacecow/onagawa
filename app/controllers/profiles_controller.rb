@@ -4,11 +4,27 @@ class ProfilesController < ApplicationController
   def new
   end
 
+  def create
+    if @profile.valid?
+      if params[:price_checked] == "true"
+        redirect_to new_order_path
+      else
+        params[:address_checked] = true
+        @map_url = map_url
+        render :new
+      end
+    else
+      params[:address_checked] = true
+      @map_url = map_url
+      render :new
+    end
+  end
+
   def purchase
     @profile = Profile.new(params[:profile])
     if @profile.valid?
       if params[:address_checked] == "true"
-        @order = Order.new
+        redirect_to new_order_path
       else
         params[:address_checked] = true
         @map_url = map_url
@@ -21,30 +37,6 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def create
-    @order = Order.new(params[:order])
-    if @order.valid?
-      if params[:price_checked] == "true" && params[:commit] == "Purchase"
-        @order.save
-        #order = @order.purchase
-        #if order
-          render :action => "success"
-        #else
-        #  render :action => "failure"
-        #end
-      else
-        params[:price_checked] = true
-        @profile = Profile.new(params[:profile])
-        @price = 15 * @order.quantity.to_i 
-        render 'purchase'
-      end
-    else
-      params[:price_checked] = true unless @order.quantity.blank?
-      @profile = Profile.new(params[:profile])
-      @price = 15 * @order.quantity.to_i 
-      render 'purchase'
-    end
-  end
     #@profile = Order.new(params[:profile])
     #@profile.ip_address = request.remote_ip
     #if @profile.save
