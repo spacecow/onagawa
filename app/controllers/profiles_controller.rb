@@ -39,7 +39,7 @@ class ProfilesController < ApplicationController
         render 'purchase'
       end
     else
-      params[:price_checked] = true if @order.quantity
+      params[:price_checked] = true unless @order.quantity.blank?
       @profile = Profile.new(params[:profile])
       @price = 15 * @order.quantity.to_i 
       render 'purchase'

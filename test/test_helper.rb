@@ -20,8 +20,7 @@ def credit_card_hash(options = {}){
   :month => '8',
   :year => "#{ Time.now.year + 1 }",
   :verification_value => '123',
-  :type => 'visa'
-  }.update(options)
+  :type => 'visa'}.update(options)
 end
 
 def credit_card(options = {})
@@ -32,5 +31,8 @@ def address(options = {}){
   :name => 'Cody Fauser',
   :address1 => '2500 Oak Mills Road',
   :address2 => 'Suite 1000',
-  :city => 'Beverly Hills'
+  :city => 'Beverly Hills',
+  :state => 'CA',
+  :country => 'US',
+  :zip => '90210'}.update(options)
 end

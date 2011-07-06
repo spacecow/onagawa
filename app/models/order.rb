@@ -6,13 +6,13 @@ class Order < ActiveRecord::Base
   has_many :transactions, :class_name => "OrderTransaction"
 
   validate :validate_card, :on => :create
-  #validates :quantity, :numericality => true, :presence => true, :format => {:with => /^(?!-).*$/} 
+  validates :quantity, :numericality => true, :presence => true, :format => {:with => /^(?!-).*$/} 
   validates :card_type, :presence => true
   validates :card_number, :presence => true
   validates :card_verification, :presence => true
   validates :card_expires_on, :presence => true
 
-  attr_accessor :card_number, :card_verification, :first_name, :last_name
+  attr_accessor :card_number, :card_verification, :first_name, :last_name, :quantity
 
   aasm_initial_state :pending
   aasm_state :pending
