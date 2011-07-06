@@ -16,7 +16,7 @@ describe UsersController do
     end
     
     users_controller_actions.each do |action,req|
-      if %w(new create).include?(action)
+      if %w(new create change_password update_password).include?(action)
         it "should reach the #{action} page" do
           send("#{req}", "#{action}", :id => @user.id)
           response.redirect_url.should_not eq(login_url)
