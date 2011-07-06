@@ -1,5 +1,5 @@
 <div id="order_container">
-  <%= semantic_form_for @order, :url => profiles_path do |f| %>
+  <%= semantic_form_for @order do |f| %>
     <%= hidden_field_tag 'order[first_name]', @profile.first_name %>
     <%= hidden_field_tag 'order[last_name]', @profile.last_name %>
     <%= f.input :quantity, :hint => "15 USD/piece" %>

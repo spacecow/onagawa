@@ -67,7 +67,7 @@
         </div>
         <div id="image_container"></div>
         <% unless request.path == translations_path %>
-          <% if request.path == new_order_path %>
+          <% if [new_order_path, orders_path].include?(request.path) %>
             <%= render 'orders/form' %>
           <% else %>
             <%= render 'profiles/form' %>

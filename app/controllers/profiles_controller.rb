@@ -6,8 +6,8 @@ class ProfilesController < ApplicationController
 
   def create
     if @profile.valid?
-      if params[:price_checked] == "true"
-        redirect_to new_order_path
+      if params[:address_checked] == "true"
+        redirect_to new_order_path(:profile => params[:profile])
       else
         params[:address_checked] = true
         @map_url = map_url

@@ -1,29 +1,26 @@
 class OrdersController < ApplicationController
+  load_and_authorize_resource
+
   def new
+    @profile = Profile.new(params[:profile])
   end
 
   def create
-    @order = Order.new(params[:order])
     if @order.valid?
       if params[:price_checked] == "true" && params[:commit] == "Purchase"
-        @order.save
-        #order = @order.purchase
-        #if order
-          render :action => "success"
-        #else
-        #  render :action => "failure"
-        #end
+        @profile = Profile.new(params[:profile])
+        render :success 
       else
         params[:price_checked] = true
-        @profile = Profile.new(params[:profile])
         @price = 15 * @order.quantity.to_i 
-        render 'purchase'
+        @profile = Profile.new(params[:profile])
+        render :new
       end
     else
       params[:price_checked] = true unless @order.quantity.blank?
-      @profile = Profile.new(params[:profile])
       @price = 15 * @order.quantity.to_i 
-      render 'purchase'
+      @profile = Profile.new(params[:profile])
+      render :new
     end
   end
 end
