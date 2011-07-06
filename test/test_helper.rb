@@ -27,3 +27,10 @@ end
 def credit_card(options = {})
   ActiveMerchant::Billing::CreditCard.new(credit_card_hash(options))
 end
+
+def address(options = {}){
+  :name => 'Cody Fauser',
+  :address1 => '2500 Oak Mills Road',
+  :address2 => 'Suite 1000',
+  :city => 'Beverly Hills'
+end
