@@ -1,13 +1,8 @@
-When /^I complete an order$/ do
-  When %(I go to the new order page)
-  And %(I fill in "First name" with "Test")
-  And %(I fill in "Last name" with "Name")
-  And %(I fill in "Email" with "test@example.com")
-  And %(I fill in "Phone" with "123456")
-  And %(I fill in "Address" with "Test Street 12")
-  And %(I fill in "City" with "Test Town")
-  And %(I fill in "Postal/Zip" with "2345")
-  And %(I select "Canada" from "Country")
-  And %(I press "Continue to Purchase")
+When /^I complete an order/ do
+  And %(I fill in "Quantity" with "10")
+  And %(I select "Visa" from "Card type")
+  And %(I fill in "Card number" with "4111111111111111")
+  And %(I fill in "Card verification (CVV)" with "123")
+  And %(I select "2015" from "Year")
+  And %(I press "Purchase")
 end
-

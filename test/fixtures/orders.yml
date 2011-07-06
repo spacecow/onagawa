@@ -1,13 +1,22 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+pending:
+  description: pending order
+  amount: 100
+  aasm_state: pending
 
-describe Order do
-end
+authorized:
+  description: authorized order
+  amount: 100
+  aasm_state: authorized
 
+uncapturable:
+  description: authorized, but uncapturable
+  amount: 100
+  aasm_state: authorized
 
-
-
-
-
+uncapturable_error:
+  description: authorized, but uncapturable due to error
+  amount: 100
+  aasm_state: authorized
 
 
 

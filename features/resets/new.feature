@@ -24,6 +24,6 @@ And I fill in "Email" with "jsveholm@gmail.com"
 And I press "Reset Password"
 Then a reset should exist with user: that user
 And 1 resets should exist
-And I should be on the new order page
+And I should be on the new profile page
 And I should see "Instructions of how to reset your password has been sent to your email." as notice flash message
 And 1 email should be delivered to jsveholm@gmail.com

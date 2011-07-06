@@ -43,7 +43,7 @@
             <ul id="menu">
               <li class="<%= info_active? ? 'active' : '' %>"><%= link_to t(:info), default_info_sections_path %></li>
               <li class="<%= contact_active? ? 'active' : '' %>"><%= link_to t(:contact), new_message_path %></li>
-              <li><%= link_to t(:order), new_order_path %></li>
+              <li><%= link_to t(:order), new_profile_path %></li>
               <% if can? :index, Translation %>
                 <li><%= link_to pl(:translation), translations_path %></li>
               <% end %>
@@ -67,11 +67,11 @@
         </div>
         <div id="image_container"></div>
         <% unless request.path == translations_path %>
-          <% if request.path == purchase_orders_path && @order.valid? && params[:address_checked] == "true" ||
-                request.path == orders_path %>
-            <%= render 'orders/purchase' %>
+          <% if request.path == purchase_profiles_path && @profile.valid? && params[:address_checked] == "true" ||
+                request.path == profiles_path %>
+            <%= render 'profiles/order' %>
           <% else %>
-            <%= render 'orders/order' %>
+            <%= render 'profiles/profile' %>
           <% end %>
         <% end %>
       </div>
