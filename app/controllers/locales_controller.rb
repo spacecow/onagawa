@@ -25,5 +25,6 @@ class LocalesController < ApplicationController
       @translation = Translation.new
       @translations = $redis 
       @locales = Locale.all
+      @profile = Profile.new
     end
 end

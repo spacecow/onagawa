@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   load_and_authorize_resource
 
+  before_filter :load_profile, :only => [:index,:edit_roles,:edit]
+
   def index
     @users = User.order('username asc')
   end
@@ -49,5 +51,10 @@ class UsersController < ApplicationController
       render :action => 'edit_roles'
     end
   end
+
+  private
+
+    def load_profile; @profile = Profile.new end
+
 end
 

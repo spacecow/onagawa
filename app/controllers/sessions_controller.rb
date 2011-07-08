@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    load_profile
   end
 
   def create
@@ -8,6 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to_target_or_default root_url, :notice => t('success.logged_in')
     else
+      load_profile
       flash.now[:alert] = t('alert.invalid_login_or_password')
       render :action => 'new'
     end
@@ -17,4 +19,9 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, :notice => t('success.logged_out')
   end
+
+  private
+
+    def load_profile; @profile = Profile.new end
+
 end

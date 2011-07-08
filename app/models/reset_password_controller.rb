@@ -1,5 +1,7 @@
 module ResetPasswordController
+
   def change_password
+    load_profile
     if current_user && (current_user == @user or admin? or god?)
       redirect_to edit_user_path(current_user)
     else
@@ -19,6 +21,7 @@ module ResetPasswordController
         session[:user_id] = @user.id
         redirect_to root_url, :notice => join(changed(:password),notify(:logged_in))
       else
+        load_profile
         render 'edit'
       end
     else
@@ -30,6 +33,7 @@ module ResetPasswordController
           session[:user_id] = @user.id
           redirect_to root_url, :notice => join(changed(:password),notify(:logged_in))
         else
+          load_profile
           render 'change_password'
         end
       elsif @reset and @reset.status? :used
@@ -39,4 +43,8 @@ module ResetPasswordController
       end 
     end
   end
+
+  private
+
+    def load_profile; @profile = Profile.new end
 end

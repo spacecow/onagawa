@@ -3,6 +3,8 @@ class InfoSubsectionsController < ApplicationController
 
   load_and_authorize_resource
 
+  before_filter :load_profile, :only => [:index]
+
   def index
     @info_sections = InfoSection.where(:marked_deleted => 0).order("pos asc")
     @info_section = InfoSection.find(params[:info_section_id])
@@ -47,6 +49,7 @@ class InfoSubsectionsController < ApplicationController
 
   private
     def child; @info_subsection end
+    def load_profile; @profile = Profile.new end
     def parent; @info_section ||= InfoSection.find(params[:info_section_id]) end
     def pos_function; "switch_redis_content_key" end
     def switch_redis_content_key(p1,p2)
