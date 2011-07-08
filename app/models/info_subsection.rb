@@ -30,8 +30,8 @@ class InfoSubsection < ActiveRecord::Base
   end
 
   def save_content_to_redis
-    $redis["en."+content_key] = '"'+content_en+'"'
-    $redis["ja."+content_key] = '"'+content_ja+'"'
+    I18n.backend.store_translations("en", {content_key => content_en})
+    I18n.backend.store_translations("ja", {content_key => content_ja})
   end
 
   private

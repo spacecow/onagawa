@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rake'
-gem 'rails', '3.0.5'
-gem 'mysql2', '0.2.7'
+gem 'rails', '3.1.0.rc4'
+gem 'mysql2'#, '0.2.7'
 gem 'cancan' #rails g cancan:ability
 gem 'formtastic' #rails g formtastic:install
 #gem 'compass' #compass init rails /path/to/myrailsproject --using blueprint/semantic

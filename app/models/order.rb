@@ -66,9 +66,7 @@ class Order < ActiveRecord::Base
 
   private
 
-    def number
-      ActiveSupport::SecureRandom.hex(16)
-    end
+    def number; SecureRandom.hex(16) end
 
     def validate_card
       unless credit_card.valid?

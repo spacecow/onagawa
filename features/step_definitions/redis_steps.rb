@@ -7,7 +7,7 @@ When /^I follow "([^"]*)" for key "([^"]*)"$/ do |txt,key|
 end
 
 Then /^a pair should exists with key: "([^"]*)", value: "([^"]*)"$/ do |key,val|
-  unicode($redis[key]).should eq "#{val}"
+  unicode($redis[key]).should eq val
 end
 
 Then /^the key "([^"]*)" should not exist$/ do |key|
