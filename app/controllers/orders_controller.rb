@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
 
   def new
     @profile = Profile.new(params[:profile])
+    redirect_to new_profile_path unless @profile.valid?
   end
 
   def create
